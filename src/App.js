@@ -8,7 +8,6 @@ import CreateAnnouncement from "./components/CreateAnnouncement";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
-  console.log("tak");
   const [isLoged, setIsLoged] = React.useState("");
 
   return (
