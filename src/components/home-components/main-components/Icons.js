@@ -8,7 +8,7 @@ const SubjectIcon = L.Icon.extend({
 });
 
 const matematykaIcon = new SubjectIcon({
-  iconUrl: require("../images/matematykaIcon.png"),
+  iconUrl: require("../../../images/matematykaIcon.png"),
 });
 
 const icons = { matematykaIcon: matematykaIcon };

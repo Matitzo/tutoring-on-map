@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/DropDownList.module.css";
+import styles from "../../../styles/DropDownList.module.css";
 
 export default function DropDownList({ data, filter, setFilter }) {
   return (
@@ -12,7 +12,7 @@ export default function DropDownList({ data, filter, setFilter }) {
         <Link to="/filters">
           <p
             style={
-              filter == object
+              filter === object
                 ? { border: "1px solid green" }
                 : { border: "none" }
             }

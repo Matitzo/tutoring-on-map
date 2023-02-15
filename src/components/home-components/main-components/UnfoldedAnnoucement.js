@@ -1,4 +1,4 @@
-import styles from "../styles/UnfoldedAnnoucement.module.css";
+import styles from "../../../styles/UnfoldedAnnoucement.module.css";
 import { Link } from "react-router-dom";
 
 export default function UnfoldedAnnoucement({ unfoldedAnnoucement }) {

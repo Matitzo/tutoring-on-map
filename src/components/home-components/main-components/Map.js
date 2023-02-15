@@ -1,6 +1,6 @@
 import GetMarkersOnMap from "./MarkersOnMap";
-import styles from "../styles/Map.module.css";
-import { useMap, MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import styles from "../../../styles/Map.module.css";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 export default function Map({ announcements, handleUnfoldedAnnoucement }) {
   return (

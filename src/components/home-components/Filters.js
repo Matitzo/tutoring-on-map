@@ -1,20 +1,23 @@
 import { useCallback } from "react";
 import debounce from "lodash.debounce";
-import DropDownList from "./DropDownList";
-import subjects from "../data/subjects";
-import voivodeships from "../data/voivodeships";
-import learningMode from "../data/learningMode";
-import styles from "../styles/Filters.module.css";
+import DropDownList from "./filters-components/DropDownList";
+import subjects from "../../data/subjects";
+import voivodeships from "../../data/voivodeships";
+import learningMode from "../../data/learningMode";
+import CostFilter from "./filters-components/CostFilter";
+import styles from "../../styles/Filters.module.css";
 
 export default function Filters({
   voivodeshipFilter,
   subjectFilter,
   learningModeFilter,
   cityFilter,
+  costFilter,
   setVoivodeshipFilter,
   setSubjectFilter,
   setLearningModeFilter,
   setCityFilter,
+  setCostFilter,
 }) {
   function handleChange(event) {
     setCityFilter(event.target.value ? event.target.value : "");
@@ -23,7 +26,7 @@ export default function Filters({
   const debouncedChangeHandler = useCallback(debounce(handleChange, 400), []);
 
   return (
-    <div className={styles["filters"]}>
+    <form className={styles["filters"]}>
       <div className="filters__subjects">
         Przedmiot
         <DropDownList
@@ -54,7 +57,10 @@ export default function Filters({
           setFilter={(value) => setLearningModeFilter(value)}
         />
       </div>
-      <div className="filters__price">Cena</div>
-    </div>
+      <div className="filters__price">
+        Cena
+        <CostFilter setCostFilter={setCostFilter} />
+      </div>
+    </form>
   );
 }

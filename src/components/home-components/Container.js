@@ -1,7 +1,7 @@
-import Announcements from "./Announcements";
-import Map from "./Map";
-import UnfoldedAnnoucement from "./UnfoldedAnnoucement";
-import styles from "../styles/Container.module.css";
+import Announcements from "./main-components/Announcements";
+import Map from "./main-components/Map";
+import UnfoldedAnnoucement from "./main-components/UnfoldedAnnoucement";
+import styles from "../../styles/Container.module.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -29,12 +29,12 @@ export default function Container({ data }) {
           }
         ></Route>
       </Routes>
-      <Map
+      {/* <Map
         announcements={data}
         handleUnfoldedAnnoucement={(announcement) =>
           setUnfoldedAnnoucement(announcement)
         }
-      />
+      /> */}
     </div>
   );
 }

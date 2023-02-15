@@ -1,4 +1,4 @@
-import styles from "../styles/Announcements.module.css";
+import styles from "../../../styles/Announcements.module.css";
 import { Link } from "react-router-dom";
 
 export default function Announcements({
