@@ -5,15 +5,14 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 // receives component and any other props represented by ...rest
-export default function ProtectedRoutes({ Component }) {
+export default function ProtectedRoutes({ Component, ...rest }) {
   // get cookie from browser if logged in
   const token = cookies.get("TOKEN");
   const navigate = useNavigate();
 
-  token && console.log(token);
   // returns route if there is a valid token set in the cookie
   if (token) {
-    return <Component />;
+    return <Component prop={rest.props} />;
   }
   navigate("/login");
   // returns the user to the landing page if there is no valid token set

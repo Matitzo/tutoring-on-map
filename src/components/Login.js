@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import styles from "../styles/Login.module.css";
 
-export default function Login({ isLoged, setIsLoged }) {
+export default function Login({ isLoged, setIsLoged, setUserId }) {
   const [password, setPassword] = React.useState("");
   const [login, setLogin] = React.useState("");
   const navigate = useNavigate();
@@ -12,7 +12,9 @@ export default function Login({ isLoged, setIsLoged }) {
   return (
     <form
       className={styles["login"]}
-      onSubmit={(e) => handleSubmitLogin(setIsLoged, login, password)}
+      onSubmit={(e) =>
+        handleSubmitLogin(setIsLoged, login, password, setUserId)
+      }
     >
       <label>Login: </label>
       <input
@@ -34,7 +36,9 @@ export default function Login({ isLoged, setIsLoged }) {
         <button
           variant="primary"
           type="submit"
-          onClick={(e) => handleSubmitLogin(setIsLoged, login, password)}
+          onClick={(e) =>
+            handleSubmitLogin(setIsLoged, login, password, setUserId)
+          }
         >
           Zaloguj
         </button>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/Header.module.css";
 import logout from "./header-components/logout";
 
-export default function Header({ isLoged, setIsLoged }) {
+export default function Header({ isLoged, setIsLoged, setUserId }) {
   return (
     <header>
       <div className={styles["header__logo"]}>
@@ -29,7 +29,7 @@ export default function Header({ isLoged, setIsLoged }) {
           <button
             type="submit"
             variant="danger"
-            onClick={() => logout(setIsLoged)}
+            onClick={() => logout(setIsLoged, setUserId)}
           >
             Wyloguj sie
           </button>

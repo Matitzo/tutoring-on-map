@@ -5,7 +5,7 @@ import Header from "./home-components/Header";
 import Filters from "./home-components/Filters";
 import Container from "./home-components/Container";
 
-export default function Home({ isLoged, setIsLoged }) {
+export default function Home({ isLoged, setIsLoged, setUserId }) {
   const location = useLocation();
   const navigate = useNavigate();
   // pomyslec czy zamiast robienia stateow nie lepiej skorzystac z location.search i wrzucac do tego zmieniajace sie wartosci url
@@ -59,7 +59,7 @@ export default function Home({ isLoged, setIsLoged }) {
 
   return (
     <div>
-      <Header isLoged={isLoged} setIsLoged={setIsLoged} />
+      <Header isLoged={isLoged} setIsLoged={setIsLoged} setUserId={setUserId} />
       <Filters
         voivodeshipFilter={voivodeshipFilter}
         subjectFilter={subjectFilter}
