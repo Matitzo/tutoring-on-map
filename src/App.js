@@ -10,7 +10,6 @@ import MyAnnouncements from "./components/MyAnnouncements";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
-const token = cookies.get("TOKEN");
 
 function App() {
   // zastapic te 2 staty jednym, np lista bo oba ida do tego samego komponentu
@@ -19,8 +18,9 @@ function App() {
   const [myAnnouncements, setMyAnnouncements] = React.useState([]);
 
   // wrzucic tutaj useEffect by odpalalo sie po zmainie userId i tutaj trzymac dane
-
+  console.log(userId);
   React.useEffect(() => {
+    const token = cookies.get("TOKEN");
     Axios.get(`http://localhost:3000/moje-ogloszenia?userId=${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
