@@ -26,6 +26,8 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
     else if (costFilter[1]) location.pathname = "/filters";
     else location.pathname = "/";
 
+    console.log("wyrenderowalo home");
+
     navigate(location.pathname);
     // tutaj mozna zrobic by ta sama sciezke ktora jest do api dac do location.pathname a potem przy tworzeniu statow
     // dac warunki ze jak w location.search jest dana wartosc to zeby przypisalo na wstepie a jak nie to nie

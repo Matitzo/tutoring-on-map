@@ -21,11 +21,7 @@ export default function Announcements({
               <h3>{announcement.author}</h3>
               <p>{announcement.description}</p>
               <span>{JSON.parse(announcement.learningMode)}</span>
-              <p>
-                {JSON.parse(announcement.location)[0].city}{" "}
-                {JSON.parse(announcement.location)[0].street}{" "}
-                {JSON.parse(announcement.location)[0].voivodship}
-              </p>
+              <p>{JSON.parse(announcement.location)[0].address}</p>
             </div>
             <div>
               <span>{announcement.price}</span>

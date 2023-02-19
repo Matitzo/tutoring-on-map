@@ -7,33 +7,16 @@ import Registration from "./components/Registration";
 import CreateAnnouncement from "./components/CreateAnnouncement";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import MyAnnouncements from "./components/MyAnnouncements";
-import Axios from "axios";
-import Cookies from "universal-cookie";
-const cookies = new Cookies();
 
 function App() {
   // zastapic te 2 staty jednym, np lista bo oba ida do tego samego komponentu
   const [isLoged, setIsLoged] = React.useState("");
   const [userId, setUserId] = React.useState("");
-  const [myAnnouncements, setMyAnnouncements] = React.useState([]);
 
-  // wrzucic tutaj useEffect by odpalalo sie po zmainie userId i tutaj trzymac dane
+  // zastanowic sie czy use effect z my annoucement nie lepiej by bylo dac tutaj ?
+  // wtedy trzeba zrobic nowy state i dac go do [] w useEffect i przeniesc go az do handleSubmitRegistration
+  // poki co wydaje mi sie ze lepiej bd jak bd w myAnnoucements ale nwm
   console.log(userId);
-  React.useEffect(() => {
-    const token = cookies.get("TOKEN");
-    Axios.get(`http://localhost:3000/moje-ogloszenia?userId=${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => {
-        setMyAnnouncements(res.data);
-      })
-      .catch((error) => {
-        setMyAnnouncements([]);
-        error = new Error();
-      });
-  }, [userId]);
 
   return (
     <Routes>
@@ -56,12 +39,7 @@ function App() {
       />
       <Route
         path={"/moje-ogloszenia"}
-        element={
-          <ProtectedRoutes
-            Component={MyAnnouncements}
-            props={myAnnouncements}
-          />
-        }
+        element={<ProtectedRoutes Component={MyAnnouncements} props={userId} />}
       />
       <Route
         path={`/*`}

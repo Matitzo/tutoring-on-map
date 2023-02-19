@@ -8,9 +8,19 @@ import {
   useMapEvents,
 } from "react-leaflet";
 
-export default function FormMap() {
+export default function FormMap({ setLocationArray }) {
   const [position, setPosition] = React.useState(null);
   const [address, setAdress] = React.useState("");
+  const [isMarker, setIsMarker] = React.useState(false);
+
+  function addLocation(address, position) {
+    setIsMarker(true);
+    setLocationArray((prevData) => [
+      ...prevData,
+      { address: address, coordinates: [position.lng, position.lat] },
+    ]);
+    setTimeout(() => setIsMarker(false), 100);
+  }
 
   function getAdress(coord) {
     fetch(
@@ -27,6 +37,7 @@ export default function FormMap() {
   function LocationMarker() {
     useMapEvents({
       click(e) {
+        isMarker && e.preventDefault();
         setPosition(e.latlng);
         getAdress(e.latlng);
       },
@@ -34,7 +45,19 @@ export default function FormMap() {
 
     return position === null ? null : (
       <Marker position={position}>
-        <Popup>{address}</Popup>
+        <Popup closeOnClick={false}>
+          <div
+            onClick={() => addLocation(address, position)}
+            style={{
+              border: "1px solid black",
+              borderRadius: "10px",
+              padding: "2px 4px",
+              cursor: "pointer",
+            }}
+          >
+            {address}
+          </div>
+        </Popup>
       </Marker>
     );
   }

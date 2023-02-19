@@ -11,6 +11,6 @@ const matematykaIcon = new SubjectIcon({
   iconUrl: require("../../../images/matematykaIcon.png"),
 });
 
-const icons = { matematykaIcon: matematykaIcon };
+const icons = { matematyka: matematykaIcon };
 
 export default icons;

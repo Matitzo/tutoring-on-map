@@ -11,7 +11,7 @@ export default function GetMarkersOnMap({
       return (
         <Marker
           position={location.coordinates}
-          icon={icons[`${announcement.sucjectIcon}`]}
+          icon={icons[`matematyka`]} // tutaj bd ${announcement.subject}
         >
           <Popup>
             <Link

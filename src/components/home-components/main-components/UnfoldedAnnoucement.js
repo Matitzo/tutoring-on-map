@@ -17,11 +17,7 @@ export default function UnfoldedAnnoucement({ unfoldedAnnoucement }) {
       <h1>{unfoldedAnnoucement.author}</h1>
       <h2>{JSON.parse(unfoldedAnnoucement.learningMode)}</h2>
       <h3>{unfoldedAnnoucement.phone}</h3>
-      <h3>
-        {JSON.parse(unfoldedAnnoucement.location)[0].city}{" "}
-        {JSON.parse(unfoldedAnnoucement.location)[0].street}{" "}
-        {JSON.parse(unfoldedAnnoucement.location)[0].voivodship}
-      </h3>
+      <h3>{JSON.parse(unfoldedAnnoucement.location)[0].address}</h3>
       <h3>{unfoldedAnnoucement.price}</h3>
       <p>{unfoldedAnnoucement.description}</p>
       <p>Dostępność:....</p>
