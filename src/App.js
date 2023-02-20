@@ -38,6 +38,12 @@ function App() {
         }
       />
       <Route
+        path={"/edytuj-ogloszenie"}
+        element={
+          <ProtectedRoutes Component={CreateAnnouncement} props={userId} />
+        }
+      />
+      <Route
         path={"/moje-ogloszenia"}
         element={<ProtectedRoutes Component={MyAnnouncements} props={userId} />}
       />

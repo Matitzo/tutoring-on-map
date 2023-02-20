@@ -8,21 +8,46 @@ import Select from "./form-components/Select";
 import handleSubmitAnnouncement from "./form-components/handleSubmitAnnouncement";
 import styles from "../styles/CreateAnnouncement.module.css";
 import FormMap from "./form-components/FormMap";
+import { useLocation } from "react-router-dom";
 const cookies = new Cookies();
 
 export default function CreateAnnouncement({ prop }) {
+  const location = new useLocation();
   const userId = prop;
-  const [author, setAuthor] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [subject, setSubject] = React.useState("");
-  const [price, setPrice] = React.useState("");
-  const [learningModeValues, setLearningModeValues] = React.useState([]);
-  const [scopesValues, setScopesValues] = React.useState([]);
-  const [locationArray, setLocationArray] = React.useState([]);
+  const announcementId = checkIfEdition() ? location.state.announcementId : "";
+  // zamiast tych wszystkich statow mozna zrobic jeden obiekt ktory bd przechowywal wszystko dzieki czemu bd potem tylko
+  // jeden warunek a nie dla kazdej wartosci osobny
+  const [author, setAuthor] = React.useState(
+    checkIfEdition() ? location.state.author : ""
+  );
+  const [phoneNumber, setPhoneNumber] = React.useState(
+    checkIfEdition() ? location.state.phoneNumber : ""
+  );
+  const [subject, setSubject] = React.useState(
+    checkIfEdition() ? location.state.subject : ""
+  );
+  const [price, setPrice] = React.useState(
+    checkIfEdition() ? location.state.price : ""
+  );
+  const [learningModeValues, setLearningModeValues] = React.useState(
+    checkIfEdition() ? location.state.learningModeValues : []
+  );
+  const [scopesValues, setScopesValues] = React.useState(
+    checkIfEdition() ? location.state.scopesValues : []
+  );
+  const [locationArray, setLocationArray] = React.useState(
+    checkIfEdition() ? location.state.locationArray : []
+  );
   // potem zmienic description state lub wyrzucic
-  const [description, setDescription] = React.useState("");
+  const [description, setDescription] = React.useState(
+    checkIfEdition() ? location.state.description : ""
+  );
 
   console.log("wyrenderowalo create announcement");
+
+  function checkIfEdition() {
+    return location.pathname === "/edytuj-ogloszenie";
+  }
 
   // wrzucic ta funkcje do osobnego komponentu
   function handleClose(value, setValuesArray) {
@@ -32,11 +57,16 @@ export default function CreateAnnouncement({ prop }) {
   }
 
   const token = cookies.get("TOKEN");
-  Axios.get(`http://localhost:3000/stworz-ogloszenie`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
+  Axios.get(
+    `http://localhost:3000/${
+      checkIfEdition() ? "edytuj-ogloszenie" : "stworz-ogloszenie"
+    }`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
     .then((res) => {})
     .catch((error) => {
       error = new Error();
@@ -90,11 +120,12 @@ export default function CreateAnnouncement({ prop }) {
               name="subject"
               id="subject"
               form="create-announcement-form"
+              defaultValue={subject}
               onChange={(e) => setSubject(e.target.value)}
             >
               <option value={""}></option>
-              {subjects.map((subject) => (
-                <option value={subject}>{subject}</option>
+              {subjects.map((value) => (
+                <option value={value}>{value}</option>
               ))}
             </select>
           </li>
@@ -168,7 +199,9 @@ export default function CreateAnnouncement({ prop }) {
           type="submit"
           onClick={(e) =>
             handleSubmitAnnouncement(
+              checkIfEdition,
               e,
+              announcementId,
               author,
               userId,
               phoneNumber,
@@ -181,7 +214,7 @@ export default function CreateAnnouncement({ prop }) {
             )
           }
         >
-          Stwórz
+          Zapisz
         </button>
       </form>
     </div>

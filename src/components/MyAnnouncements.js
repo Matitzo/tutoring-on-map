@@ -3,14 +3,32 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 //import deleteAnnouncement from "./myAnnoucements-components/deleteAnnouncement";
 const cookies = new Cookies();
 
 export default function MyAnnouncements({ prop }) {
   const [myAnnouncements, setMyAnnouncements] = React.useState([]);
   const userId = prop;
-
+  const navigate = new useNavigate();
   console.log("wyrenderowalo my announcements");
+
+  function editAnnouncement(announcement) {
+    navigate("/edytuj-ogloszenie", {
+      state: {
+        announcementId: announcement.announcementId,
+        author: announcement.author,
+        userId: userId,
+        phoneNumber: announcement.phone,
+        subject: announcement.subject,
+        price: announcement.price,
+        learningModeValues: JSON.parse(announcement.learningMode),
+        scopesValues: JSON.parse(announcement.scope),
+        locationArray: JSON.parse(announcement.location),
+        description: announcement.description,
+      },
+    });
+  }
 
   function deleteAnnouncement(announcementId) {
     Axios.post(`http://localhost:3000/delete`, {
@@ -68,7 +86,9 @@ export default function MyAnnouncements({ prop }) {
               <span>{announcement.price}</span>
               <p>{announcement.phone}</p>
             </div>
-            <div>Edit btn</div>
+            <button onClick={() => editAnnouncement(announcement)}>
+              Edit btn
+            </button>
             <button
               onClick={() => deleteAnnouncement(announcement.announcementId)}
             >
