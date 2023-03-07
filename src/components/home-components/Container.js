@@ -29,12 +29,12 @@ export default function Container({ data }) {
           }
         ></Route>
       </Routes>
-      {/* <Map
+      <Map
         announcements={data}
         handleUnfoldedAnnoucement={(announcement) =>
           setUnfoldedAnnoucement(announcement)
         }
-      /> */}
+      />
     </div>
   );
 }

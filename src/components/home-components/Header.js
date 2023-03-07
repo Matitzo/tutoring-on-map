@@ -1,44 +1,51 @@
 import { Link } from "react-router-dom";
 import styles from "../../styles/Header.module.css";
 import logout from "./header-components/logout";
+import {
+  StyledHeader,
+  StyledLogoWrapper,
+  StyledButton,
+  StyledButtonWrapper,
+  StyledLogInOutButton,
+} from "./Header.styled";
 
 export default function Header({ isLoged, setIsLoged, setUserId }) {
   return (
-    <header>
-      <div className={styles["header__logo"]}>
+    <StyledHeader>
+      <StyledLogoWrapper>
         <Link to="/">
           <h2>Korepetycje</h2>
         </Link>
-      </div>
-      <div className={styles["header__dark-mode"]}>
         <button>Dark mode</button>
-      </div>
-      {isLoged === "success" && (
-        <div className={styles["header__add-offer"]}>
-          <Link to="/stworz-ogloszenie">
-            <button>Stwórz ogłoszenie</button>
-          </Link>
-          <Link to="/moje-ogloszenia">
-            <button>Moje ogloszenia</button>
-          </Link>
-        </div>
-      )}
-
-      <div className={styles["header__sign-in"]}>
-        {isLoged === "success" ? (
-          <button
-            type="submit"
-            variant="danger"
-            onClick={() => logout(setIsLoged, setUserId)}
-          >
-            Wyloguj sie
-          </button>
-        ) : (
-          <Link to="/login">
-            <button>Zaloguj się</button>
-          </Link>
+      </StyledLogoWrapper>
+      <StyledButtonWrapper>
+        {isLoged === "success" && (
+          <div>
+            <Link to="/stworz-ogloszenie">
+              <StyledButton>Stwórz ogłoszenie</StyledButton>
+            </Link>
+            <Link to="/moje-ogloszenia">
+              <StyledButton>Moje ogloszenia</StyledButton>
+            </Link>
+          </div>
         )}
-      </div>
-    </header>
+
+        <div className={styles["header__sign-in"]}>
+          {isLoged === "success" ? (
+            <StyledLogInOutButton
+              type="submit"
+              variant="danger"
+              onClick={() => logout(setIsLoged, setUserId)}
+            >
+              Wyloguj sie
+            </StyledLogInOutButton>
+          ) : (
+            <Link to="/login">
+              <StyledLogInOutButton>Zaloguj się</StyledLogInOutButton>
+            </Link>
+          )}
+        </div>
+      </StyledButtonWrapper>
+    </StyledHeader>
   );
 }
