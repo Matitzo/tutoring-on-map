@@ -11,6 +11,58 @@ export const StyledHeader = styled.header`
   }
 `;
 
+export const StyledLogoImg = styled.img`
+  height: 10vh;
+`;
+
+export const StyledTogglerDiv = styled.div`
+  margin-left: 1em;
+  position: relative;
+  top: 3px;
+
+  input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 40px;
+    height: 20px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+
+  label:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+
+  input:checked + label {
+    background: #bada55;
+  }
+
+  input:checked + label:after {
+    left: calc(100% - 1px);
+    transform: translateX(-100%);
+  }
+
+  label:active:after {
+    width: 25px;
+  }
+`;
+
 export const StyledLogoWrapper = styled.div`
   display: flex;
 `;

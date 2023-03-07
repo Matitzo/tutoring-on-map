@@ -7,16 +7,22 @@ import {
   StyledButton,
   StyledButtonWrapper,
   StyledLogInOutButton,
+  StyledLogoImg,
+  StyledTogglerDiv,
 } from "./Header.styled";
+import logo from "../../images/logo.png";
 
 export default function Header({ isLoged, setIsLoged, setUserId }) {
   return (
     <StyledHeader>
       <StyledLogoWrapper>
         <Link to="/">
-          <h2>Korepetycje</h2>
+          <StyledLogoImg src={logo} alt="logo image"></StyledLogoImg>
         </Link>
-        <button>Dark mode</button>
+        <StyledTogglerDiv>
+          <input type="checkbox" id="switch" />
+          <label for="switch">Toggle</label>
+        </StyledTogglerDiv>
       </StyledLogoWrapper>
       <StyledButtonWrapper>
         {isLoged === "success" && (

@@ -28,7 +28,7 @@ export default function Filters({
   return (
     <form className={styles["filters"]}>
       <div className="filters__subjects">
-        Przedmiot
+        {subjectFilter ? subjectFilter : "Przedmiot"}
         <DropDownList
           data={subjects}
           filter={subjectFilter}
