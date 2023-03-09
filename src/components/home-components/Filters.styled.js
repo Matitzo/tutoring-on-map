@@ -5,4 +5,5 @@ export const StyledFiltersContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 2px solid #d3d3d3;
 `;

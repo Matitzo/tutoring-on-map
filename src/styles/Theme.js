@@ -12,4 +12,13 @@ export const theme = {
       hoverColor: "green",
     },
   },
+  announcements: {
+    colors: {
+      white: "white",
+      textColor: "black",
+      backgroundColor: "whitesmoke",
+      hoverColor: "green",
+      smallText: "#4caf50",
+    },
+  },
 };
