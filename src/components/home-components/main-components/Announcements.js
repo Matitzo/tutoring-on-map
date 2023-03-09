@@ -2,8 +2,6 @@ import { StyledLink } from "../../../styles/Link.styled";
 import {
   StyledAnnouncementsContainer,
   StyledAnnouncementWrapper,
-  StyledImageWrapper,
-  StyledImage,
   StyledAnnoucementInformations,
   StyledSubject,
   StyledPhoneNumber,
@@ -11,6 +9,7 @@ import {
   StyledPrice,
   StyledSmallText,
 } from "../../../styles/Announcements.styled";
+import { StyledImage, StyledImageWrapper } from "../../../styles/Image.styled";
 
 export default function Announcements({
   announcements,
@@ -28,7 +27,12 @@ export default function Announcements({
           >
             <StyledAnnouncementWrapper>
               <StyledImageWrapper>
-                <StyledImage src={image} alt="Obraz ogloszenia"></StyledImage>
+                <StyledImage
+                  width="175px"
+                  border="10px"
+                  src={image}
+                  alt="Obraz ogloszenia"
+                ></StyledImage>
               </StyledImageWrapper>
               <StyledAnnoucementInformations>
                 <StyledSubject>{announcement.subject}</StyledSubject>

@@ -1,26 +1,62 @@
-import styles from "../../../styles/UnfoldedAnnoucement.module.css";
 import { Link } from "react-router-dom";
+import { StyledImage, StyledImageWrapper } from "../../../styles/Image.styled";
+import {
+  StyledUnfoldedAnnouncementContainer,
+  StyledBackArrow,
+  StyledHeadContainer,
+  StyledHeadInfo,
+  StyledPrice,
+  StyledSpan,
+  StyledParagraph,
+  StyledLocation,
+} from "../../../styles/UnfoldedAnnouncement.styled";
 
 export default function UnfoldedAnnoucement({ unfoldedAnnoucement }) {
+  const image = require(`../../../profileImages/${"profileImage1.jpg"}`);
+
   return (
-    <div className={styles["unfolded-annoucement"]}>
+    <StyledUnfoldedAnnouncementContainer>
       <Link to="/">
         <span>
-          <i className={`${styles["back-arrow"]}`}></i>
+          <StyledBackArrow></StyledBackArrow>
         </span>
       </Link>
-      <img alt={`${unfoldedAnnoucement.author} zdjecie`} />
-      <h2>{unfoldedAnnoucement.subject}</h2>
-      <span>
-        {unfoldedAnnoucement.type} {JSON.parse(unfoldedAnnoucement.scope)}
-      </span>
-      <h1>{unfoldedAnnoucement.author}</h1>
-      <h2>{JSON.parse(unfoldedAnnoucement.learningMode)}</h2>
-      <h3>{unfoldedAnnoucement.phone}</h3>
-      <h3>{JSON.parse(unfoldedAnnoucement.location)[0].address}</h3>
-      <h3>{unfoldedAnnoucement.price}</h3>
+      <StyledHeadContainer>
+        <StyledImageWrapper>
+          <StyledImage
+            width="200px"
+            border="15px"
+            src={image}
+            alt={`${unfoldedAnnoucement.author} zdjecie`}
+          />
+        </StyledImageWrapper>
+        <StyledHeadInfo>
+          <h3>{unfoldedAnnoucement.subject}</h3>
+          <h2>{unfoldedAnnoucement.author}</h2>
+          <StyledPrice>
+            {unfoldedAnnoucement.price} zł <span>/ 60min</span>
+            <StyledParagraph>
+              {unfoldedAnnoucement.phone.replace(
+                /(\d{3})(\d{3})(\d{3})/,
+                "$1 $2 $3"
+              )}
+            </StyledParagraph>
+          </StyledPrice>
+          <StyledParagraph>
+            <StyledSpan>Tryb nauki: </StyledSpan>
+            {JSON.parse(unfoldedAnnoucement.learningMode).join(", ")}
+          </StyledParagraph>
+          <StyledParagraph>
+            {" "}
+            <StyledSpan>Zakres materiału: </StyledSpan>{" "}
+            {JSON.parse(unfoldedAnnoucement.scope).join(", ")}
+          </StyledParagraph>
+          <StyledLocation>
+            {JSON.parse(unfoldedAnnoucement.location)[0].address}
+          </StyledLocation>
+        </StyledHeadInfo>
+      </StyledHeadContainer>
       <p>{unfoldedAnnoucement.description}</p>
-      <p>Dostępność:....</p>
-    </div>
+    </StyledUnfoldedAnnouncementContainer>
   );
 }

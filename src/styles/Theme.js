@@ -19,6 +19,7 @@ export const theme = {
       backgroundColor: "whitesmoke",
       hoverColor: "green",
       smallText: "#4caf50",
+      announcementBackground: "#4caf50",
     },
   },
 };
