@@ -12,8 +12,12 @@ import {
 } from "../../../styles/UnfoldedAnnouncement.styled";
 
 export default function UnfoldedAnnoucement({ unfoldedAnnoucement }) {
-  const image = require(`../../../profileImages/${"profileImage1.jpg"}`);
-
+  var image;
+  try {
+    image = require(`../../../profileImages/${unfoldedAnnoucement.image}`);
+  } catch {
+    image = require(`../../../profileImages/avatar.png`);
+  }
   return (
     <StyledUnfoldedAnnouncementContainer>
       <Link to="/">

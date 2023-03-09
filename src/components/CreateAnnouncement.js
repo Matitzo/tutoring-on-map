@@ -6,20 +6,29 @@ import scopes from "../data/scopes";
 import learningMode from "../data/learningMode";
 import Select from "./form-components/Select";
 import handleSubmitAnnouncement from "./form-components/handleSubmitAnnouncement";
-import styles from "../styles/CreateAnnouncement.module.css";
 import FormMap from "./form-components/FormMap";
 import { useLocation } from "react-router-dom";
+import { StyledImage, StyledImageWrapper } from "../styles/Image.styled";
+import styles from "../styles/CreateAnnouncement.module.css";
 const cookies = new Cookies();
 
 export default function CreateAnnouncement({ prop }) {
   const location = new useLocation();
   const userId = prop;
+  const imageAvatar = require(`../profileImages/avatar.png`);
   const announcementId = checkIfEdition() ? location.state.announcementId : "";
   // zamiast tych wszystkich statow mozna zrobic jeden obiekt ktory bd przechowywal wszystko dzieki czemu bd potem tylko
   // jeden warunek a nie dla kazdej wartosci osobny
   const [author, setAuthor] = React.useState(
     checkIfEdition() ? location.state.author : ""
   );
+  const [image, setImage] = React.useState(
+    checkIfEdition() ? location.state.image : imageAvatar
+  );
+  const [imageName, setImageName] = React.useState(
+    checkIfEdition() ? location.state.imageName : "avatar"
+  );
+  console.log(imageName);
   const [phoneNumber, setPhoneNumber] = React.useState(
     checkIfEdition() ? location.state.phoneNumber : ""
   );
@@ -54,6 +63,21 @@ export default function CreateAnnouncement({ prop }) {
     setValuesArray((prevData) => {
       return prevData.filter((element) => value !== element);
     });
+  }
+
+  function handleImage(image) {
+    if (image.length > 0) {
+      const fileReader = new FileReader();
+      fileReader.onload = function (e) {
+        setImage(e.target.result);
+      };
+      fileReader.readAsDataURL(image[0]);
+      const random = Math.random() * 100000000000000000;
+      setImageName(random + image[0].name);
+    } else {
+      setImage(imageAvatar);
+      setImageName("avatar");
+    }
   }
 
   const token = cookies.get("TOKEN");
@@ -103,6 +127,22 @@ export default function CreateAnnouncement({ prop }) {
               name="author"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
+            ></input>
+          </li>
+          <li>
+            <StyledImageWrapper>
+              <StyledImage
+                width="175px"
+                border="10px"
+                src={image}
+                alt="Obraz ogloszenia"
+              ></StyledImage>
+            </StyledImageWrapper>
+            <input
+              type="file"
+              name="myImage"
+              accept="image/*"
+              onChange={(e) => handleImage(e.target.files)}
             ></input>
           </li>
           <li>
@@ -204,6 +244,8 @@ export default function CreateAnnouncement({ prop }) {
               announcementId,
               author,
               userId,
+              imageName,
+              image,
               phoneNumber,
               subject,
               price,

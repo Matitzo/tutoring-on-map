@@ -18,7 +18,12 @@ export default function Announcements({
   return (
     <StyledAnnouncementsContainer>
       {announcements.map((announcement) => {
-        const image = require(`../../../profileImages/${"profileImage1.jpg"}`);
+        var image;
+        try {
+          image = require(`../../../profileImages/${announcement.image}`);
+        } catch {
+          image = require(`../../../profileImages/avatar.png`);
+        }
         return (
           <StyledLink
             key={announcement.author_id}
