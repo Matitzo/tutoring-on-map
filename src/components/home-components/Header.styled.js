@@ -73,13 +73,13 @@ export const StyledButtonWrapper = styled.div`
 
 export const StyledButton = styled.button`
    {
-    background-color: #c2fbd7;
+    background-color: ${({ theme }) => theme.header.colors.backgroundColor};
     border-radius: 100px;
     box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
       rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
       rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
       rgba(44, 187, 99, 0.15) 0 16px 32px;
-    color: green;
+    color: ${({ theme }) => theme.header.colors.textColor};
     cursor: pointer;
     display: inline-block;
     font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
@@ -108,7 +108,7 @@ export const StyledButton = styled.button`
 export const StyledLogInOutButton = styled(StyledButton)`
    {
     margin-left: 4em;
-    color: #c2fbd7;
-    background-color: green;
+    color: ${({ theme }) => theme.header.colors.backgroundColor};
+    background-color: ${({ theme }) => theme.header.colors.textColor};
   }
 `;
