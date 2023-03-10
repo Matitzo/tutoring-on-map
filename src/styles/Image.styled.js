@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledImageWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 export const StyledImage = styled.img`

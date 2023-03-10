@@ -1,3 +1,9 @@
+import {
+  StyledSelection,
+  StyledLocationsDiv,
+  StyledLabelInputContainer,
+} from "../../styles/CreateAnnouncement.styled";
+
 export default function Select({
   valuesArray,
   setValuesArray,
@@ -19,31 +25,35 @@ export default function Select({
 
   return (
     <li>
-      <label>{label}</label>
-      <select
-        name={name}
-        id={name}
-        form="create-announcement-form"
-        onChange={(e) => handleChange(e.target.value, setValuesArray)}
-      >
-        <option value=""></option>
-        {data.map((element) => (
-          <option value={element}>{element}</option>
-        ))}
-      </select>
-      {valuesArray.length > 0 &&
-        valuesArray.map((element) => (
-          <div>
-            <span>{element}</span>{" "}
-            <span
-              onClick={() => {
-                handleClose(element, setValuesArray);
-              }}
-            >
-              X
-            </span>
-          </div>
-        ))}
+      <div>
+        <label>{label}</label>
+        <select
+          name={name}
+          id={name}
+          form="create-announcement-form"
+          onChange={(e) => handleChange(e.target.value, setValuesArray)}
+        >
+          <option value=""></option>
+          {data.map((element) => (
+            <option value={element}>{element}</option>
+          ))}
+        </select>
+      </div>
+      <StyledLocationsDiv>
+        {valuesArray.length > 0 &&
+          valuesArray.map((element) => (
+            <StyledSelection>
+              <span>{element}</span>{" "}
+              <span
+                onClick={() => {
+                  handleClose(element, setValuesArray);
+                }}
+              >
+                X
+              </span>
+            </StyledSelection>
+          ))}
+      </StyledLocationsDiv>
     </li>
   );
 }

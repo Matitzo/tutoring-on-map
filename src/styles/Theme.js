@@ -22,4 +22,13 @@ export const theme = {
       announcementBackground: "#4caf50",
     },
   },
+  createAnnoucement: {
+    colors: {
+      white: "white",
+      textColor: "black",
+      labelColor: "green",
+      backgroundColor: "whitesmoke",
+      announcementBackground: "#4caf50",
+    },
+  },
 };
