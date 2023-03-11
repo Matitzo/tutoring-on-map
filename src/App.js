@@ -35,7 +35,7 @@ function App() {
           }
         ></Route>
         <Route
-          path={"/stworz-ogloszenie"}
+          path={"/stworz-ogloszenie/*"}
           element={
             <ProtectedRoutes Component={CreateAnnouncement} props={userId} />
           }

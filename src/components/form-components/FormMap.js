@@ -1,4 +1,3 @@
-import styles from "../../styles/Map.module.css";
 import React from "react";
 import {
   MapContainer,
@@ -61,7 +60,6 @@ export default function FormMap({ setLocationArray }) {
       </Marker>
     );
   }
-
   return (
     <MapContainer
       style={{ height: "100%" }}

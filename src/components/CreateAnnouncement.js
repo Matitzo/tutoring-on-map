@@ -1,28 +1,16 @@
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import React from "react";
-import subjects from "../data/subjects";
-import scopes from "../data/scopes";
-import learningMode from "../data/learningMode";
-import Select from "./form-components/Select";
+import { Routes, Route } from "react-router-dom";
+import InpuDataForm from "./form-components/InputDataForm";
+import SelectLocation from "./form-components/SelectLocation";
 import handleSubmitAnnouncement from "./form-components/handleSubmitAnnouncement";
-import FormMap from "./form-components/FormMap";
 import { useLocation } from "react-router-dom";
-import { StyledImage, StyledImageWrapper } from "../styles/Image.styled";
 import { StyledButton } from "../styles/Button.styled";
 import {
   StyledCreateAnnouncementWrapper,
   StyledForm,
-  StyledMapDiv,
   StyledFormDiv,
-  StyledMapWrapper,
-  StyledSelection,
-  StyledDeleteButton,
-  StyledLocationsDiv,
-  StyledLoactionsWrapper,
-  StyledMapContainer,
-  StyledLocationsContainer,
-  StyledInputFile,
 } from "../styles/CreateAnnouncement.styled";
 const cookies = new Cookies();
 
@@ -129,152 +117,49 @@ export default function CreateAnnouncement({ prop }) {
         }
       >
         <StyledFormDiv>
-          <h2>Temat: Tworzenie ogłoszenia.</h2>
-          <ul>
-            <li>
-              <StyledImageWrapper>
-                <StyledImage
-                  width="175px"
-                  border="10px"
-                  src={image}
-                  alt="Obraz ogloszenia"
-                ></StyledImage>
-              </StyledImageWrapper>
-              <StyledInputFile
-                type="file"
-                name="myImage"
-                accept="image/*"
-                onChange={(e) => handleImage(e.target.files)}
-              ></StyledInputFile>
-            </li>
-            <li>
-              <div>
-                <label>Imie i nazwisko / Nazwa: </label>
-                <input
-                  type="text"
-                  name="author"
-                  value={author}
-                  onChange={(e) => setAuthor(e.target.value)}
-                ></input>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Nr telefonu: </label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                ></input>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Przedmiot: </label>
-                <select
-                  name="subject"
-                  id="subject"
-                  form="create-announcement-form"
-                  defaultValue={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                >
-                  <option value={""}></option>
-                  {subjects.map((value) => (
-                    <option value={value}>{value}</option>
-                  ))}
-                </select>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Cena: </label>
-                <input
-                  type="text"
-                  name="price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                ></input>
-              </div>
-            </li>
-            <Select
-              valuesArray={scopesValues}
-              setValuesArray={setScopesValues}
-              data={scopes}
-              name="scopes"
-              label="Zakres materiału: "
-            />
-
-            <Select
-              valuesArray={learningModeValues}
-              setValuesArray={setLearningModeValues}
-              data={learningMode}
-              name="learningMode"
-              label="Tryb nauki: "
-            />
-          </ul>
-          <StyledLocationsContainer>
-            Obecne lokalizacje:
-            <StyledLoactionsWrapper>
-              {locationArray.length > 0 &&
-                locationArray.map((element) => (
-                  <StyledSelection>
-                    <span>{element.address}</span>{" "}
-                    <StyledDeleteButton
-                      onClick={() => {
-                        handleClose(element, setLocationArray);
-                      }}
-                    >
-                      X
-                    </StyledDeleteButton>
-                  </StyledSelection>
-                ))}
-            </StyledLoactionsWrapper>
-          </StyledLocationsContainer>
-          <div>
-            <label>Opis: </label>
-            <textarea
-              name="description"
-              id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </div>
-          <StyledButton
-            variant="primary"
-            type="submit"
-            onClick={(e) =>
-              handleSubmitAnnouncement(
-                checkIfEdition,
-                e,
-                announcementId,
-                author,
-                userId,
-                imageName,
-                image,
-                phoneNumber,
-                subject,
-                price,
-                learningModeValues,
-                scopesValues,
-                locationArray,
-                description
-              )
-            }
-          >
-            Zapisz
-          </StyledButton>
+          <Routes>
+            <Route
+              path={`/`}
+              element={
+                <InpuDataForm
+                  handleImage={(value) => handleImage(value)}
+                  image={image}
+                  author={author}
+                  setAuthor={setAuthor}
+                  phoneNumber={phoneNumber}
+                  setPhoneNumber={(value) => setPhoneNumber(value)}
+                  subject={subject}
+                  setSubject={(value) => setSubject(value)}
+                  price={price}
+                  setPrice={(value) => setPrice(value)}
+                  scopesValues={scopesValues}
+                  setScopesValues={(value) => setScopesValues(value)}
+                  learningModeValues={learningModeValues}
+                  setLearningModeValues={(value) =>
+                    setLearningModeValues(value)
+                  }
+                  handleClose={(value) => handleClose(value)}
+                  announcementId={announcementId}
+                  userId={userId}
+                  description={description}
+                  setDescription={(value) => setDescription(value)}
+                />
+              }
+            ></Route>
+            <Route
+              path={`/lokalizacja`}
+              element={
+                <SelectLocation
+                  setLocationArray={(value) => setLocationArray(value)}
+                  locationArray={locationArray}
+                  handleClose={(value, setValue) =>
+                    handleClose(value, setValue)
+                  }
+                />
+              }
+            ></Route>
+          </Routes>
         </StyledFormDiv>
-        <StyledMapWrapper>
-          <StyledLocationsDiv>
-            <h2>Wybierz lokalizacje</h2>
-          </StyledLocationsDiv>
-          <StyledMapContainer>
-            <StyledMapDiv>
-              <FormMap setLocationArray={setLocationArray} />
-            </StyledMapDiv>
-          </StyledMapContainer>
-        </StyledMapWrapper>
       </StyledForm>
     </StyledCreateAnnouncementWrapper>
   );

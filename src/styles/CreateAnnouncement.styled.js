@@ -4,57 +4,8 @@ export const StyledCreateAnnouncementWrapper = styled.div``;
 
 export const StyledForm = styled.form`
   display: flex;
-`;
-
-export const StyledLocationsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const StyledLoactionsWrapper = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  flex-wrap: wrap;
-  height: fit-content;
-  height: 100px;
-  overflow: auto;
-  border: 2px solid green;
-  border-radius: 10px;
-`;
-
-export const StyledMapWrapper = styled.div`
-  position: sticky;
-  top: 0;
-  text-align: center;
-  background-color: whitesmoke;
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-weight: bold;
-  color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
-
-  h2 {
-    position: absolute;
-    top: 0.5em;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-`;
-
-export const StyledMapContainer = styled.div`
-  background-color: white;
-  padding: 1em;
-  margin: 1em;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
-`;
-
-export const StyledMapDiv = styled.div`
-  width: 100%;
-  height: 70vh;
 `;
 
 export const StyledSelection = styled.div`
@@ -119,7 +70,6 @@ export const StyledFormDiv = styled.div`
   }
 
   ul li + li {
-    margin-top: 1em;
     justify-content: center;
   }
 
@@ -127,7 +77,8 @@ export const StyledFormDiv = styled.div`
     display: block;
     margin-right: 10px;
     width: 200px;
-    text-align: right;
+    text-align: center;
+    margin: 0 auto;
   }
 
   ul input {
@@ -139,10 +90,6 @@ export const StyledFormDiv = styled.div`
   ul select {
     width: 180px;
   }
-`;
-
-export const StyledInputFile = styled.input`
-  margin: 1em auto 0 auto;
 `;
 
 export const StyledLocationsDiv = styled.div``;

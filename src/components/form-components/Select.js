@@ -3,6 +3,10 @@ import {
   StyledLocationsDiv,
   StyledLabelInputContainer,
 } from "../../styles/CreateAnnouncement.styled";
+import {
+  StyledSelectForm,
+  StyledSelectFormContainer,
+} from "../../styles/Input.styled";
 
 export default function Select({
   valuesArray,
@@ -23,11 +27,12 @@ export default function Select({
     });
   }
 
+  console.log(data);
   return (
     <li>
-      <div>
-        <label>{label}</label>
-        <select
+      <label>{label}</label>
+      <StyledSelectFormContainer>
+        <StyledSelectForm
           name={name}
           id={name}
           form="create-announcement-form"
@@ -37,8 +42,8 @@ export default function Select({
           {data.map((element) => (
             <option value={element}>{element}</option>
           ))}
-        </select>
-      </div>
+        </StyledSelectForm>
+      </StyledSelectFormContainer>
       <StyledLocationsDiv>
         {valuesArray.length > 0 &&
           valuesArray.map((element) => (
