@@ -4,7 +4,7 @@ import scopes from "../../data/scopes";
 import learningMode from "../../data/learningMode";
 import Select from "./Select";
 import { StyledImage, StyledImageWrapper } from "../../styles/Image.styled";
-import { StyledButton } from "../../styles/Button.styled";
+import { StyledFormButton, StyledLinkButton } from "../../styles/Button.styled";
 import {
   StyledInput,
   StyledInputFile,
@@ -32,7 +32,7 @@ export default function InpuDataForm({
 }) {
   return (
     <>
-      <h2>Temat: Tworzenie ogłoszenia.</h2>
+      <h2>Wypełnij formularz ogłoszenia</h2>
       <ul>
         <li>
           <StyledImageWrapper>
@@ -79,21 +79,19 @@ export default function InpuDataForm({
           </div>
         </li>
         <li>
-          <div>
-            <label>Przedmiot: </label>
-            <select
-              name="subject"
-              id="subject"
-              form="create-announcement-form"
-              defaultValue={subject}
-              onChange={(e) => setSubject(e.target.value)}
-            >
-              <option value={""}></option>
-              {subjects.map((value) => (
-                <option value={value}>{value}</option>
-              ))}
-            </select>
-          </div>
+          <label>Przedmiot: </label>
+          <StyledSelectForm
+            name="subject"
+            id="subject"
+            form="create-announcement-form"
+            defaultValue={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          >
+            <option value={""}></option>
+            {subjects.map((value) => (
+              <option value={value}>{value}</option>
+            ))}
+          </StyledSelectForm>
         </li>
         <li>
           <div>
@@ -128,6 +126,7 @@ export default function InpuDataForm({
       <div>
         <label>Opis: </label>
         <textarea
+          style={{ marginBottom: "2em" }}
           name="description"
           id="description"
           value={description}
@@ -158,9 +157,10 @@ export default function InpuDataForm({
       >
         Zapisz
       </StyledButton> */}
-      <Link to="/stworz-ogloszenie/lokalizacja">
-        <StyledButton>Dalej</StyledButton>
-      </Link>
+
+      <StyledLinkButton to="/stworz-ogloszenie/lokalizacja">
+        <StyledFormButton>Dalej</StyledFormButton>
+      </StyledLinkButton>
     </>
   );
 }

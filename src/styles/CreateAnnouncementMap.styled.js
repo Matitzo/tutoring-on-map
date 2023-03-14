@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const StyledMapWrapper = styled.div`
+  dsiplay: flex;
+  flex-direction: column;
   text-align: center;
   background-color: whitesmoke;
   font-weight: bold;
   color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
   background-color: white;
-  dsiplay: flex;
-  flex-direction: column;
 `;
 
 export const StyledMapContainer = styled.div`

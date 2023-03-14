@@ -1,4 +1,12 @@
 export const theme = {
+  login: {
+    colors: {
+      textColor: "black",
+      backgroundColor: "#eeeeee",
+      logoBackgroundColor: "#009578",
+      errorMsgColor: "red",
+    },
+  },
   header: {
     colors: {
       textColor: "green",

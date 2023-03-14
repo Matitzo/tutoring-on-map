@@ -22,24 +22,30 @@ export const StyledLabelForm = styled.label`
   position: relative;
   margin-top: 1em;
   margin-bottom: 1em;
+  width: 200px;
 
   input {
     border: none;
-    border-bottom: 0.125rem solid rgba(19, 19, 21, 0.6);
+    border-bottom: 0.125rem solid
+      ${({ theme }) => theme.createAnnoucement.colors.labelColor};
     height: 2rem;
     font-size: 1.0625rem;
     line-height: 147.6%;
     padding-left: 0.875rem;
     padding-top: 0.825rem;
     padding-bottom: 0.5rem;
+    width: 200px;
+    color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
 
     &:focus {
       outline: none;
-      border-color: #1e4bd1;
+      border-color: ${({ theme }) =>
+        theme.createAnnoucement.colors.announcementBackground};
     }
     &:hover {
       background: rgba(73, 133, 224, 0.12);
-      border-color: #121212;
+      border-color: ${({ theme }) =>
+        theme.createAnnoucement.colors.announcementBackground};
     }
   }
 
@@ -48,56 +54,56 @@ export const StyledLabelForm = styled.label`
     top: 0rem;
     left: 0.5rem;
     line-height: 147.6%;
-    color: rgba(19, 19, 21, 0.6);
+    color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
     transition: top 0.2s;
+    cursor: pointer;
+  }
+
+  input:valid {
+    border-color: ${({ theme }) =>
+      theme.createAnnoucement.colors.announcementBackground};
   }
 
   input:valid + span,
   input:focus + span {
-    top: -1.1rem;
+    top: -1.2rem;
     font-size: 0.9375rem;
+    color: ${({ theme }) =>
+      theme.createAnnoucement.colors.announcementBackground};
   }
 `;
 
-export const StyledSelectFormContainer = styled.div`
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  border-radius: 0.25em;
-  overflow: hidden;
-
-  &::after {
-    content: "\25BC";
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
-    background-color: #34495e;
-    transition: .25s all ease;
-    pointer-events: none;
-    border: 2px solid red;
-  }
-
-  &:hover::after {
-    color: #f39c12;
-  }
-  `;
+export const StyledSelectFormContainer = styled.div``;
 
 export const StyledSelectForm = styled.select`
   appearance: none;
-  outline: 0;
   border: 0;
-  box-shadow: none;
-  padding: 0.5em;
-  color: green;
-  border: 1px solid green;
-  border-radius: 10px;
-  background-image: none;
-  cursor: pointer;
+  outline: 0;
+  font: inherit;
+  width: 220px;
+  height: 40px;
   margin: 0.5em 0;
-  font-size: 1rem;
+  padding: 0 4em 0 0.5em;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
+      no-repeat right 0.8em center / 1.4em,
+    linear-gradient(
+      to left,
+      ${({ theme }) => theme.createAnnoucement.colors.labelColor} 3em,
+      ${({ theme }) => theme.createAnnoucement.colors.white} 3em
+    );
+  color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 
+  option {
+    color: ${({ theme }) => theme.createAnnoucement.colors.white};
+    background-color: ${({ theme }) =>
+      theme.createAnnoucement.colors.labelColor};
+  }
+  &:focus {
+    outline: none;
+  }
   &::-ms-expand {
     display: none;
   }

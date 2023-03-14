@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledButton = styled.button`
    {
@@ -14,7 +15,7 @@ export const StyledButton = styled.button`
     font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto,
       sans-serif;
     padding: 7px 20px;
-    margin: 0 0.5em;
+    margin: 0;
     text-align: center;
     text-decoration: none;
     transition: all 250ms;
@@ -39,4 +40,22 @@ export const StyledSmallButton = styled(StyledButton)`
   margin: 0 1.5em;
   font-size: 12px;
   border-radius: 10px;
+`;
+
+export const StyledLogInOutButton = styled(StyledButton)`
+   {
+    margin-left: 4em;
+    color: ${({ theme }) => theme.header.colors.backgroundColor};
+    background-color: ${({ theme }) => theme.header.colors.textColor};
+  }
+`;
+
+export const StyledFormButton = styled(StyledButton)`
+  color: ${({ theme }) => theme.header.colors.backgroundColor};
+  background-color: ${({ theme }) => theme.header.colors.textColor};
+`;
+
+export const StyledLinkButton = styled(Link)`
+  margin: 2em auto 0em auto;
+  width: fit-content;
 `;

@@ -9,19 +9,21 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledSelection = styled.div`
-  width: fit-content;
   background-color: ${({ theme }) => theme.createAnnoucement.colors.white};
   border-radius: 20px;
   box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
   margin: 0.5em;
-  padding: 0.3em 0.5em;
+  padding: 0.5em 0.8em;
   cursor: default;
 `;
 
-export const StyledDeleteButton = styled.span`
-  border: 1px solid black;
-  border-radius: 50%;
+export const StyledDeleteButton = styled.div`
+  position: relative;
+  top: 1px;
+  left: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 export const StyledFormDiv = styled.div`
@@ -71,9 +73,11 @@ export const StyledFormDiv = styled.div`
 
   ul li + li {
     justify-content: center;
+    margin: 1.3em 0;
   }
 
   ul label {
+    font-size: 1rem;
     display: block;
     margin-right: 10px;
     width: 200px;
@@ -83,13 +87,9 @@ export const StyledFormDiv = styled.div`
 
   ul input {
     display: block;
-    width: 180px;
     box-sizing: border-box;
   }
 
-  ul select {
-    width: 180px;
-  }
 `;
 
 export const StyledLocationsDiv = styled.div``;
