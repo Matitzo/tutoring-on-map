@@ -4,18 +4,23 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import InpuDataForm from "./form-components/InputDataForm";
 import SelectLocation from "./form-components/SelectLocation";
+import Description from "./form-components/Description";
 import handleSubmitAnnouncement from "./form-components/handleSubmitAnnouncement";
 import { useLocation } from "react-router-dom";
-import { StyledButton } from "../styles/Button.styled";
+import { useNavigate } from "react-router-dom";
 import {
   StyledCreateAnnouncementWrapper,
   StyledForm,
   StyledFormDiv,
 } from "../styles/CreateAnnouncement.styled";
+import { StyledTextEditorWrapper } from "../styles/Description.styled";
+import { StyledLinkButton, StyledFormButton } from "../styles/Button.styled";
+
 const cookies = new Cookies();
 
 export default function CreateAnnouncement({ prop }) {
   const location = new useLocation();
+  const navigate = useNavigate();
   const userId = prop;
   const imageAvatar = require(`../profileImages/avatar.png`);
   const announcementId = checkIfEdition() ? location.state.announcementId : "";
@@ -30,7 +35,6 @@ export default function CreateAnnouncement({ prop }) {
   const [imageName, setImageName] = React.useState(
     checkIfEdition() ? location.state.imageName : "avatar"
   );
-  console.log(imageName);
   const [phoneNumber, setPhoneNumber] = React.useState(
     checkIfEdition() ? location.state.phoneNumber : ""
   );
@@ -103,16 +107,21 @@ export default function CreateAnnouncement({ prop }) {
         id="create-announcement-form"
         onSubmit={(e) =>
           handleSubmitAnnouncement(
+            checkIfEdition,
             e,
+            announcementId,
             author,
             userId,
+            imageName,
+            image,
             phoneNumber,
             subject,
             price,
             learningModeValues,
             scopesValues,
             locationArray,
-            description
+            description,
+            navigate
           )
         }
       >
@@ -156,6 +165,17 @@ export default function CreateAnnouncement({ prop }) {
                     handleClose(value, setValue)
                   }
                 />
+              }
+            ></Route>
+            <Route
+              path={"/opis"}
+              element={
+                <StyledTextEditorWrapper>
+                  <Description />
+                  <StyledFormButton variant="primary" type="submit">
+                    Stwórz ogłoszenie
+                  </StyledFormButton>
+                </StyledTextEditorWrapper>
               }
             ></Route>
           </Routes>

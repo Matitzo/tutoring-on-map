@@ -14,9 +14,11 @@ export default function handleSubmitAnnouncement(
   learningModeValues,
   scopesValues,
   locationArray,
-  description
+  description,
+  navigate
 ) {
   e.preventDefault();
+
   Axios.post(
     `http://localhost:3000/${
       checkIfEdition() ? "edytuj-ogloszenie" : "stworz-ogloszenie"
@@ -38,11 +40,13 @@ export default function handleSubmitAnnouncement(
     .then((res) => {
       console.log(res);
       console.log("submitted");
+      navigate("/");
       //setCreatedAnnouncement((prevData) => prevData + 1);
       //   setState("success");
     })
     .catch((error) => {
       //   setState("failed");
+      console.log("error");
       error = new Error();
     });
 }
