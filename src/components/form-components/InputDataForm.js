@@ -27,8 +27,8 @@ export default function InpuDataForm({
   setScopesValues,
   learningModeValues,
   setLearningModeValues,
-  description,
-  setDescription,
+  shortDescription,
+  setShortDescription,
 }) {
   return (
     <>
@@ -124,13 +124,13 @@ export default function InpuDataForm({
         />
       </ul>
       <div>
-        <label>Opis: </label>
+        <label>Streszczenie: </label>
         <textarea
           style={{ marginBottom: "2em" }}
-          name="description"
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          name="shortDescription"
+          id="shortDescription"
+          value={shortDescription}
+          onChange={(e) => setShortDescription(e.target.value)}
         ></textarea>
       </div>
       {/* <StyledButton

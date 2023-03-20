@@ -14,7 +14,7 @@ import {
   StyledFormDiv,
 } from "../styles/CreateAnnouncement.styled";
 import { StyledTextEditorWrapper } from "../styles/Description.styled";
-import { StyledLinkButton, StyledFormButton } from "../styles/Button.styled";
+import { StyledSubmitButton } from "../styles/Button.styled";
 
 const cookies = new Cookies();
 
@@ -53,6 +53,11 @@ export default function CreateAnnouncement({ prop }) {
   const [locationArray, setLocationArray] = React.useState(
     checkIfEdition() ? location.state.locationArray : []
   );
+
+  const [shortDescription, setShortDescription] = React.useState(
+    checkIfEdition() ? location.state.shortDescription : ""
+  );
+
   // potem zmienic description state lub wyrzucic
   const [description, setDescription] = React.useState(
     checkIfEdition() ? location.state.description : ""
@@ -120,6 +125,7 @@ export default function CreateAnnouncement({ prop }) {
             learningModeValues,
             scopesValues,
             locationArray,
+            shortDescription,
             description,
             navigate
           )
@@ -150,8 +156,8 @@ export default function CreateAnnouncement({ prop }) {
                   handleClose={(value) => handleClose(value)}
                   announcementId={announcementId}
                   userId={userId}
-                  description={description}
-                  setDescription={(value) => setDescription(value)}
+                  shortDescription={shortDescription}
+                  setShortDescription={(value) => setShortDescription(value)}
                 />
               }
             ></Route>
@@ -171,10 +177,12 @@ export default function CreateAnnouncement({ prop }) {
               path={"/opis"}
               element={
                 <StyledTextEditorWrapper>
-                  <Description />
-                  <StyledFormButton variant="primary" type="submit">
+                  <Description
+                    handleDescription={(value) => setDescription(value)}
+                  />
+                  {/* <StyledSubmitButton variant="primary" type="submit">
                     Stwórz ogłoszenie
-                  </StyledFormButton>
+                  </StyledSubmitButton> */}
                 </StyledTextEditorWrapper>
               }
             ></Route>

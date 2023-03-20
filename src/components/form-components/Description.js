@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import { Link } from "react-router-dom";
+import { StyledSubmitButton } from "../../styles/Button.styled";
 
-export default function Description({ onSubmit }) {
+export default function Description({ handleDescription }) {
   const editorRef = useRef(null);
-  const log = () => {
+  const log = (e) => {
+    e.preventDefault();
     if (editorRef.current) {
+      handleDescription(editorRef.current.getContent());
       console.log(editorRef.current.getContent());
     }
   };
@@ -34,6 +36,12 @@ export default function Description({ onSubmit }) {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
         }}
       />
+
+      <button onClick={(e) => log(e)}>Zapisz tekst.</button>
+
+      <StyledSubmitButton variant="primary" type="submit">
+        Stwórz ogłoszenie
+      </StyledSubmitButton>
       {/* <Link to="/">
         <button onClick={() => onSubmit()}>Stwórz ogłoszenie</button>
       </Link> */}

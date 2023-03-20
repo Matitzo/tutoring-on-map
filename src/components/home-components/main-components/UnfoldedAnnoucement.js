@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 import { StyledImage, StyledImageWrapper } from "../../../styles/Image.styled";
 import {
   StyledUnfoldedAnnouncementContainer,
@@ -60,7 +61,7 @@ export default function UnfoldedAnnoucement({ unfoldedAnnoucement }) {
           </StyledLocation>
         </StyledHeadInfo>
       </StyledHeadContainer>
-      <p>{unfoldedAnnoucement.description}</p>
+      {parse(unfoldedAnnoucement.description)}
     </StyledUnfoldedAnnouncementContainer>
   );
 }

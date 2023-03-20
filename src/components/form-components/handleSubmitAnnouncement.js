@@ -14,6 +14,7 @@ export default function handleSubmitAnnouncement(
   learningModeValues,
   scopesValues,
   locationArray,
+  shortDescription,
   description,
   navigate
 ) {
@@ -32,6 +33,7 @@ export default function handleSubmitAnnouncement(
       price: price,
       phone: phoneNumber,
       location: locationArray,
+      shortDescription: shortDescription,
       description: description,
       scope: scopesValues,
       learningMode: learningModeValues,

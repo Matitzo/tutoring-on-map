@@ -59,7 +59,7 @@ export default function Announcements({
                   </StyledPhoneNumber>
                 </div>
                 <StyledDescription>
-                  {announcement.description}
+                  {announcement.shortDescription}
                 </StyledDescription>
                 <StyledSmallText>
                   {JSON.parse(announcement.location)[0].address}{" "}

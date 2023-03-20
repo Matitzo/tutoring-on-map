@@ -59,3 +59,8 @@ export const StyledLinkButton = styled(Link)`
   margin: 2em auto 0em auto;
   width: fit-content;
 `;
+
+export const StyledSubmitButton = styled(StyledFormButton)`
+  margin: 2em auto 0em auto;
+  width: fit-content;
+`;
