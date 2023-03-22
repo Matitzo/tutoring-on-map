@@ -108,3 +108,14 @@ export const StyledSelectForm = styled.select`
     display: none;
   }
 `;
+
+export const StyledShortTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  margin: 0 auto;
+
+  textarea {
+    height: 100px;
+  }
+`;

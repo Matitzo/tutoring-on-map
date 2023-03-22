@@ -37,7 +37,7 @@ export const StyledFormDiv = styled.div`
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   min-height: 300px;
   position: relative;
-  width: 50%;
+  width: 55%;
 }
 &:before, &:after {
   content: "";

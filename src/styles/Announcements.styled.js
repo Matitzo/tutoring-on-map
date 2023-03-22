@@ -60,9 +60,12 @@ export const StyledSubject = styled.span`
 
 export const StyledPhoneNumber = styled.span``;
 
-export const StyledDescription = styled.p`
+export const StyledShortDescription = styled.p`
   height: 70px;
+  width: 100%;
   margin-bottom: 0.4em;
+  word-break: break-all;
+  white-space: normal;
 `;
 
 export const StyledSmallText = styled.span`

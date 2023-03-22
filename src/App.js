@@ -41,7 +41,7 @@ function App() {
           }
         />
         <Route
-          path={"/edytuj-ogloszenie"}
+          path={"/edytuj-ogloszenie/*"}
           element={
             <ProtectedRoutes Component={CreateAnnouncement} props={userId} />
           }

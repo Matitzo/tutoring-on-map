@@ -25,6 +25,7 @@ export default function MyAnnouncements({ prop }) {
         learningModeValues: JSON.parse(announcement.learningMode),
         scopesValues: JSON.parse(announcement.scope),
         locationArray: JSON.parse(announcement.location),
+        shortDescription: announcement.shortDescription,
         description: announcement.description,
       },
     });
@@ -78,7 +79,7 @@ export default function MyAnnouncements({ prop }) {
             <div>
               <h4>{announcement.subject}</h4>
               <h3>{announcement.author}</h3>
-              <p>{announcement.description}</p>
+              <p>{announcement.shortDescription}</p>
               <span>{JSON.parse(announcement.learningMode)}</span>
               <p>{JSON.parse(announcement.location)[0].address}</p>
             </div>

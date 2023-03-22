@@ -23,48 +23,57 @@ export default function CreateAnnouncement({ prop }) {
   const navigate = useNavigate();
   const userId = prop;
   const imageAvatar = require(`../profileImages/avatar.png`);
-  const announcementId = checkIfEdition() ? location.state.announcementId : "";
+  const [announcementId, setAnnouncementId] = React.useState(
+    checkIfState() ? location.state.announcementId : ""
+  );
   // zamiast tych wszystkich statow mozna zrobic jeden obiekt ktory bd przechowywal wszystko dzieki czemu bd potem tylko
   // jeden warunek a nie dla kazdej wartosci osobny
   const [author, setAuthor] = React.useState(
-    checkIfEdition() ? location.state.author : ""
+    checkIfState() ? location.state.author : ""
   );
   const [image, setImage] = React.useState(
-    checkIfEdition() ? location.state.image : imageAvatar
+    checkIfState() ? location.state.image : imageAvatar
   );
   const [imageName, setImageName] = React.useState(
-    checkIfEdition() ? location.state.imageName : "avatar"
+    checkIfState() ? location.state.imageName : "avatar"
   );
   const [phoneNumber, setPhoneNumber] = React.useState(
-    checkIfEdition() ? location.state.phoneNumber : ""
+    checkIfState() ? location.state.phoneNumber : ""
   );
   const [subject, setSubject] = React.useState(
-    checkIfEdition() ? location.state.subject : ""
+    checkIfState() ? location.state.subject : ""
   );
   const [price, setPrice] = React.useState(
-    checkIfEdition() ? location.state.price : ""
+    checkIfState() ? location.state.price : ""
   );
   const [learningModeValues, setLearningModeValues] = React.useState(
-    checkIfEdition() ? location.state.learningModeValues : []
+    checkIfState() ? location.state.learningModeValues : []
   );
   const [scopesValues, setScopesValues] = React.useState(
-    checkIfEdition() ? location.state.scopesValues : []
+    checkIfState() ? location.state.scopesValues : []
   );
   const [locationArray, setLocationArray] = React.useState(
-    checkIfEdition() ? location.state.locationArray : []
+    checkIfState() ? location.state.locationArray : []
   );
 
   const [shortDescription, setShortDescription] = React.useState(
-    checkIfEdition() ? location.state.shortDescription : ""
+    checkIfState() ? location.state.shortDescription : ""
   );
 
   // potem zmienic description state lub wyrzucic
   const [description, setDescription] = React.useState(
-    checkIfEdition() ? location.state.description : ""
+    checkIfState() ? location.state.description : ""
   );
 
-  function checkIfEdition() {
+  function checkIfState() {
     return location.pathname === "/edytuj-ogloszenie";
+  }
+
+  function checkIfEdition() {
+    console.log(location.pathname.includes("/edytuj-ogloszenie"));
+
+    console.log("tutaj");
+    return location.pathname.includes("/edytuj-ogloszenie");
   }
 
   // wrzucic ta funkcje do osobnego komponentu
@@ -92,7 +101,7 @@ export default function CreateAnnouncement({ prop }) {
   const token = cookies.get("TOKEN");
   Axios.get(
     `http://localhost:3000/${
-      checkIfEdition() ? "edytuj-ogloszenie" : "stworz-ogloszenie"
+      checkIfState() ? "edytuj-ogloszenie" : "stworz-ogloszenie"
     }`,
     {
       headers: {
@@ -178,6 +187,7 @@ export default function CreateAnnouncement({ prop }) {
               element={
                 <StyledTextEditorWrapper>
                   <Description
+                    description={description}
                     handleDescription={(value) => setDescription(value)}
                   />
                   {/* <StyledSubmitButton variant="primary" type="submit">

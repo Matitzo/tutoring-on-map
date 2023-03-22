@@ -1,19 +1,10 @@
 import styled from "styled-components";
 
-export const StyledBackArrow = styled.i`
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  margin: 10px;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-`;
-
 export const StyledUnfoldedAnnouncementContainer = styled.div`
+  position: relative;
   width: 55%;
   overflow: auto;
-  padding: 0 1em;
+  padding: 1em 1em;
 `;
 
 export const StyledHeadContainer = styled.div`
@@ -78,4 +69,14 @@ export const StyledLocation = styled.div`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const StyledDesriptionContainer = styled.div`
+  margin-top: 1em;
+  padding: 2em 2em;
+  background-color: ${({ theme }) => theme.announcements.colors.white};
+  border: 3px solid ${({ theme }) => theme.announcements.colors.white};
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
+  min-height: 50vh;
+  word-wrap: break-word;
 `;

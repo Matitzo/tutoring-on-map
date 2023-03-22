@@ -5,7 +5,7 @@ import {
   StyledAnnoucementInformations,
   StyledSubject,
   StyledPhoneNumber,
-  StyledDescription,
+  StyledShortDescription,
   StyledPrice,
   StyledSmallText,
 } from "../../../styles/Announcements.styled";
@@ -58,9 +58,9 @@ export default function Announcements({
                     )}
                   </StyledPhoneNumber>
                 </div>
-                <StyledDescription>
+                <StyledShortDescription>
                   {announcement.shortDescription}
-                </StyledDescription>
+                </StyledShortDescription>
                 <StyledSmallText>
                   {JSON.parse(announcement.location)[0].address}{" "}
                   {JSON.parse(announcement.location).length > 1 &&
