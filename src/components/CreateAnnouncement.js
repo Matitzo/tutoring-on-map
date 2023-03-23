@@ -14,7 +14,6 @@ import {
   StyledFormDiv,
 } from "../styles/CreateAnnouncement.styled";
 import { StyledTextEditorWrapper } from "../styles/Description.styled";
-import { StyledSubmitButton } from "../styles/Button.styled";
 
 const cookies = new Cookies();
 
@@ -70,9 +69,6 @@ export default function CreateAnnouncement({ prop }) {
   }
 
   function checkIfEdition() {
-    console.log(location.pathname.includes("/edytuj-ogloszenie"));
-
-    console.log("tutaj");
     return location.pathname.includes("/edytuj-ogloszenie");
   }
 
