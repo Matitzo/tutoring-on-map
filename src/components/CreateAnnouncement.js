@@ -33,6 +33,7 @@ export default function CreateAnnouncement({ prop }) {
   const [image, setImage] = React.useState(
     checkIfState() ? location.state.image : imageAvatar
   );
+  const [uploadImage, setUploadImage] = React.useState();
   const [imageName, setImageName] = React.useState(
     checkIfState() ? location.state.imageName : "avatar"
   );
@@ -80,10 +81,12 @@ export default function CreateAnnouncement({ prop }) {
   }
 
   function handleImage(image) {
+    console.log(image[0].name);
     if (image.length > 0) {
       const fileReader = new FileReader();
       fileReader.onload = function (e) {
         setImage(e.target.result);
+        setUploadImage(image[0]);
       };
       fileReader.readAsDataURL(image[0]);
       const random = Math.random() * 100000000000000000;
@@ -123,7 +126,7 @@ export default function CreateAnnouncement({ prop }) {
             author,
             userId,
             imageName,
-            image,
+            uploadImage,
             phoneNumber,
             subject,
             price,

@@ -8,6 +8,10 @@ import Container from "./home-components/Container";
 export default function Home({ isLoged, setIsLoged, setUserId }) {
   const location = useLocation();
   const navigate = useNavigate();
+  // komentarz 1
+  // dac ify w statach tak by bralo wartosc z query z pathname jesli jest filt nalozony by mozna bylo przesylac linki
+  // podobnie zrobic z unfolded announcement -> dac id ogloszenia w query i wysylac zapytanie do api po id
+  // komentarz 2
   // pomyslec czy zamiast robienia stateow nie lepiej skorzystac z location.search i wrzucac do tego zmieniajace sie wartosci url
   // a potem z tego do api wyciagac
   const [data, setData] = React.useState([]);
@@ -16,6 +20,9 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   const [subjectFilter, setSubjectFilter] = React.useState();
   const [learningModeFilter, setLearningModeFilter] = React.useState();
   const [costFilter, setCostFilter] = React.useState(["", ""]);
+  const [unfoldedAnnoucement, setUnfoldedAnnoucement] = React.useState(
+    location.state ? location.state.announcement : {}
+  );
 
   function getUrl() {
     if (voivodeshipFilter) location.pathname = "/filters";
@@ -24,11 +31,14 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
     else if (cityFilter) location.pathname = "/filters";
     else if (costFilter[0]) location.pathname = "/filters";
     else if (costFilter[1]) location.pathname = "/filters";
-    else location.pathname = "/";
+    else if (location.pathname.includes("offers")) console.log("asd");
+    else {
+      location.pathname = "/";
+      navigate(location.pathname);
+    }
 
     console.log("wyrenderowalo home");
 
-    navigate(location.pathname);
     // tutaj mozna zrobic by ta sama sciezke ktora jest do api dac do location.pathname a potem przy tworzeniu statow
     // dac warunki ze jak w location.search jest dana wartosc to zeby przypisalo na wstepie a jak nie to nie
     // to by podswietlalo odpowiedni wybor bd tez dzialac jak tak zrobie (niebd trzeba tam nic zmieniac)
@@ -75,7 +85,11 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
         setLearningModeFilter={(value) => setLearningModeFilter(value)}
         setCostFilter={(value) => setCostFilter(value)}
       />
-      <Container data={data} />
+      <Container
+        data={data}
+        unfoldedAnnoucement={unfoldedAnnoucement}
+        setUnfoldedAnnoucement={setUnfoldedAnnoucement}
+      />
     </div>
   );
 }

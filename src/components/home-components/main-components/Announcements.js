@@ -1,5 +1,6 @@
 import { StyledAnnouncementsContainer } from "../../../styles/Announcements.styled";
 import { AnnouncementCard } from "../../AnnouncementCard";
+import { StyledLink } from "../../../styles/Link.styled";
 
 export default function Announcements({
   announcements,
@@ -9,10 +10,13 @@ export default function Announcements({
     <StyledAnnouncementsContainer>
       {announcements.map((announcement) => {
         return (
-          <AnnouncementCard
-            announcement={announcement}
-            handleUnfoldedAnnoucement={handleUnfoldedAnnoucement}
-          />
+          <StyledLink
+            key={announcement.author_id}
+            to={`/offers/${announcement.author}`}
+            onClick={() => handleUnfoldedAnnoucement(announcement)}
+          >
+            <AnnouncementCard announcement={announcement} />
+          </StyledLink>
         );
       })}
     </StyledAnnouncementsContainer>

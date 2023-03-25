@@ -1,12 +1,10 @@
-import styles from "../styles/Announcements.module.css";
-import { Link } from "react-router-dom";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import React from "react";
 import { AnnouncementCard } from "./AnnouncementCard";
 import { useNavigate } from "react-router-dom";
 //import deleteAnnouncement from "./myAnnoucements-components/deleteAnnouncement";
-import { StyledButton, StyledLogInOutButton } from "../styles/Button.styled";
+import { StyledLink } from "../styles/Link.styled";
 import {
   StyledMyAnnouncementsContainer,
   StyledMyAnnouncementWrapper,
@@ -35,6 +33,14 @@ export default function MyAnnouncements({ prop }) {
         locationArray: JSON.parse(announcement.location),
         shortDescription: announcement.shortDescription,
         description: announcement.description,
+      },
+    });
+  }
+
+  function unfoldAnnoucement(announcement) {
+    navigate(`/offers/${announcement.author}`, {
+      state: {
+        announcement: announcement,
       },
     });
   }
@@ -78,7 +84,14 @@ export default function MyAnnouncements({ prop }) {
       {myAnnouncements.map((announcement) => {
         return (
           <StyledMyAnnouncementWrapper>
-            <AnnouncementCard announcement={announcement} />
+            {/* <StyledLink key={announcement.author_id} to={`/offers`}> */}
+            <div
+              onClick={() => unfoldAnnoucement(announcement)}
+              style={{ cursor: "pointer" }}
+            >
+              <AnnouncementCard announcement={announcement} />
+            </div>
+            {/* </StyledLink> */}
             <StyledBtnWrapper>
               <StyledIcon onClick={() => editAnnouncement(announcement)}>
                 <svg

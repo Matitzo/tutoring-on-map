@@ -10,7 +10,7 @@ export default function GetMarkersOnMap({
     return JSON.parse(announcement.location).map((location) => {
       return (
         <Marker
-          position={location.coordinates}
+          position={[location.coordinates[1], location.coordinates[0]]}
           icon={icons[`matematyka`]} // tutaj bd ${announcement.subject}
         >
           <Popup>

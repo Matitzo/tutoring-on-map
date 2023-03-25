@@ -20,7 +20,7 @@ export default function DropDownList({
     // w roucie wtedy mozliwe ze bd trzeba usunac exact przy stronei glownej i przeniesc ten route na sam koniec by nie bylo bledu
     <DropDownListContainer filter={filter}>
       <ul>
-        <StyledLink to="/filters">
+        <StyledLink to="/">
           <StyledListElement
             selected={!filter ? true : false}
             onClick={(e) => {
