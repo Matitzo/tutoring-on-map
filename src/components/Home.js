@@ -71,7 +71,6 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
 
   return (
     <div>
-      <Header isLoged={isLoged} setIsLoged={setIsLoged} setUserId={setUserId} />
       <Filters
         voivodeshipFilter={voivodeshipFilter}
         subjectFilter={subjectFilter}

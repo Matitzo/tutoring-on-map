@@ -30,7 +30,7 @@ export default function Header({ isLoged, setIsLoged, setUserId }) {
             <Link to="/stworz-ogloszenie">
               <StyledButton>Stwórz ogłoszenie</StyledButton>
             </Link>
-            <Link to="/moje-ogloszenia">
+            <Link to="/profil/moje-ogloszenia">
               <StyledButton>Moje ogloszenia</StyledButton>
             </Link>
           </div>

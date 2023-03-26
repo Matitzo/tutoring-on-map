@@ -8,6 +8,8 @@ import Registration from "./components/Registration";
 import CreateAnnouncement from "./components/CreateAnnouncement";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import MyAnnouncements from "./components/MyAnnouncements";
+import Header from "./components/home-components/Header";
+import Profile from "./components/Profile";
 import { theme } from "./styles/Theme.js";
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Header isLoged={isLoged} setIsLoged={setIsLoged} setUserId={setUserId} />
       <Routes>
         <Route path={`/registration`} element={<Registration />}></Route>
         <Route
@@ -47,10 +50,8 @@ function App() {
           }
         />
         <Route
-          path={"/moje-ogloszenia"}
-          element={
-            <ProtectedRoutes Component={MyAnnouncements} props={userId} />
-          }
+          path={"/profil/*"}
+          element={<ProtectedRoutes Component={Profile} props={userId} />}
         />
         <Route
           path={`/*`}

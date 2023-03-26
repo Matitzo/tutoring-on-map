@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-export const StyledMyAnnouncementsContainer = styled.div`
-  border: 1px solid red;
-`;
+export const StyledMyAnnouncementsContainer = styled.div``;
 
 export const StyledMyAnnouncementWrapper = styled.div`
   position: relative;
-  width: 55%;
+  width: 100%;
   margin: 0 auto;
 `;
 
