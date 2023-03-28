@@ -1,6 +1,8 @@
 import { Marker, Popup } from "react-leaflet";
-import { Link } from "react-router-dom";
+import { StyledLink } from "../../../styles/Link.styled.js";
+import PopupDiv from "./Popup";
 import icons from "./Icons";
+//import StyledLink from "../../../styles/Link.styled";
 
 export default function GetMarkersOnMap({
   announcements,
@@ -13,13 +15,16 @@ export default function GetMarkersOnMap({
           position={[location.coordinates[1], location.coordinates[0]]}
           icon={icons[`matematyka`]} // tutaj bd ${announcement.subject}
         >
-          <Popup>
-            <Link
+          <Popup style={{ width: "250px" }}>
+            <StyledLink
               to={`offers/${announcement.author}`}
               onClick={() => handleUnfoldedAnnoucement(announcement)}
             >
-              {announcement.author}
-            </Link>
+              <PopupDiv
+                announcement={announcement}
+                icon={icons[`matematyka`]}
+              />
+            </StyledLink>
           </Popup>
         </Marker>
       );
