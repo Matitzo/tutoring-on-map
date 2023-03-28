@@ -3,7 +3,6 @@ import Map from "./main-components/Map";
 import UnfoldedAnnoucement from "./main-components/UnfoldedAnnoucement";
 import styles from "../../styles/Container.module.css";
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 
 export default function Container({
@@ -16,14 +15,40 @@ export default function Container({
   //   location.state ? location.state.announcement : {}
   // );
 
-  console.log(data);
+  const [coord, setCoord] = React.useState([
+    52.06933986747059, 19.480305833934132,
+  ]);
+  const [zoom, setZoom] = React.useState(6);
+
+  const [hoverAnnouncement, setHoverAnnouncement] = React.useState({});
+
+  function handleMapCoord(unfoldedAnnoucement) {
+    const locationCoord = JSON.parse(unfoldedAnnoucement.location);
+    console.log([
+      locationCoord[0].coordinates[1],
+      locationCoord[0].coordinates[0],
+    ]);
+    setCoord([
+      locationCoord[0].coordinates[1],
+      locationCoord[0].coordinates[0],
+    ]);
+  }
+
+  function handleMapZoom() {
+    setZoom(10);
+  }
+
   return (
     <div className={styles["container"]}>
       <Routes>
         <Route
           path={`/offers/*`}
           element={
-            <UnfoldedAnnoucement unfoldedAnnoucement={unfoldedAnnoucement} />
+            <UnfoldedAnnoucement
+              unfoldedAnnoucement={unfoldedAnnoucement}
+              setCoord={setCoord}
+              setZoom={setZoom}
+            />
           }
         ></Route>
         <Route
@@ -34,6 +59,9 @@ export default function Container({
               handleUnfoldedAnnoucement={(announcement) =>
                 setUnfoldedAnnoucement(announcement)
               }
+              handleMapCoord={handleMapCoord}
+              handleMapZoom={handleMapZoom}
+              setHoverAnnouncement={setHoverAnnouncement}
             />
           }
         ></Route>
@@ -43,6 +71,11 @@ export default function Container({
         handleUnfoldedAnnoucement={(announcement) =>
           setUnfoldedAnnoucement(announcement)
         }
+        coord={coord}
+        zoom={zoom}
+        setCoord={setCoord}
+        handleMapZoom={handleMapZoom}
+        hoverAnnouncement={hoverAnnouncement}
       />
     </div>
   );

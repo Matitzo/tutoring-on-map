@@ -1,4 +1,5 @@
 import L from "leaflet";
+import styles from "../../../styles/Map.module.css";
 
 const SubjectIcon = L.Icon.extend({
   options: {

@@ -5,7 +5,16 @@ import { StyledLink } from "../../../styles/Link.styled";
 export default function Announcements({
   announcements,
   handleUnfoldedAnnoucement,
+  handleMapCoord,
+  handleMapZoom,
+  setHoverAnnouncement,
 }) {
+  function handleClick(announcement) {
+    handleUnfoldedAnnoucement(announcement);
+    handleMapCoord(announcement);
+    handleMapZoom();
+  }
+
   return (
     <StyledAnnouncementsContainer>
       {announcements.map((announcement) => {
@@ -13,7 +22,9 @@ export default function Announcements({
           <StyledLink
             key={announcement.author_id}
             to={`/offers/${announcement.author}`}
-            onClick={() => handleUnfoldedAnnoucement(announcement)}
+            onClick={() => handleClick(announcement)}
+            onMouseOver={() => setHoverAnnouncement(announcement)}
+            onMouseLeave={() => setHoverAnnouncement({})}
           >
             <AnnouncementCard announcement={announcement} />
           </StyledLink>

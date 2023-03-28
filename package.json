@@ -17,6 +17,7 @@
     "draft-js": "^0.11.7",
     "html-react-parser": "^3.0.12",
     "leaflet": "^1.9.3",
+    "leaflet.smooth_marker_bouncing": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.15.0",

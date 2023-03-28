@@ -13,17 +13,27 @@ import {
 } from "../../../styles/UnfoldedAnnouncement.styled";
 import { StyledBackArrow } from "../../../styles/BackArrow.styled";
 
-export default function UnfoldedAnnoucement({ unfoldedAnnoucement }) {
+export default function UnfoldedAnnoucement({
+  unfoldedAnnoucement,
+  setCoord,
+  setZoom,
+}) {
   var image;
   try {
     image = require(`../../../profileImages/${unfoldedAnnoucement.image}`);
   } catch {
     image = require(`../../../profileImages/avatar.png`);
   }
+
+  function handleBackArrow() {
+    setCoord([52.06933986747059, 19.480305833934132]);
+    setZoom(6);
+  }
+
   return (
     <StyledUnfoldedAnnouncementContainer>
       <Link to="/">
-        <StyledBackArrow>
+        <StyledBackArrow onClick={() => handleBackArrow()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
