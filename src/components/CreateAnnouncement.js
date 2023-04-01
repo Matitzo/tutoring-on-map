@@ -6,6 +6,7 @@ import InpuDataForm from "./form-components/InputDataForm";
 import SelectLocation from "./form-components/SelectLocation";
 import Description from "./form-components/Description";
 import handleSubmitAnnouncement from "./form-components/handleSubmitAnnouncement";
+import handleUploadImage from "./form-components/handleUploadImage";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {
@@ -33,7 +34,9 @@ export default function CreateAnnouncement({ prop }) {
   const [image, setImage] = React.useState(
     checkIfState() ? location.state.image : imageAvatar
   );
+
   const [uploadImage, setUploadImage] = React.useState();
+
   const [imageName, setImageName] = React.useState(
     checkIfState() ? location.state.imageName : "avatar"
   );
@@ -118,7 +121,7 @@ export default function CreateAnnouncement({ prop }) {
     <StyledCreateAnnouncementWrapper>
       <StyledForm
         id="create-announcement-form"
-        onSubmit={(e) =>
+        onSubmit={(e) => {
           handleSubmitAnnouncement(
             checkIfEdition,
             e,
@@ -126,7 +129,6 @@ export default function CreateAnnouncement({ prop }) {
             author,
             userId,
             imageName,
-            uploadImage,
             phoneNumber,
             subject,
             price,
@@ -136,8 +138,9 @@ export default function CreateAnnouncement({ prop }) {
             shortDescription,
             description,
             navigate
-          )
-        }
+          );
+          handleUploadImage(uploadImage, imageName);
+        }}
       >
         <StyledFormDiv>
           <Routes>

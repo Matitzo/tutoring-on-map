@@ -7,7 +7,6 @@ export default function handleSubmitAnnouncement(
   author,
   userId,
   imageName,
-  uploadImage,
   phoneNumber,
   subject,
   price,
@@ -19,7 +18,6 @@ export default function handleSubmitAnnouncement(
   navigate
 ) {
   e.preventDefault();
-  console.log(uploadImage);
 
   Axios.post(
     `http://localhost:3000/${
@@ -30,7 +28,6 @@ export default function handleSubmitAnnouncement(
       author: author,
       userId: userId,
       imageName: imageName,
-      uploadImage: uploadImage,
       subject: subject,
       price: price,
       phone: phoneNumber,

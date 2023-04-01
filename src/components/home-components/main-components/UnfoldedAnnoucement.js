@@ -20,7 +20,7 @@ export default function UnfoldedAnnoucement({
 }) {
   var image;
   try {
-    image = require(`../../../profileImages/${unfoldedAnnoucement.image}`);
+    image = require(`../../../../../server/upload_images/${unfoldedAnnoucement.image}`);
   } catch {
     image = require(`../../../profileImages/avatar.png`);
   }

@@ -1,5 +1,4 @@
 import React from "react";
-import { StyledLink } from "../styles/Link.styled";
 import { StyledImageWrapper, StyledImage } from "../styles/Image.styled";
 import {
   StyledAnnouncementsContainer,
@@ -15,7 +14,7 @@ import {
 export function AnnouncementCard({ announcement }) {
   var image;
   try {
-    image = require(`../profileImages/${announcement.image}`);
+    image = require(`../../../server/upload_images/${announcement.image}`);
   } catch {
     image = require(`../profileImages/avatar.png`);
   }
