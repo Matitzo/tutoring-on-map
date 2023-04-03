@@ -60,7 +60,7 @@ zeby res cos zwracal i na pdostawie tego by nawigowalo/wyswietlalo tekst */}
         )}
         <label>Nie masz konta?</label>
         <StyledLinkWrapper>
-          <Link to={"login/rejestracja"}>Zarejestruj</Link>
+          <Link to={"/login/rejestracja"}>Zarejestruj</Link>
         </StyledLinkWrapper>
       </StyledContentContainer>
     </StyledLoginForm>

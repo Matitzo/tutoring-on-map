@@ -4,11 +4,13 @@ import { StyledLink } from "../styles/Link.styled";
 import logo from "../images/logo2.png";
 import {
   StyledLogingImg,
+  StyledSecondaryHeading,
   StyledLogoContainer,
   StyledLoginFormWrapper,
   StyledLoginContainer,
   StyledPhotoDiv,
   StyledLoginCard,
+  StyledLinkWrapper,
 } from "../styles/Login.styled";
 import LoginForm from "./login-components/LoginForm";
 import RegistrationForm from "./registration-components/RegistrationForm";
@@ -18,9 +20,12 @@ export default function Login({ isLoged, setIsLoged, setUserId }) {
     <StyledLoginFormWrapper>
       <StyledLoginCard>
         <StyledLogoContainer>
-          <StyledLink to="/">
-            <StyledLogingImg src={logo} alt="logo image"></StyledLogingImg>
-          </StyledLink>
+          <StyledLinkWrapper>
+            <StyledLink to="/">
+              <StyledSecondaryHeading>SmartEdukacja.pl</StyledSecondaryHeading>
+              {/* <StyledLogingImg src={logo} alt="logo image"></StyledLogingImg> */}
+            </StyledLink>
+          </StyledLinkWrapper>
         </StyledLogoContainer>
         <StyledLoginContainer>
           <Routes>

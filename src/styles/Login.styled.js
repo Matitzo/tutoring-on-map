@@ -27,7 +27,9 @@ export const StyledLoginForm = styled.form`
 export const StyledLogoContainer = styled.div`
   padding: 0.5em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: ${({ theme }) => theme.login.colors.logoBackgroundColor};
 `;
 
@@ -61,6 +63,10 @@ export const StyledHeading = styled.h1`
   align-self: center;
   font-size: 2.4rem;
   color: ${({ theme }) => theme.login.colors.logoBackgroundColor};
+`;
+
+export const StyledSecondaryHeading = styled.h2`
+  color: white;
 `;
 
 export const StyledLoginBtn = styled.button`
