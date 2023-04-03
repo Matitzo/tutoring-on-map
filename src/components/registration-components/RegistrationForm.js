@@ -12,12 +12,9 @@ import {
   StyledHeading,
 } from "../../styles/Login.styled";
 
-export default function RegistrationForm({
-  password,
-  setPassword,
-  login,
-  setLogin,
-}) {
+export default function RegistrationForm() {
+  const [password, setPassword] = React.useState("");
+  const [login, setLogin] = React.useState("");
   const [register, setRegister] = React.useState("");
   return (
     <StyledLoginForm>
@@ -37,17 +34,15 @@ export default function RegistrationForm({
           placeholder="Hasło: min. 6 znaków"
           onChange={(e) => setPassword(e.target.value)}
         ></StyledLoginInput>
-        <Link to="/rejestracja">
-          <StyledLoginBtn
-            variant="primary"
-            type="submit"
-            onClick={(e) =>
-              handleSubmitRegistration(setRegister, login, password)
-            }
-          >
-            Zarejestruj
-          </StyledLoginBtn>
-        </Link>
+        <StyledLoginBtn
+          variant="primary"
+          type="submit"
+          onClick={(e) =>
+            handleSubmitRegistration(e, setRegister, login, password)
+          }
+        >
+          Zarejestruj
+        </StyledLoginBtn>
         {register === "success" && (
           <div>
             <StyledSuccessMsg>Zarejestrowano pomyślnie</StyledSuccessMsg>{" "}

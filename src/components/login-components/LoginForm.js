@@ -13,15 +13,9 @@ import {
   StyledLinkWrapper,
 } from "../../styles/Login.styled";
 
-export default function LoginForm({
-  password,
-  setPassword,
-  login,
-  setLogin,
-  isLoged,
-  setIsLoged,
-  setUserId,
-}) {
+export default function LoginForm({ isLoged, setIsLoged, setUserId }) {
+  const [password, setPassword] = React.useState("");
+  const [login, setLogin] = React.useState("");
   const navigate = useNavigate();
   return (
     <StyledLoginForm
