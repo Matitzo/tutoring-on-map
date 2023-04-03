@@ -1,9 +1,8 @@
+import React from "react";
 import { Marker, Popup } from "react-leaflet";
 import { StyledLink } from "../../../styles/Link.styled.js";
 import PopupDiv from "./Popup";
 import icons from "./Icons";
-import L from "leaflet";
-import { StyledMarker } from "../../../styles/Markers.styled.js";
 //import StyledLink from "../../../styles/Link.styled";
 
 export default function GetMarkersOnMap({
@@ -19,13 +18,18 @@ export default function GetMarkersOnMap({
     handleUnfoldedAnnoucement(announcement);
   }
 
+  function handleMarker(announcement) {
+    return announcement === hoverAnnouncement
+      ? icons[`matematykaHovered`] // tutaj bd `${announcement.subject}Hovered`
+      : icons[`matematyka`]; // a tutaj bd ${announcement.subject}
+  }
+
   return announcements.map((announcement) => {
-    console.log(announcement === hoverAnnouncement ? "Równe" : "Nie równe");
     return JSON.parse(announcement.location).map((location) => {
       return (
         <Marker
           position={[location.coordinates[1], location.coordinates[0]]}
-          icon={icons[`matematyka`]} // tutaj bd ${announcement.subject}
+          icon={handleMarker(announcement)}
         >
           <Popup style={{ width: "250px" }}>
             <StyledLink
