@@ -33,6 +33,7 @@ export default function MyAnnouncements({ prop }) {
         locationArray: JSON.parse(announcement.location),
         shortDescription: announcement.shortDescription,
         description: announcement.description,
+        imageName: announcement.image,
       },
     });
   }

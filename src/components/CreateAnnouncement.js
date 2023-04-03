@@ -31,15 +31,19 @@ export default function CreateAnnouncement({ prop }) {
   const [author, setAuthor] = React.useState(
     checkIfState() ? location.state.author : ""
   );
-  const [image, setImage] = React.useState(
-    checkIfState() ? location.state.image : imageAvatar
-  );
-
-  const [uploadImage, setUploadImage] = React.useState();
 
   const [imageName, setImageName] = React.useState(
     checkIfState() ? location.state.imageName : "avatar"
   );
+  console.log(imageName);
+  const [image, setImage] = React.useState(
+    checkIfState()
+      ? require(`../../../server/upload_images/${imageName}`)
+      : imageAvatar
+  );
+
+  const [uploadImage, setUploadImage] = React.useState();
+
   const [phoneNumber, setPhoneNumber] = React.useState(
     checkIfState() ? location.state.phoneNumber : ""
   );
