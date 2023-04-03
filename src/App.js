@@ -4,10 +4,8 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Registration from "./components/Registration";
 import CreateAnnouncement from "./components/CreateAnnouncement";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-import MyAnnouncements from "./components/MyAnnouncements";
 import Header from "./components/home-components/Header";
 import Profile from "./components/Profile";
 import { theme } from "./styles/Theme.js";
@@ -26,9 +24,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header isLoged={isLoged} setIsLoged={setIsLoged} setUserId={setUserId} />
       <Routes>
-        <Route path={`/registration`} element={<Registration />}></Route>
         <Route
-          path={`/login`}
+          path={`/login/*`}
           element={
             <Login
               isLoged={isLoged}

@@ -1,31 +1,43 @@
 import styled from "styled-components";
+import librarian_photo from "../images/librarian.jpg";
 
 export const StyledLoginFormWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
+  margin-top: 2em;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
-export const StyledLoginForm = styled.form`
-  max-width: 350px;
-  margin: 0 auto;
-  border-radius: 5px;
-  overflow: hidden;
+export const StyledLoginCard = styled.div`
+  width: 700px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 `;
 
+export const StyledLoginContainer = styled.div`
+  display: flex;
+`;
+
+export const StyledLoginForm = styled.form`
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+`;
+
 export const StyledLogoContainer = styled.div`
-  padding: 30px;
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
   background-color: ${({ theme }) => theme.login.colors.logoBackgroundColor};
 `;
 
 export const StyledContentContainer = styled.div`
   padding: 30px;
   background-color: ${({ theme }) => theme.login.colors.backgroundColor};
-
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 400px;
 
   label {
     font-size: 0.9rem;
@@ -36,6 +48,19 @@ export const StyledLogingImg = styled.img`
   display: block;
   max-width: 200px;
   margin: 0 auto;
+`;
+
+export const StyledPhotoDiv = styled.div`
+  width: 50%;
+  background-image: url(${librarian_photo});
+  background-size: cover;
+  background-position: center;
+`;
+
+export const StyledHeading = styled.h1`
+  align-self: center;
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.login.colors.logoBackgroundColor};
 `;
 
 export const StyledLoginBtn = styled.button`
@@ -83,4 +108,8 @@ export const StyledErrorMsg = styled.span`
   color: ${({ theme }) => theme.login.colors.errorMsgColor};
   font-size: 0.9rem;
   margin-bottom: 0.8em;
+`;
+
+export const StyledLinkWrapper = styled.div`
+  width: fit-content;
 `;
