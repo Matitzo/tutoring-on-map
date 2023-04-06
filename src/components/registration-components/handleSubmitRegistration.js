@@ -1,11 +1,21 @@
 import Axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-export default function handleSubmitRegistration(e, setState, login, password) {
+export default function handleSubmitRegistration(
+  e,
+  setState,
+  login,
+  password,
+  passwordValidation,
+  email
+) {
   e.preventDefault();
-  if (login.length < 5) return setState("failed");
-  if (password.length < 6) return setState("failed");
+  if (login.length < 5) return setState("invalid_login_lenght");
+  if (password.length < 6) return setState("invalid_password_lenght");
+  if (password !== passwordValidation)
+    return setState("invalid_password_validation");
   Axios.post(`http://localhost:3000/registration`, {
+    email: email,
     login: login,
     password: password,
     userId: uuidv4(),

@@ -39,7 +39,7 @@ export const StyledContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 400px;
+  min-height: 400px;
 
   label {
     font-size: 0.9rem;

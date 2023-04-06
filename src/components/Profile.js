@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import MyAnnouncements from "./MyAnnouncements";
+import ProfilData from "./ProfilData";
 import { StyledLink } from "../styles/Link.styled";
 import {
   StyledProfileContainer,
@@ -8,7 +10,6 @@ import {
   StyledProfileContentContainer,
   StyledProfileUl,
 } from "../styles/Profile.styled";
-import MyAnnouncements from "./MyAnnouncements";
 
 export default function Profile({ prop }) {
   return (
@@ -26,7 +27,7 @@ export default function Profile({ prop }) {
         </StyledProfileListContainer>
         <StyledProfileContentContainer>
           <Routes>
-            <Route path="/dane" element={<div>asd</div>}></Route>
+            <Route path="/dane" element={<ProfilData prop={prop} />}></Route>
             <Route
               path="/moje-ogloszenia"
               element={<MyAnnouncements prop={prop} />}
