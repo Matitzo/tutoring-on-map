@@ -64,3 +64,8 @@ export const StyledSubmitButton = styled(StyledFormButton)`
   margin: 2em auto 0em auto;
   width: fit-content;
 `;
+
+export const StyledButtonWrapper = styled.div`
+  margin: 0 auto;
+  width: fit-content;
+`;

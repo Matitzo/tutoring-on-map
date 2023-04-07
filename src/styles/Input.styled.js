@@ -119,3 +119,9 @@ export const StyledShortTextWrapper = styled.div`
     height: 100px;
   }
 `;
+
+export const StyledErrorMsg = styled.p`
+  color: red;
+  margin: 0 0 1em 0;
+  font-size: 0.8rem;
+`;

@@ -1,9 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { StyledLink } from "../styles/Link.styled";
-import logo from "../images/logo2.png";
 import {
-  StyledLogingImg,
   StyledSecondaryHeading,
   StyledLogoContainer,
   StyledLoginFormWrapper,

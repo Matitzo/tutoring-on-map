@@ -1,11 +1,14 @@
+import React from "react";
 import FormMap from "./FormMap";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { StyledFormButton, StyledLinkButton } from "../../styles/Button.styled";
+import {
+  StyledFormButton,
+  StyledButtonWrapper,
+} from "../../styles/Button.styled";
 import {
   StyledSelection,
   StyledDeleteButton,
-  StyledLocationsDiv,
 } from "../../styles/CreateAnnouncement.styled";
 
 import {
@@ -14,6 +17,7 @@ import {
   StyledMapDiv,
   StyledLoactionsWrapper,
   StyledLocationsContainer,
+  StyledErrorMsg,
 } from "../../styles/CreateAnnouncementMap.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
 
@@ -22,8 +26,19 @@ export default function SelectLocation({
   locationArray,
   handleClose,
 }) {
-  console.log("renderuje mape");
-  let location = useLocation();
+  const navigate = new useNavigate();
+  const [invalidForm, setInvalidForm] = React.useState(false);
+  const errorMsg = "Należy podać przynajmniej jedną lokalizacje.";
+
+  function handleClickNext(e) {
+    e.preventDefault();
+    if (locationArray.length > 0) {
+      navigate("/stworz-ogloszenie/opis");
+    } else {
+      setInvalidForm(true);
+    }
+  }
+
   return (
     <StyledMapWrapper>
       <Link to="/stworz-ogloszenie">
@@ -74,12 +89,15 @@ export default function SelectLocation({
             ))}
         </StyledLoactionsWrapper>
       </StyledLocationsContainer>
-
-      <StyledLinkButton
+      {invalidForm && <StyledErrorMsg>{errorMsg}</StyledErrorMsg>}
+      {/* <StyledLinkButton
         to={location.pathname.split("/").slice(0, -1).join("/") + "/opis"}
-      >
-        <StyledFormButton>Dalej</StyledFormButton>
-      </StyledLinkButton>
+      > */}
+      <StyledButtonWrapper>
+        <StyledFormButton onClick={(e) => handleClickNext(e)}>
+          Dalej
+        </StyledFormButton>
+      </StyledButtonWrapper>
     </StyledMapWrapper>
   );
 }

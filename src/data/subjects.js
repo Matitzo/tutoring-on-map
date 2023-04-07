@@ -13,7 +13,6 @@ const subjects = [
   "historia",
   "wiedza o społeczeństwie",
   "muzyka",
-  "technika",
   "religia",
 ];
 

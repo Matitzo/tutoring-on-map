@@ -60,7 +60,6 @@ export const StyledPhotoDiv = styled.div`
 `;
 
 export const StyledHeading = styled.h1`
-  align-self: center;
   font-size: 2.4rem;
   color: ${({ theme }) => theme.login.colors.logoBackgroundColor};
 `;

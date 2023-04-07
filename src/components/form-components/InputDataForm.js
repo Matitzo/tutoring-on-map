@@ -1,16 +1,18 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import subjects from "../../data/subjects";
 import scopes from "../../data/scopes";
 import learningMode from "../../data/learningMode";
 import Select from "./Select";
 import { StyledImage, StyledImageWrapper } from "../../styles/Image.styled";
-import { StyledFormButton, StyledLinkButton } from "../../styles/Button.styled";
+import { StyledFormButton } from "../../styles/Button.styled";
 import {
-  StyledInput,
   StyledInputFile,
   StyledLabelForm,
   StyledSelectForm,
   StyledShortTextWrapper,
+  StyledErrorMsg,
 } from "../../styles/Input.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
 
@@ -32,6 +34,27 @@ export default function InpuDataForm({
   shortDescription,
   setShortDescription,
 }) {
+  const navigate = new useNavigate();
+  const [invalidForm, setInvalidForm] = React.useState(false);
+  const errorMsg = "Należy wypełnić wszystkie pola formularza.";
+
+  function handleClickNext(e) {
+    e.preventDefault();
+    if (
+      author &&
+      phoneNumber &&
+      subject &&
+      price &&
+      scopesValues.length > 0 &&
+      learningModeValues.length > 0 &&
+      shortDescription
+    ) {
+      navigate("/stworz-ogloszenie/lokalizacja");
+    } else {
+      setInvalidForm(true);
+    }
+  }
+
   return (
     <>
       <Link to="/">
@@ -150,34 +173,10 @@ export default function InpuDataForm({
           onChange={(e) => setShortDescription(e.target.value)}
         ></textarea>
       </StyledShortTextWrapper>
-      {/* <StyledButton
-        variant="primary"
-        type="submit"
-        onClick={(e) =>
-          handleSubmitAnnouncement(
-            checkIfEdition,
-            e,
-            announcementId,
-            author,
-            userId,
-            imageName,
-            image,
-            phoneNumber,
-            subject,
-            price,
-            learningModeValues,
-            scopesValues,
-            locationArray,
-            description
-          )
-        }
-      >
-        Zapisz
-      </StyledButton> */}
-
-      <StyledLinkButton to="lokalizacja">
-        <StyledFormButton>Dalej</StyledFormButton>
-      </StyledLinkButton>
+      {invalidForm && <StyledErrorMsg>{errorMsg}</StyledErrorMsg>}
+      <StyledFormButton onClick={(e) => handleClickNext(e)}>
+        Dalej
+      </StyledFormButton>
     </>
   );
 }

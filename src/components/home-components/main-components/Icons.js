@@ -10,12 +10,12 @@ const SubjectIcon = L.Icon.extend({
 });
 
 const matematykaIcon = new SubjectIcon({
-  iconUrl: require("../../../images/matematykaIcon.png"),
+  iconUrl: require("../../../images/matematykaIcon2.png"),
   className: "",
 });
 
 const matematykaIconHovered = new SubjectIcon({
-  iconUrl: require("../../../images/matematykaIcon.png"),
+  iconUrl: require("../../../images/matematykaIcon2.png"),
   className: styles["marker"],
 });
 

@@ -35,7 +35,6 @@ export default function CreateAnnouncement({ prop }) {
   const [imageName, setImageName] = React.useState(
     checkIfState() ? location.state.imageName : "avatar"
   );
-  console.log(imageName);
   const [image, setImage] = React.useState(
     checkIfState()
       ? require(`../../../server/upload_images/${imageName}`)

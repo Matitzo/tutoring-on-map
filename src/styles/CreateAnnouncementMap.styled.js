@@ -38,3 +38,9 @@ export const StyledLoactionsWrapper = styled.div`
   height: fit-content;
   border-radius: 10px;
 `;
+
+export const StyledErrorMsg = styled.p`
+  color: red;
+  margin: 0 0 1em 0;
+  font-size: 0.8rem;
+`;

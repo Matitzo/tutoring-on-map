@@ -3,8 +3,6 @@ import Cookies from "universal-cookie";
 import React from "react";
 import { AnnouncementCard } from "./AnnouncementCard";
 import { useNavigate } from "react-router-dom";
-//import deleteAnnouncement from "./myAnnoucements-components/deleteAnnouncement";
-import { StyledLink } from "../styles/Link.styled";
 import {
   StyledMyAnnouncementsContainer,
   StyledMyAnnouncementWrapper,

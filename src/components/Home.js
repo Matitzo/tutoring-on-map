@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router";
-import Header from "./home-components/Header";
 import Filters from "./home-components/Filters";
 import Container from "./home-components/Container";
 
