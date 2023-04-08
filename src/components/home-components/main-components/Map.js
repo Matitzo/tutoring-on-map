@@ -12,6 +12,7 @@ export default function Map({
   zoom,
   handleMapZoom,
   hoverAnnouncement,
+  setCurrentLocation,
 }) {
   const location = useLocation();
 
@@ -42,6 +43,7 @@ export default function Map({
         setCoord={setCoord}
         handleMapZoom={handleMapZoom}
         hoverAnnouncement={hoverAnnouncement}
+        setCurrentLocation={(value) => setCurrentLocation(value)}
       />
     </MapContainer>
   );

@@ -11,11 +11,13 @@ export default function GetMarkersOnMap({
   setCoord,
   handleMapZoom,
   hoverAnnouncement,
+  setCurrentLocation,
 }) {
   function handlePopupLink(announcement, location) {
     setCoord([location.coordinates[1], location.coordinates[0]]);
     handleMapZoom();
     handleUnfoldedAnnoucement(announcement);
+    setCurrentLocation(location);
   }
 
   function handleMarker(announcement) {

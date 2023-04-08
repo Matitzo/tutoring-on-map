@@ -67,7 +67,7 @@ export const StyledLocation = styled.div`
   padding: 0.2em;
 
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => (props.clickable ? "pointer" : "cursor")};
   }
 `;
 

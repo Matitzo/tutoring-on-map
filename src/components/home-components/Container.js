@@ -22,6 +22,8 @@ export default function Container({
 
   const [hoverAnnouncement, setHoverAnnouncement] = React.useState({});
 
+  const [currentLocation, setCurrentLocation] = React.useState();
+
   function handleMapCoord(unfoldedAnnoucement) {
     const locationCoord = JSON.parse(unfoldedAnnoucement.location);
     console.log([
@@ -48,6 +50,8 @@ export default function Container({
               unfoldedAnnoucement={unfoldedAnnoucement}
               setCoord={setCoord}
               setZoom={setZoom}
+              currentLocation={currentLocation}
+              setCurrentLocation={(value) => setCurrentLocation(value)}
             />
           }
         ></Route>
@@ -76,6 +80,7 @@ export default function Container({
         setCoord={setCoord}
         handleMapZoom={handleMapZoom}
         hoverAnnouncement={hoverAnnouncement}
+        setCurrentLocation={(value) => setCurrentLocation(value)}
       />
     </div>
   );

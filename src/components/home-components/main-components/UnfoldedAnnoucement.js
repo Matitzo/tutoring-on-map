@@ -1,5 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import LocationList from "./LocationsList";
 import { StyledImage, StyledImageWrapper } from "../../../styles/Image.styled";
 import {
   StyledUnfoldedAnnouncementContainer,
@@ -17,7 +19,14 @@ export default function UnfoldedAnnoucement({
   unfoldedAnnoucement,
   setCoord,
   setZoom,
+  currentLocation,
+  setCurrentLocation,
 }) {
+  const [isListLocationVisible, setIsListLocationVisible] =
+    React.useState(false);
+
+  const unfoldedAnnoucementLocation = JSON.parse(unfoldedAnnoucement.location);
+
   var image;
   try {
     image = require(`../../../../../server/upload_images/${unfoldedAnnoucement.image}`);
@@ -76,9 +85,29 @@ export default function UnfoldedAnnoucement({
             <StyledSpan>Zakres materiału: </StyledSpan>{" "}
             {JSON.parse(unfoldedAnnoucement.scope).join(", ")}
           </StyledParagraph>
-          <StyledLocation>
-            {JSON.parse(unfoldedAnnoucement.location)[0].address}
+          <StyledLocation
+            onClick={() => setIsListLocationVisible(true)}
+            clickable={
+              JSON.parse(unfoldedAnnoucement.location).length > 1 ? true : false
+            }
+          >
+            {currentLocation
+              ? currentLocation.address
+              : unfoldedAnnoucementLocation[0].address}{" "}
+            {unfoldedAnnoucementLocation.length > 1 &&
+              ` +${unfoldedAnnoucementLocation.length - 1}`}
           </StyledLocation>
+          {unfoldedAnnoucementLocation.length > 1 && (
+            <LocationList
+              locations={unfoldedAnnoucementLocation}
+              setCurrentLocation={(value) => setCurrentLocation(value)}
+              isListLocationVisible={isListLocationVisible}
+              setIsListLocationVisible={(value) =>
+                setIsListLocationVisible(value)
+              }
+              setCoord={(value) => setCoord(value)}
+            />
+          )}
         </StyledHeadInfo>
       </StyledHeadContainer>
       <StyledDesriptionContainer>
