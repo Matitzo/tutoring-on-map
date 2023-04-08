@@ -1,3 +1,4 @@
+import React from "react";
 import { StyledAnnouncementsContainer } from "../../../styles/Announcements.styled";
 import { AnnouncementCard } from "../../AnnouncementCard";
 import { StyledLink } from "../../../styles/Link.styled";
@@ -8,12 +9,21 @@ export default function Announcements({
   handleMapCoord,
   handleMapZoom,
   setHoverAnnouncement,
+  setCoord,
+  setZoom,
 }) {
   function handleClick(announcement) {
     handleUnfoldedAnnoucement(announcement);
     handleMapCoord(announcement);
     handleMapZoom();
   }
+  // ten use effect musi byc by podczas uzywania filtrow gdy jestesmy w rozwinietym ogloszeniu
+  // nie pozostawalo zblizenie na pozycje tego wlasnie ogloszenia tylko mapa spowrotem cofala sie
+  // do wyswietlania zakresu polski
+  React.useEffect(() => {
+    setCoord([52.06933986747059, 19.480305833934132]);
+    setZoom(6);
+  }, []);
 
   return (
     <StyledAnnouncementsContainer>

@@ -19,7 +19,6 @@ export default function Container({
     52.06933986747059, 19.480305833934132,
   ]);
   const [zoom, setZoom] = React.useState(6);
-
   const [hoverAnnouncement, setHoverAnnouncement] = React.useState({});
 
   const [currentLocation, setCurrentLocation] = React.useState();
@@ -66,6 +65,8 @@ export default function Container({
               handleMapCoord={handleMapCoord}
               handleMapZoom={handleMapZoom}
               setHoverAnnouncement={setHoverAnnouncement}
+              setCoord={(value) => setCoord(value)}
+              setZoom={(value) => setZoom(value)}
             />
           }
         ></Route>
