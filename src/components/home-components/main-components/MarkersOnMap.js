@@ -22,8 +22,8 @@ export default function GetMarkersOnMap({
 
   function handleMarker(announcement) {
     return announcement === hoverAnnouncement
-      ? icons[`matematykaHovered`] // tutaj bd `${announcement.subject}Hovered`
-      : icons[`matematyka`]; // a tutaj bd ${announcement.subject}
+      ? icons[`${announcement.subject}Hovered`] // tutaj bd `${announcement.subject}Hovered`
+      : icons[`${announcement.subject}`]; // a tutaj bd ${announcement.subject}
   }
 
   return announcements.map((announcement) => {
@@ -40,7 +40,7 @@ export default function GetMarkersOnMap({
             >
               <PopupDiv
                 announcement={announcement}
-                icon={icons[`matematyka`]}
+                icon={icons[`${announcement.subject}`]}
               />
             </StyledLink>
           </Popup>

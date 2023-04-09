@@ -1,13 +1,15 @@
 import React from "react";
 import FormMap from "./FormMap";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { StyledLocationInput } from "../../styles/Input.styled";
 import {
   StyledFormButton,
   StyledButtonWrapper,
 } from "../../styles/Button.styled";
 import {
   StyledSelection,
+  StyledSelectionLocation,
   StyledDeleteButton,
 } from "../../styles/CreateAnnouncement.styled";
 
@@ -26,6 +28,7 @@ export default function SelectLocation({
   locationArray,
   handleClose,
 }) {
+  const location = new useLocation();
   const navigate = new useNavigate();
   const [invalidForm, setInvalidForm] = React.useState(false);
   const errorMsg = "Należy podać przynajmniej jedną lokalizacje.";
@@ -33,10 +36,21 @@ export default function SelectLocation({
   function handleClickNext(e) {
     e.preventDefault();
     if (locationArray.length > 0) {
-      navigate("/stworz-ogloszenie/opis");
+      navigate(location.pathname.split("/").slice(0, -1).join("/") + "/opis");
     } else {
       setInvalidForm(true);
     }
+  }
+
+  function handleEditAddress(value, index) {
+    setLocationArray((prevData) =>
+      prevData.map((obj, prevDataIndex) => {
+        if (index === prevDataIndex) {
+          return { ...obj, address: value };
+        }
+        return obj;
+      })
+    );
   }
 
   return (
@@ -64,29 +78,39 @@ export default function SelectLocation({
 
       <StyledLocationsContainer>
         <StyledLoactionsWrapper>
-          {locationArray.length > 0 &&
-            locationArray.map((element) => (
-              <StyledSelection>
-                <span>{element.address}</span>{" "}
-                <StyledDeleteButton
-                  onClick={() => {
-                    handleClose(element, setLocationArray);
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    class="bi bi-x-circle"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                  </svg>
-                </StyledDeleteButton>
-              </StyledSelection>
-            ))}
+          {locationArray.length > 0 && (
+            <ol>
+              {locationArray.map((element, index) => (
+                <li>
+                  <StyledSelectionLocation>
+                    <StyledLocationInput
+                      widthLength={element.address.length * 7}
+                      type="text"
+                      value={element.address}
+                      onChange={(e) => handleEditAddress(e.target.value, index)}
+                    ></StyledLocationInput>{" "}
+                    <StyledDeleteButton
+                      onClick={() => {
+                        handleClose(element, setLocationArray);
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-x-circle"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                      </svg>
+                    </StyledDeleteButton>
+                  </StyledSelectionLocation>
+                </li>
+              ))}
+            </ol>
+          )}
         </StyledLoactionsWrapper>
       </StyledLocationsContainer>
       {invalidForm && <StyledErrorMsg>{errorMsg}</StyledErrorMsg>}

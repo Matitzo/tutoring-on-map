@@ -13,6 +13,7 @@ import {
   StyledSelectForm,
   StyledShortTextWrapper,
   StyledErrorMsg,
+  StyledNumberInput,
 } from "../../styles/Input.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
 
@@ -49,7 +50,7 @@ export default function InpuDataForm({
       learningModeValues.length > 0 &&
       shortDescription
     ) {
-      navigate("/stworz-ogloszenie/lokalizacja");
+      navigate("lokalizacja");
     } else {
       setInvalidForm(true);
     }
@@ -106,13 +107,13 @@ export default function InpuDataForm({
         <li>
           <div>
             <StyledLabelForm>
-              <input
+              <StyledNumberInput
                 required
-                type="text"
+                type="number"
                 name="phone"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-              ></input>
+              ></StyledNumberInput>
               <span>Nr telefonu: </span>
             </StyledLabelForm>
           </div>
@@ -135,13 +136,13 @@ export default function InpuDataForm({
         <li>
           <div>
             <StyledLabelForm>
-              <input
+              <StyledNumberInput
                 required
-                type="text"
+                type="number"
                 name="price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-              ></input>
+              ></StyledNumberInput>
               <span>Cena: </span>
             </StyledLabelForm>
           </div>

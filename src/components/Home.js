@@ -23,6 +23,14 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
     location.state ? location.state.announcement : {}
   );
 
+  // nie zauwazylem by przy uzyciu useCallback sie cos poprawilo z rerenderowaniem
+  // const handleCallbackSubject = React.useCallback(
+  //   (value) => {
+  //     setSubjectFilter(value);
+  //   },
+  //   [subjectFilter]
+  // );
+
   function getUrl() {
     if (voivodeshipFilter) location.pathname = "/filters";
     else if (subjectFilter) location.pathname = "/filters";
@@ -35,8 +43,6 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
       location.pathname = "/";
       navigate(location.pathname);
     }
-
-    console.log("wyrenderowalo home");
 
     // tutaj mozna zrobic by ta sama sciezke ktora jest do api dac do location.pathname a potem przy tworzeniu statow
     // dac warunki ze jak w location.search jest dana wartosc to zeby przypisalo na wstepie a jak nie to nie

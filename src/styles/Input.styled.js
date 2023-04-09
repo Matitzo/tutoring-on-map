@@ -125,3 +125,22 @@ export const StyledErrorMsg = styled.p`
   margin: 0 0 1em 0;
   font-size: 0.8rem;
 `;
+
+export const StyledNumberInput = styled.input`
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+
+export const StyledLocationInput = styled.input`
+  width: ${({ widthLength }) => widthLength}px;
+  border: 0;
+  border-bottom: 2px solid green;
+  margin-right: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

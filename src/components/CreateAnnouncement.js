@@ -35,10 +35,16 @@ export default function CreateAnnouncement({ prop }) {
   const [imageName, setImageName] = React.useState(
     checkIfState() ? location.state.imageName : "avatar"
   );
+
+  let imageImport = {};
+  try {
+    imageImport = require(`../../../server/upload_images/${imageName}`);
+  } catch {
+    imageImport = imageAvatar;
+  }
+
   const [image, setImage] = React.useState(
-    checkIfState()
-      ? require(`../../../server/upload_images/${imageName}`)
-      : imageAvatar
+    checkIfState() ? imageImport : imageAvatar
   );
 
   const [uploadImage, setUploadImage] = React.useState();

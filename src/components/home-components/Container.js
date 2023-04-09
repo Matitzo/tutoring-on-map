@@ -14,7 +14,6 @@ export default function Container({
   // const [unfoldedAnnoucement, setUnfoldedAnnoucement] = React.useState(
   //   location.state ? location.state.announcement : {}
   // );
-
   const [coord, setCoord] = React.useState([
     52.06933986747059, 19.480305833934132,
   ]);

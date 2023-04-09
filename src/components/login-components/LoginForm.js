@@ -14,6 +14,7 @@ import {
 } from "../../styles/Login.styled";
 
 export default function LoginForm({ isLoged, setIsLoged, setUserId }) {
+  console.log("wyrenderowalo Login form");
   const [password, setPassword] = React.useState("");
   const [login, setLogin] = React.useState("");
   const navigate = useNavigate();

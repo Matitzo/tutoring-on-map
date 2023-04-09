@@ -32,11 +32,13 @@ export const StyledLocationsContainer = styled.div`
 
 export const StyledLoactionsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   flex-wrap: wrap;
   height: fit-content;
   border-radius: 10px;
+  text-align: start;
 `;
 
 export const StyledErrorMsg = styled.p`

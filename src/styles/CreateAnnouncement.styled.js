@@ -17,6 +17,14 @@ export const StyledSelection = styled.div`
   cursor: default;
 `;
 
+export const StyledSelectionLocation = styled(StyledSelection)`
+  display: flex;
+  text-align: start;
+  justify-content: start;
+  align-items: start;
+  border: 2px solid green;
+`;
+
 export const StyledDeleteButton = styled.div`
   position: relative;
   top: 1px;
@@ -24,6 +32,8 @@ export const StyledDeleteButton = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: start;
+  align-items: start;
 `;
 
 export const StyledFormDiv = styled.div`

@@ -27,7 +27,7 @@ export default function Filters({
   function handleChange(event) {
     setCityFilter(event.target.value ? event.target.value : "");
   }
-
+  console.log("wyrenderowalo filters");
   const debouncedChangeHandler = useCallback(debounce(handleChange, 400), []);
 
   return (
