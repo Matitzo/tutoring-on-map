@@ -63,6 +63,7 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
 
   // tutaj dac ze jak nie bd odzewu z api (jakis blad) to wyskoczyl error np 404 czy cos
   React.useEffect(() => {
+    console.log("feczuje dane");
     fetch(getUrl())
       .then((res) => res.json())
       .then((data) => setData(data));

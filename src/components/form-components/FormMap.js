@@ -6,6 +6,7 @@ import {
   Marker,
   useMapEvents,
 } from "react-leaflet";
+import icons from "../home-components/main-components/Icons";
 
 export default function FormMap({ setLocationArray }) {
   const [position, setPosition] = React.useState(null);
@@ -43,7 +44,7 @@ export default function FormMap({ setLocationArray }) {
     });
 
     return position === null ? null : (
-      <Marker position={position}>
+      <Marker position={position} icon={icons.matematyka}>
         <Popup closeOnClick={false}>
           <div
             onClick={() => addLocation(address, position)}

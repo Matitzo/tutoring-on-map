@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import { useMap } from "react-leaflet";
+import ReactDOMServer from "react-dom/server";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import { StyledLink } from "../../../styles/Link.styled.js";
 import PopupDiv from "./Popup";
 import icons from "./Icons";
+import clusters from "./map-components/clusters.js";
+import subjects from "../../../data/subjects.js";
+import ClusterPopup from "./map-components/ClusterPopup.js";
+import "./map-components/clusters.css";
 //import StyledLink from "../../../styles/Link.styled";
 
 export default function GetMarkersOnMap({
@@ -13,11 +22,32 @@ export default function GetMarkersOnMap({
   hoverAnnouncement,
   setCurrentLocation,
 }) {
+  const map = useMap();
+  const navigate = new useNavigate();
+  const [updatePopups, setUpdatePopups] = React.useState([]);
+
+  function createClusterCustomIconHovered(cluster, subject) {
+    return L.divIcon({
+      html: `<div class="count"><span>${cluster.getChildCount()}</span></div>`,
+      className: `cluster-marker ${subject.split(" ").slice(-1)} hover`,
+      iconSize: L.point(40, 40, true),
+    });
+  }
+
+  function createClusterCustomIcon(cluster, subject) {
+    return L.divIcon({
+      html: `<div class="count"><span>${cluster.getChildCount()}</span></div>`,
+      className: `cluster-marker ${subject.split(" ").slice(-1)}`,
+      iconSize: L.point(40, 40, true),
+    });
+  }
+
   function handlePopupLink(announcement, location) {
     setCoord([location.coordinates[1], location.coordinates[0]]);
     handleMapZoom();
     handleUnfoldedAnnoucement(announcement);
     setCurrentLocation(location);
+    navigate(`offers/${announcement.author}`);
   }
 
   function handleMarker(announcement) {
@@ -26,26 +56,108 @@ export default function GetMarkersOnMap({
       : icons[`${announcement.subject}`]; // a tutaj bd ${announcement.subject}
   }
 
-  return announcements.map((announcement) => {
-    return JSON.parse(announcement.location).map((location) => {
-      return (
-        <Marker
-          position={[location.coordinates[1], location.coordinates[0]]}
-          icon={handleMarker(announcement)}
-        >
-          <Popup style={{ width: "250px" }}>
-            <StyledLink
-              to={`offers/${announcement.author}`}
-              onClick={() => handlePopupLink(announcement, location)}
-            >
+  // .bindPopup(
+  //   ReactDOMServer.renderToString(
+  //     <PopupDiv
+  // handlePopupLink={() => handlePopupLink(announcement, location)}
+  // announcement={announcement}
+  // icon={icons[`${announcement.subject}`]}
+  //     />
+  //   )
+  // );
+
+  // return (
+  //   <Marker
+  //     position={[location.coordinates[1], location.coordinates[0]]}
+  //     icon={handleMarker(announcement)}
+  //   >
+  //     <Popup style={{ width: "250px" }}>
+  //       <StyledLink
+  //         to={`offers/${announcement.author}`}
+  //         onClick={() => handlePopupLink(announcement, location)}
+  //       >
+  //         <PopupDiv
+  //           announcement={announcement}
+  //           icon={icons[`${announcement.subject}`]}
+  //         />
+  //       </StyledLink>
+  //     </Popup>
+  //   </Marker>
+  // );
+
+  React.useEffect(() => {
+    subjects.map((subject) => {
+      clusters[subject].clearLayers();
+    });
+    announcements.map((announcement) => {
+      JSON.parse(announcement.location).map((location) => {
+        const marker = new L.Marker(
+          [location.coordinates[1], location.coordinates[0]],
+          {
+            icon: handleMarker(announcement),
+          }
+        );
+        if (announcement == hoverAnnouncement) {
+          clusters[announcement.subject].options.iconCreateFunction = (
+            cluster
+          ) => createClusterCustomIconHovered(cluster, announcement.subject);
+        } else {
+          clusters[announcement.subject].options.iconCreateFunction = (
+            cluster
+          ) => createClusterCustomIcon(cluster, announcement.subject);
+        }
+        marker
+          .addTo(clusters[announcement.subject])
+          .bindPopup(
+            ReactDOMServer.renderToString(
               <PopupDiv
                 announcement={announcement}
+                location={location}
                 icon={icons[`${announcement.subject}`]}
               />
-            </StyledLink>
-          </Popup>
-        </Marker>
-      );
+            )
+          )
+          .on("click", () =>
+            setUpdatePopups(
+              Array.from(
+                document.getElementsByClassName("markers-single-popup")
+              )
+            )
+          );
+      });
+
+      subjects.map((subject) => {
+        clusters[`${subject}`].on("clusterclick", function (a) {
+          a.layer
+            .bindPopup(ReactDOMServer.renderToString(<ClusterPopup a={a} />))
+            .openPopup();
+          setUpdatePopups(
+            Array.from(document.getElementsByClassName("markers-single-popup"))
+          );
+        });
+      });
     });
-  });
+  }, [announcements, hoverAnnouncement]);
+
+  React.useEffect(() => {
+    // const popupsArray = Array.from(
+    //   document.getElementsByClassName("markers-single-popup")
+    // );
+    console.log(updatePopups);
+    updatePopups.map((popup, index) =>
+      popup.addEventListener("click", (e) => {
+        handlePopupLink(
+          JSON.parse(popup.getAttribute("announcement")),
+          JSON.parse(popup.getAttribute("location"))
+        );
+      })
+    );
+  }, [updatePopups]);
+
+  React.useEffect(() => {
+    subjects.map((subject) => {
+      map.addLayer(clusters[subject]);
+    });
+  }, []);
+  return <div></div>;
 }

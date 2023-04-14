@@ -135,7 +135,8 @@ export const StyledNumberInput = styled.input`
 `;
 
 export const StyledLocationInput = styled.input`
-  width: ${({ widthLength }) => widthLength}px;
+  width: ${({ widthLength }) => widthLength * 7}px;
+  max-width: 500px;
   border: 0;
   border-bottom: 2px solid green;
   margin-right: auto;

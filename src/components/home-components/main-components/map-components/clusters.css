@@ -1,0 +1,108 @@
+.hover {
+  transform-origin: bottom;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: bounce-1;
+  animation-timing-function: linear;
+}
+
+@keyframes bounce-1 {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.markers-single-popup {
+  margin-top: 0.3em;
+}
+
+.markers-single-popup:hover {
+  cursor: pointer;
+}
+
+.count {
+  position: relative;
+  left: 25px;
+  height: 14px;
+  width: 14px;
+  font-size: 10px;
+  background-color: rgb(106, 172, 106);
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.cluster-marker {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+}
+
+.matematyka {
+  background-image: url("../../../../images/matematyka.png");
+}
+
+.informatyka {
+  background-image: url("../../../../images/informatyka.png");
+}
+
+.biologia {
+  background-image: url("../../../../images/biologia.png");
+}
+
+.chemia {
+  background-image: url("../../../../images/chemia.png");
+}
+
+.fizyka {
+  background-image: url("../../../../images/fizyka.png");
+}
+
+.polski {
+  background-image: url("../../../../images/j_polski.png");
+}
+
+.angielski {
+  background-image: url("../../../../images/j_angielski.png");
+}
+
+.niemiecki {
+  background-image: url("../../../../images/j_niemiecki.png");
+}
+
+.francuski {
+  background-image: url("../../../../images/j_francuski.png");
+}
+
+.przyroda {
+  background-image: url("../../../../images/przyroda.png");
+}
+
+.geografia {
+  background-image: url("../../../../images/geografia.png");
+}
+
+.historia {
+  background-image: url("../../../../images/historia.png");
+}
+
+.społeczeństwie {
+  background-image: url("../../../../images/wos.png");
+}
+
+.muzyka {
+  background-image: url("../../../../images/muzyka.png");
+}
+
+.religia {
+  background-image: url("../../../../images/religia.png");
+}

@@ -84,7 +84,7 @@ export default function SelectLocation({
                 <li>
                   <StyledSelectionLocation>
                     <StyledLocationInput
-                      widthLength={element.address.length * 7}
+                      widthLength={element.address.length}
                       type="text"
                       value={element.address}
                       onChange={(e) => handleEditAddress(e.target.value, index)}
