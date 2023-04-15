@@ -5,7 +5,6 @@ import styles from "../../../styles/Marker.module.css";
 const SubjectIcon = L.Icon.extend({
   options: {
     iconSize: [40, 40],
-    popupAnchor: [0, -10],
   },
 });
 

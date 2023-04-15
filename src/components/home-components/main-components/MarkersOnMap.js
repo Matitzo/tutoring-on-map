@@ -55,8 +55,9 @@ export default function GetMarkersOnMap({
 
   React.useEffect(() => {
     subjects.map((subject) => {
-      clusters[subject].clearLayers();
+      clusters[`${subject}`].clearLayers();
     });
+
     announcements.map((announcement) => {
       JSON.parse(announcement.location).map((location) => {
         const marker = new L.Marker(
@@ -93,34 +94,37 @@ export default function GetMarkersOnMap({
             )
           );
       });
-
-      subjects.map((subject) => {
-        clusters[`${subject}`].on("clusterclick", function (a) {
-          a.layer
-            .bindPopup(ReactDOMServer.renderToString(<ClusterPopup a={a} />))
-            .openPopup();
-          setUpdatePopups(
-            Array.from(document.getElementsByClassName("markers-single-popup"))
-          );
-        });
-      });
     });
   }, [announcements, hoverAnnouncement]);
 
   React.useEffect(() => {
-    updatePopups.map((popup, index) =>
-      popup.addEventListener("click", (e) => {
-        handlePopupLink(
-          JSON.parse(popup.getAttribute("announcement")),
-          JSON.parse(popup.getAttribute("location"))
-        );
-      })
-    );
+    updatePopups.map((popup, index) => {
+      console.log(popup);
+      popup.removeEventListener("click", popupListener);
+      popup.addEventListener("click", popupListener);
+    });
   }, [updatePopups]);
+
+  function clusterListener(a) {
+    a.layer
+      .bindPopup(ReactDOMServer.renderToString(<ClusterPopup a={a} />))
+      .openPopup();
+    setUpdatePopups(
+      Array.from(document.getElementsByClassName("markers-single-popup"))
+    );
+  }
+
+  function popupListener(e) {
+    handlePopupLink(
+      JSON.parse(e.currentTarget.getAttribute("announcement")),
+      JSON.parse(e.currentTarget.getAttribute("location"))
+    );
+  }
 
   React.useEffect(() => {
     subjects.map((subject) => {
       map.addLayer(clusters[subject]);
+      clusters[`${subject}`].on("clusterclick", clusterListener);
     });
   }, []);
 
