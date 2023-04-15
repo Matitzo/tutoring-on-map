@@ -1,25 +1,6 @@
-import MarkerClusterGroup from "react-leaflet-cluster";
 import L from "leaflet";
-import ReactDOMServer from "react-dom/server";
-import ClusterPopup from "./ClusterPopup";
-import subjects from "../../../../data/subjects";
 import "./clusters.css";
-
-function createClusterCustomIcon(cluster, subject) {
-  return L.divIcon({
-    html: `<div class="count"><span>${cluster.getChildCount()}</span></div>`,
-    className: `cluster-marker ${subject}`,
-    iconSize: L.point(40, 40, true),
-  });
-}
-
-function addPopups(subject) {
-  clusters[`${subject}`].on("clusterclick", function (a) {
-    a.layer
-      .bindPopup(ReactDOMServer.renderToString(<ClusterPopup a={a} />))
-      .openPopup();
-  });
-}
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 const matematykaCluster = L.markerClusterGroup({
   zoomToBoundsOnClick: false,
@@ -98,7 +79,5 @@ const clusters = {
   "j. niemiecki": jezykNiemieckiCluster,
   "j. francuski": jezykFrancuskiCluster,
 };
-
-//subjects.map((subject) => addPopups(subject));
 
 export default clusters;

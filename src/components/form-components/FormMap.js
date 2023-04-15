@@ -44,7 +44,7 @@ export default function FormMap({ setLocationArray }) {
     });
 
     return position === null ? null : (
-      <Marker position={position} icon={icons.matematyka}>
+      <Marker position={position} icon={icons.pointer}>
         <Popup closeOnClick={false}>
           <div
             onClick={() => addLocation(address, position)}

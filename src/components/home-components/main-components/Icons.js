@@ -9,6 +9,13 @@ const SubjectIcon = L.Icon.extend({
   },
 });
 
+const pointerIcon = new SubjectIcon({
+  iconUrl: require("../../../images/pointer.png"),
+  className: "",
+  iconAnchor: [19, 35],
+  popupAnchor: [2, -20],
+});
+
 const matematykaIcon = new SubjectIcon({
   iconUrl: require("../../../images/matematyka.png"),
   className: "",
@@ -160,6 +167,7 @@ const jezykFrancuskiIconHovered = new SubjectIcon({
 });
 
 const icons = {
+  pointer: pointerIcon,
   matematyka: matematykaIcon,
   matematykaHovered: matematykaIconHovered,
   bilogia: biologiaIcon,

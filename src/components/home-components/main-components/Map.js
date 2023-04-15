@@ -29,7 +29,7 @@ export default function Map({
       center={coord}
       zoom={zoom}
       scrollWheelZoom={true}
-      maxZoom={12}
+      maxZoom={18}
     >
       <SetMapView />
       <TileLayer

@@ -1,11 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { useMap } from "react-leaflet";
 import ReactDOMServer from "react-dom/server";
-import MarkerClusterGroup from "react-leaflet-cluster";
-import { StyledLink } from "../../../styles/Link.styled.js";
 import PopupDiv from "./Popup";
 import icons from "./Icons";
 import clusters from "./map-components/clusters.js";
@@ -52,38 +49,9 @@ export default function GetMarkersOnMap({
 
   function handleMarker(announcement) {
     return announcement === hoverAnnouncement
-      ? icons[`${announcement.subject}Hovered`] // tutaj bd `${announcement.subject}Hovered`
-      : icons[`${announcement.subject}`]; // a tutaj bd ${announcement.subject}
+      ? icons[`${announcement.subject}Hovered`]
+      : icons[`${announcement.subject}`];
   }
-
-  // .bindPopup(
-  //   ReactDOMServer.renderToString(
-  //     <PopupDiv
-  // handlePopupLink={() => handlePopupLink(announcement, location)}
-  // announcement={announcement}
-  // icon={icons[`${announcement.subject}`]}
-  //     />
-  //   )
-  // );
-
-  // return (
-  //   <Marker
-  //     position={[location.coordinates[1], location.coordinates[0]]}
-  //     icon={handleMarker(announcement)}
-  //   >
-  //     <Popup style={{ width: "250px" }}>
-  //       <StyledLink
-  //         to={`offers/${announcement.author}`}
-  //         onClick={() => handlePopupLink(announcement, location)}
-  //       >
-  //         <PopupDiv
-  //           announcement={announcement}
-  //           icon={icons[`${announcement.subject}`]}
-  //         />
-  //       </StyledLink>
-  //     </Popup>
-  //   </Marker>
-  // );
 
   React.useEffect(() => {
     subjects.map((subject) => {
@@ -140,10 +108,6 @@ export default function GetMarkersOnMap({
   }, [announcements, hoverAnnouncement]);
 
   React.useEffect(() => {
-    // const popupsArray = Array.from(
-    //   document.getElementsByClassName("markers-single-popup")
-    // );
-    console.log(updatePopups);
     updatePopups.map((popup, index) =>
       popup.addEventListener("click", (e) => {
         handlePopupLink(
@@ -159,5 +123,6 @@ export default function GetMarkersOnMap({
       map.addLayer(clusters[subject]);
     });
   }, []);
+
   return <div></div>;
 }
