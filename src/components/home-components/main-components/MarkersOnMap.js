@@ -45,6 +45,9 @@ export default function GetMarkersOnMap({
     handleUnfoldedAnnoucement(announcement);
     setCurrentLocation(location);
     navigate(`offers/${announcement.author}`);
+    localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
+    localStorage.setItem("currentLocation", JSON.stringify(location));
+    localStorage.setItem("mapZoom", 10);
   }
 
   function handleMarker(announcement) {

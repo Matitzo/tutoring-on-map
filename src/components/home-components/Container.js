@@ -12,23 +12,38 @@ export default function Container({
   setUnfoldedAnnoucement,
 }) {
   const location = new useLocation();
-  // const [unfoldedAnnoucement, setUnfoldedAnnoucement] = React.useState(
-  //   location.state ? location.state.announcement : {}
-  // );
-  const [coord, setCoord] = React.useState([
-    52.06933986747059, 19.480305833934132,
-  ]);
-  const [zoom, setZoom] = React.useState(6);
+  const [coord, setCoord] = React.useState(
+    location.pathname.includes("offers")
+      ? localStorage.getItem("coord")
+        ? JSON.parse(localStorage.getItem("coord"))
+        : [52.06933986747059, 19.480305833934132]
+      : [52.06933986747059, 19.480305833934132]
+  );
+
+  const [zoom, setZoom] = React.useState(
+    location.pathname.includes("offers")
+      ? localStorage.getItem("mapZoom")
+        ? localStorage.getItem("mapZoom")
+        : 6
+      : 6
+  );
   const [hoverAnnouncement, setHoverAnnouncement] = React.useState({});
 
-  const [currentLocation, setCurrentLocation] = React.useState();
+  const [currentLocation, setCurrentLocation] = React.useState(
+    localStorage.getItem("currentLocation")
+      ? JSON.parse(localStorage.getItem("currentLocation"))
+      : ""
+  );
 
   function handleMapCoord(unfoldedAnnoucement) {
     const locationCoord = JSON.parse(unfoldedAnnoucement.location);
-    console.log([
-      locationCoord[0].coordinates[1],
-      locationCoord[0].coordinates[0],
-    ]);
+    localStorage.setItem(
+      "coord",
+      JSON.stringify([
+        locationCoord[0].coordinates[1],
+        locationCoord[0].coordinates[0],
+      ])
+    );
     setCoord([
       locationCoord[0].coordinates[1],
       locationCoord[0].coordinates[0],
@@ -36,6 +51,7 @@ export default function Container({
   }
 
   function handleMapZoom() {
+    localStorage.setItem("mapZoom", 10);
     setZoom(10);
   }
 

@@ -17,7 +17,12 @@ export default function LocationList({
           onClick={(e) => {
             setIsListLocationVisible(false);
             setCurrentLocation(location);
+            localStorage.setItem("currentLocation", JSON.stringify(location));
             setCoord([location.coordinates[1], location.coordinates[0]]);
+            localStorage.setItem(
+              "coord",
+              JSON.stringify([location.coordinates[1], location.coordinates[0]])
+            );
           }}
         >
           {location.address}

@@ -22,7 +22,9 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   const [learningModeFilter, setLearningModeFilter] = React.useState();
   const [costFilter, setCostFilter] = React.useState(["", ""]);
   const [unfoldedAnnoucement, setUnfoldedAnnoucement] = React.useState(
-    location.state ? location.state.announcement : {}
+    localStorage.getItem("unfoldedAnnoucement")
+      ? JSON.parse(localStorage.getItem("unfoldedAnnoucement"))
+      : {}
   );
 
   function getUrl() {
@@ -32,15 +34,12 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
     else if (cityFilter) location.pathname = "/filters";
     else if (costFilter[0]) location.pathname = "/filters";
     else if (costFilter[1]) location.pathname = "/filters";
-    else if (location.pathname.includes("offers")) console.log("asd");
-    else {
+    else if (location.pathname.includes("offers")) {
+    } else {
       location.pathname = "/";
       navigate(location.pathname);
     }
 
-    // tutaj mozna zrobic by ta sama sciezke ktora jest do api dac do location.pathname a potem przy tworzeniu statow
-    // dac warunki ze jak w location.search jest dana wartosc to zeby przypisalo na wstepie a jak nie to nie
-    // to by podswietlalo odpowiedni wybor bd tez dzialac jak tak zrobie (niebd trzeba tam nic zmieniac)
     return location.pathname === "/filters"
       ? `/filters?${voivodeshipFilter && `voivodeship=${voivodeshipFilter}`}&${
           subjectFilter && `subject=${subjectFilter}`

@@ -12,8 +12,6 @@ import {
 const cookies = new Cookies();
 
 export default function MyAnnouncements({ prop }) {
-  const location = new useLocation();
-  const query = new URLSearchParams(location.search);
   const [myAnnouncements, setMyAnnouncements] = React.useState([]);
   const userId = prop;
   const navigate = new useNavigate();
@@ -38,6 +36,9 @@ export default function MyAnnouncements({ prop }) {
   }
 
   function unfoldAnnoucement(announcement) {
+    localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
+    localStorage.setItem("currentLocation", "");
+    localStorage.setItem("mapZoom", 10);
     navigate(
       `/offers/${announcement.author}?id=${announcement.announcementId}`,
       {

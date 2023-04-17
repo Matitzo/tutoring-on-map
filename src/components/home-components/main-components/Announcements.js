@@ -26,6 +26,9 @@ export default function Announcements({
     handleMapCoord(announcement);
     handleMapZoom();
     setCurrentLocation();
+    localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
+    localStorage.setItem("currentLocation", "");
+    localStorage.setItem("mapZoom", 10);
   }
 
   return (
