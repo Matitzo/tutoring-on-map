@@ -7,6 +7,8 @@ import Container from "./home-components/Container";
 export default function Home({ isLoged, setIsLoged, setUserId }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const query = new URLSearchParams(location.search);
+  const announcementId = query.get("id");
   // komentarz 1
   // dac ify w statach tak by bralo wartosc z query z pathname jesli jest filt nalozony by mozna bylo przesylac linki
   // podobnie zrobic z unfolded announcement -> dac id ogloszenia w query i wysylac zapytanie do api po id
@@ -22,14 +24,6 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   const [unfoldedAnnoucement, setUnfoldedAnnoucement] = React.useState(
     location.state ? location.state.announcement : {}
   );
-
-  // nie zauwazylem by przy uzyciu useCallback sie cos poprawilo z rerenderowaniem
-  // const handleCallbackSubject = React.useCallback(
-  //   (value) => {
-  //     setSubjectFilter(value);
-  //   },
-  //   [subjectFilter]
-  // );
 
   function getUrl() {
     if (voivodeshipFilter) location.pathname = "/filters";
@@ -66,7 +60,9 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
     console.log("feczuje dane");
     fetch(getUrl())
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        setData(data);
+      });
   }, [
     voivodeshipFilter,
     subjectFilter,

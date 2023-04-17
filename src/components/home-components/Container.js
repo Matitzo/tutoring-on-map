@@ -1,4 +1,5 @@
 import Announcements from "./main-components/Announcements";
+import { useLocation } from "react-router-dom";
 import Map from "./main-components/Map";
 import UnfoldedAnnoucement from "./main-components/UnfoldedAnnoucement";
 import styles from "../../styles/Container.module.css";
@@ -10,7 +11,7 @@ export default function Container({
   unfoldedAnnoucement,
   setUnfoldedAnnoucement,
 }) {
-  // const location = new useLocation();
+  const location = new useLocation();
   // const [unfoldedAnnoucement, setUnfoldedAnnoucement] = React.useState(
   //   location.state ? location.state.announcement : {}
   // );
@@ -41,18 +42,20 @@ export default function Container({
   return (
     <div className={styles["container"]}>
       <Routes>
-        <Route
-          path={`/offers/*`}
-          element={
-            <UnfoldedAnnoucement
-              unfoldedAnnoucement={unfoldedAnnoucement}
-              setCoord={setCoord}
-              setZoom={setZoom}
-              currentLocation={currentLocation}
-              setCurrentLocation={(value) => setCurrentLocation(value)}
-            />
-          }
-        ></Route>
+        {Object.keys(unfoldedAnnoucement).length !== 0 && (
+          <Route
+            path={`/offers/*`}
+            element={
+              <UnfoldedAnnoucement
+                unfoldedAnnoucement={unfoldedAnnoucement}
+                setCoord={setCoord}
+                setZoom={setZoom}
+                currentLocation={currentLocation}
+                setCurrentLocation={(value) => setCurrentLocation(value)}
+              />
+            }
+          ></Route>
+        )}
         <Route
           path="/*"
           element={
@@ -66,6 +69,7 @@ export default function Container({
               setHoverAnnouncement={setHoverAnnouncement}
               setCoord={(value) => setCoord(value)}
               setZoom={(value) => setZoom(value)}
+              setCurrentLocation={(value) => setCurrentLocation(value)}
             />
           }
         ></Route>

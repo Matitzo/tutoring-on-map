@@ -2,7 +2,7 @@ import Axios from "axios";
 import Cookies from "universal-cookie";
 import React from "react";
 import { AnnouncementCard } from "./AnnouncementCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   StyledMyAnnouncementsContainer,
   StyledMyAnnouncementWrapper,
@@ -12,10 +12,11 @@ import {
 const cookies = new Cookies();
 
 export default function MyAnnouncements({ prop }) {
+  const location = new useLocation();
+  const query = new URLSearchParams(location.search);
   const [myAnnouncements, setMyAnnouncements] = React.useState([]);
   const userId = prop;
   const navigate = new useNavigate();
-  console.log("wyrenderowalo my announcements");
 
   function editAnnouncement(announcement) {
     navigate("/edytuj-ogloszenie", {
@@ -37,11 +38,14 @@ export default function MyAnnouncements({ prop }) {
   }
 
   function unfoldAnnoucement(announcement) {
-    navigate(`/offers/${announcement.author}`, {
-      state: {
-        announcement: announcement,
-      },
-    });
+    navigate(
+      `/offers/${announcement.author}?id=${announcement.announcementId}`,
+      {
+        state: {
+          announcement: announcement,
+        },
+      }
+    );
   }
 
   function deleteAnnouncement(announcementId) {

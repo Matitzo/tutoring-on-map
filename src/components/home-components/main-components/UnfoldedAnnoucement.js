@@ -24,7 +24,6 @@ export default function UnfoldedAnnoucement({
 }) {
   const [isListLocationVisible, setIsListLocationVisible] =
     React.useState(false);
-
   const unfoldedAnnoucementLocation = JSON.parse(unfoldedAnnoucement.location);
 
   var image;

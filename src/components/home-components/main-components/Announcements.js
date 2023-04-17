@@ -11,6 +11,7 @@ export default function Announcements({
   setHoverAnnouncement,
   setCoord,
   setZoom,
+  setCurrentLocation,
 }) {
   // ten use effect musi byc by podczas uzywania filtrow gdy jestesmy w rozwinietym ogloszeniu
   // nie pozostawalo zblizenie na pozycje tego wlasnie ogloszenia tylko mapa spowrotem cofala sie
@@ -24,6 +25,7 @@ export default function Announcements({
     handleUnfoldedAnnoucement(announcement);
     handleMapCoord(announcement);
     handleMapZoom();
+    setCurrentLocation();
   }
 
   return (
