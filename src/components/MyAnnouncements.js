@@ -39,14 +39,9 @@ export default function MyAnnouncements({ prop }) {
     localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
     localStorage.setItem("currentLocation", "");
     localStorage.setItem("mapZoom", 10);
-    navigate(
-      `/offers/${announcement.author}?id=${announcement.announcementId}`,
-      {
-        state: {
-          announcement: announcement,
-        },
-      }
-    );
+    const coord = JSON.parse(announcement.location)[0].coordinates;
+    localStorage.setItem("coord", JSON.stringify([coord[1], coord[0]]));
+    navigate(`/offers/${announcement.author}`);
   }
 
   function deleteAnnouncement(announcementId) {
