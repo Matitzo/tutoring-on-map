@@ -5,6 +5,7 @@ import subjects from "../../data/subjects";
 import scopes from "../../data/scopes";
 import learningMode from "../../data/learningMode";
 import Select from "./Select";
+import Cost from "./Cost";
 import { StyledImage, StyledImageWrapper } from "../../styles/Image.styled";
 import { StyledFormButton } from "../../styles/Button.styled";
 import {
@@ -34,6 +35,8 @@ export default function InpuDataForm({
   setLearningModeValues,
   shortDescription,
   setShortDescription,
+  isSingleCostValue,
+  setIsSingleCostValue,
 }) {
   const navigate = new useNavigate();
   const [invalidForm, setInvalidForm] = React.useState(false);
@@ -97,6 +100,7 @@ export default function InpuDataForm({
                 required
                 type="text"
                 name="author"
+                maxlength="30"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
               ></input>
@@ -109,10 +113,16 @@ export default function InpuDataForm({
             <StyledLabelForm>
               <StyledNumberInput
                 required
-                type="number"
+                type="text"
                 name="phone"
+                maxLength="9"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
+                onKeyPress={(event) => {
+                  if (!/[0-9]/.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
               ></StyledNumberInput>
               <span>Nr telefonu: </span>
             </StyledLabelForm>
@@ -135,17 +145,38 @@ export default function InpuDataForm({
         </li>
         <li>
           <div>
-            <StyledLabelForm>
-              <StyledNumberInput
-                required
-                type="number"
-                name="price"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              ></StyledNumberInput>
-              <span>Cena: </span>
-            </StyledLabelForm>
+            <input
+              type="radio"
+              id="single"
+              name="type"
+              value="single"
+              onClick={() => {
+                setIsSingleCostValue(true);
+                setPrice([0]);
+              }}
+              checked={isSingleCostValue && true}
+            />
+            <label for="huey">Pojedyncza wartość</label>
           </div>
+          <div>
+            <input
+              type="radio"
+              id="range"
+              name="type"
+              value="range"
+              onClick={() => {
+                setIsSingleCostValue(false);
+                setPrice([0, 0]);
+              }}
+              checked={!isSingleCostValue && true}
+            />
+            <label for="range">Przedział</label>
+          </div>
+          <Cost
+            isSingleCostValue={isSingleCostValue}
+            price={price}
+            setPrice={(value) => setPrice(value)}
+          />
         </li>
         <Select
           valuesArray={scopesValues}

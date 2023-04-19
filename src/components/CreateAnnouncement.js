@@ -56,8 +56,13 @@ export default function CreateAnnouncement({ prop }) {
     checkIfState() ? location.state.subject : ""
   );
   const [price, setPrice] = React.useState(
-    checkIfState() ? location.state.price : ""
+    checkIfState() ? location.state.price : [0]
   );
+
+  const [isSingleCostValue, setIsSingleCostValue] = React.useState(
+    checkIfState() ? location.state.isSingleCostValue : true
+  );
+
   const [learningModeValues, setLearningModeValues] = React.useState(
     checkIfState() ? location.state.learningModeValues : []
   );
@@ -178,6 +183,8 @@ export default function CreateAnnouncement({ prop }) {
                   userId={userId}
                   shortDescription={shortDescription}
                   setShortDescription={(value) => setShortDescription(value)}
+                  isSingleCostValue={isSingleCostValue}
+                  setIsSingleCostValue={(value) => setIsSingleCostValue(value)}
                 />
               }
             ></Route>

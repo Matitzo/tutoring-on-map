@@ -33,7 +33,7 @@ export function AnnouncementCard({ announcement }) {
         <div>
           <h2>{announcement.author}</h2>
           <StyledPrice>
-            {announcement.price} zł <span>/ 60min</span>
+            {JSON.parse(announcement.price).join(" - ")} zł <span>/ 60min</span>
           </StyledPrice>
         </div>
         <div>

@@ -45,9 +45,8 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
           subjectFilter && `subject=${subjectFilter}`
         }&${learningModeFilter && `learningMode=${learningModeFilter}`}&${
           cityFilter && `city=${cityFilter}`
-        }&${
-          costFilter[0] &&
-          `cost=${costFilter[0]}&${costFilter[1] && `cost=${costFilter[1]}`}`
+        }&${costFilter[0] && `cost1=${costFilter[0]}`}&${
+          costFilter[1] && `cost2=${costFilter[1]}`
         }
         `
       : "/api";

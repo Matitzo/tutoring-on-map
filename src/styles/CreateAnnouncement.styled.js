@@ -86,7 +86,7 @@ export const StyledFormDiv = styled.div`
     margin: 1.3em 0;
   }
 
-  ul label {
+  label {
     font-size: 1rem;
     display: block;
     margin-right: 10px;

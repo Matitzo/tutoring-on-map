@@ -24,7 +24,9 @@ export default function MyAnnouncements({ prop }) {
         userId: userId,
         phoneNumber: announcement.phone,
         subject: announcement.subject,
-        price: announcement.price,
+        price: JSON.parse(announcement.price),
+        isSingleCostValue:
+          JSON.parse(announcement.price).length === 1 ? true : false,
         learningModeValues: JSON.parse(announcement.learningMode),
         scopesValues: JSON.parse(announcement.scope),
         locationArray: JSON.parse(announcement.location),

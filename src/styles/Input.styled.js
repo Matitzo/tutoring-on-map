@@ -73,6 +73,17 @@ export const StyledLabelForm = styled.label`
   }
 `;
 
+export const StyledContainerFormForCostRange = styled.div`
+  margin-top: 2em;
+  input {
+    width: 75px;
+  }
+
+  label {
+    width: 75px;
+  }
+`;
+
 export const StyledSelectFormContainer = styled.div``;
 
 export const StyledSelectForm = styled.select`
