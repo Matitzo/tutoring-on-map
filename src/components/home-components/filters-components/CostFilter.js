@@ -6,6 +6,7 @@ import {
 } from "./DropDownList.styled";
 import { StyledSmallInout } from "../../../styles/Input.styled";
 import { StyledSmallButton } from "../../../styles/Button.styled";
+import { StyledLink } from "./DropDownList.styled";
 
 export default function CostFilter({ setCostFilter }) {
   const [minPrice, setMinPrice] = React.useState(0);
@@ -32,15 +33,26 @@ export default function CostFilter({ setCostFilter }) {
           style={{ width: "50px" }}
         ></StyledSmallInout>
       </StyledCenteredDiv>
-      <Link to="/filters">
-        <StyledSmallButton
-          onClick={() =>
-            setCostFilter([parseInt(minPrice), parseInt(maxPrice)])
-          }
+      <div>
+        <StyledLink
+          to="/filters"
+          style={{
+            margin: "0 1.5em",
+          }}
         >
-          Ok
+          <StyledSmallButton
+            style={{ margin: "0" }}
+            onClick={() =>
+              setCostFilter([parseInt(minPrice), parseInt(maxPrice)])
+            }
+          >
+            Ok
+          </StyledSmallButton>
+        </StyledLink>
+        <StyledSmallButton onClick={() => setCostFilter(["", ""])}>
+          Reset
         </StyledSmallButton>
-      </Link>
+      </div>
     </DropDownListContainer>
   );
 }

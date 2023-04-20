@@ -37,7 +37,7 @@ export const StyledButton = styled.button`
 
 export const StyledSmallButton = styled(StyledButton)`
   padding: 0.2em 1em;
-  margin: 0 1.5em;
+  margin: 0.2em 1.5em;
   font-size: 12px;
   border-radius: 10px;
 `;
