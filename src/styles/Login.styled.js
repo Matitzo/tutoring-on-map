@@ -7,21 +7,48 @@ export const StyledLoginFormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 568px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const StyledLoginCard = styled.div`
   width: 700px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 568px) {
+    width: 100%;
+    height: 90vh;
+  }
 `;
 
 export const StyledLoginContainer = styled.div`
   display: flex;
+
+  @media (max-width: 568px) {
+    flex-direction: column;
+    height: 80vh;
+  }
 `;
 
 export const StyledLoginForm = styled.form`
   width: 50%;
   margin: 0 auto;
   overflow: hidden;
+
+  @media (max-width: 568px) {
+    width: 100%;
+  }
 `;
 
 export const StyledLogoContainer = styled.div`
@@ -31,6 +58,10 @@ export const StyledLogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.login.colors.logoBackgroundColor};
+
+  @media (max-width: 568px) {
+    height: 7vh;
+  }
 `;
 
 export const StyledContentContainer = styled.div`
@@ -43,6 +74,11 @@ export const StyledContentContainer = styled.div`
 
   label {
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 568px) {
+    height: 100vh;
+    justify-content: start;
   }
 `;
 

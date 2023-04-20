@@ -8,11 +8,21 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #d3d3d3;
+
+    @media (max-width: 568px) {
+      margin: 0;
+      padding: 0;
+      
   }
 `;
 
 export const StyledLogoImg = styled.img`
   height: 10vh;
+
+  @media (max-width: 568px) {
+    width: 90%;
+    height: 8vh;
+  }
 `;
 
 export const StyledTogglerDiv = styled.div`
@@ -61,6 +71,12 @@ export const StyledTogglerDiv = styled.div`
   label:active:after {
     width: 25px;
   }
+
+  @media (max-width: 568px) {
+    margin-left: 0.5em;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const StyledLogoWrapper = styled.div`
@@ -94,6 +110,10 @@ export const StyledButton = styled.button`
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+
+    @media (max-width: 568px) {
+      padding: 0.2em;
+    }
   }
 
   &:hover {
@@ -107,8 +127,11 @@ export const StyledButton = styled.button`
 
 export const StyledLogInOutButton = styled(StyledButton)`
    {
-    margin-left: 4em;
     color: ${({ theme }) => theme.header.colors.backgroundColor};
     background-color: ${({ theme }) => theme.header.colors.textColor};
+
+    @media (max-width: 568px) {
+      padding: 0.2em;
+    }
   }
 `;
