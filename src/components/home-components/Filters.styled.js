@@ -6,4 +6,13 @@ export const StyledFiltersContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   border-bottom: 2px solid #d3d3d3;
+
+  @media (max-width: 568px) {
+    height: 25vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0.5em;
+    column-gap: 0.5em;
+    padding: 0 0.5em;
+  }
 `;

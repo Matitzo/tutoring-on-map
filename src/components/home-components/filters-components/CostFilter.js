@@ -3,6 +3,7 @@ import React from "react";
 import {
   DropDownListContainer,
   StyledCenteredDiv,
+  StyledFilterCostButtonsWrapper,
 } from "./DropDownList.styled";
 import { StyledSmallInout } from "../../../styles/Input.styled";
 import { StyledSmallButton } from "../../../styles/Button.styled";
@@ -33,13 +34,8 @@ export default function CostFilter({ setCostFilter }) {
           style={{ width: "50px" }}
         ></StyledSmallInout>
       </StyledCenteredDiv>
-      <div>
-        <StyledLink
-          to="/filters"
-          style={{
-            margin: "0 1.5em",
-          }}
-        >
+      <StyledFilterCostButtonsWrapper>
+        <StyledLink to="/filters">
           <StyledSmallButton
             style={{ margin: "0" }}
             onClick={() =>
@@ -49,10 +45,12 @@ export default function CostFilter({ setCostFilter }) {
             Ok
           </StyledSmallButton>
         </StyledLink>
-        <StyledSmallButton onClick={() => setCostFilter(["", ""])}>
-          Reset
-        </StyledSmallButton>
-      </div>
+        <span>
+          <StyledSmallButton onClick={() => setCostFilter(["", ""])}>
+            Reset
+          </StyledSmallButton>
+        </span>
+      </StyledFilterCostButtonsWrapper>
     </DropDownListContainer>
   );
 }

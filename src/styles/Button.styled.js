@@ -36,10 +36,18 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledSmallButton = styled(StyledButton)`
-  padding: 0.2em 1em;
-  margin: 0.2em 1.5em;
+  padding: 0.3em 1em;
+  margin: 0.5em 1.5em;
   font-size: 12px;
   border-radius: 10px;
+  min-width: 50px;
+
+  @media (max-width: 568px) {
+    padding: 0.3em;
+    margin: 0.4em;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
 `;
 
 export const StyledLogInOutButton = styled(StyledButton)`

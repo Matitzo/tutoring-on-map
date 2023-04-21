@@ -12,6 +12,11 @@ export const StyledInput = styled.input`
 export const StyledSmallInout = styled(StyledInput)`
   font-size: 12px;
   padding: 0.4em 0.8em;
+  margin-top: 0.2em;
+
+  @media (max-width: 568px) {
+    padding: 0.3em 0.1em;
+  }
 `;
 
 export const StyledInputFile = styled.input`

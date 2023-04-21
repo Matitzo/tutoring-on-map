@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 export const DropDownContainer = styled.div`
   position: relative;
   display: inline-block;
-  z-index: 9999;
 
   &:hover div {
     display: block;
+  }
+
+  @media (max-width: 568px) {
+    width: 100%;
+    font-size: 0.8rem;
   }
 `;
 
@@ -23,6 +27,13 @@ export const DropDownBtn = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 5px;
+
+  @media (max-width: 568px) {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.8em 0.2em;
+    z-index: 5;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -41,7 +52,13 @@ export const DropDownListContainer = styled.div`
   min-width: 160px;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 6000;
+
+  @media (max-width: 568px) {
+    width: 100%;
+    font-size: 0.8rem;
+    min-width: 0;
+  }
 
   ul {
     list-style-position: inside;
@@ -83,6 +100,7 @@ export const DropDownListContainer = styled.div`
 
 export const StyledCenteredDiv = styled.div`
   margin: 0 1em;
+  text-align: center;
 `;
 
 export const StyledListElement = styled.li`{
@@ -98,5 +116,15 @@ export const StyledListElement = styled.li`{
 
   &:hover {
     background-color: ${({ theme }) => theme.filters.colors.hoverColor};
+  }
+`;
+
+export const StyledFilterCostButtonsWrapper = styled.div`
+  display: flex;
+  margin-left: 1.4em;
+  text-align: center;
+
+  @media (max-width: 568px) {
+    margin-left: 0;
   }
 `;
