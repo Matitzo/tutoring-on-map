@@ -7,7 +7,7 @@ export const StyledFiltersContainer = styled.div`
   align-items: center;
   border-bottom: 2px solid #d3d3d3;
 
-  @media (max-width: 568px) {
+  @media (max-width: 768px) {
     height: 25vh;
     display: grid;
     grid-template-columns: 1fr 1fr;

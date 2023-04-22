@@ -42,7 +42,7 @@ export const StyledSmallButton = styled(StyledButton)`
   border-radius: 10px;
   min-width: 50px;
 
-  @media (max-width: 568px) {
+  @media (max-width: 768px) {
     padding: 0.3em;
     margin: 0.4em;
     font-size: 0.8rem;

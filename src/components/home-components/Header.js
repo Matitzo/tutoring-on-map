@@ -9,6 +9,7 @@ import {
   StyledLogInOutButton,
   StyledLogoImg,
   StyledTogglerDiv,
+  StyledLogedButtonsWrapper,
 } from "./Header.styled";
 import logo from "../../images/logo.png";
 
@@ -26,14 +27,14 @@ export default function Header({ isLoged, setIsLoged, setUserId }) {
       </StyledLogoWrapper>
       <StyledButtonWrapper>
         {isLoged === "success" && (
-          <div>
+          <StyledLogedButtonsWrapper>
             <Link to="/stworz-ogloszenie">
               <StyledButton>Stwórz ogłoszenie</StyledButton>
             </Link>
             <Link to="/profil/moje-ogloszenia">
               <StyledButton>Moje ogloszenia</StyledButton>
             </Link>
-          </div>
+          </StyledLogedButtonsWrapper>
         )}
 
         <div className={styles["header__sign-in"]}>
@@ -43,7 +44,7 @@ export default function Header({ isLoged, setIsLoged, setUserId }) {
               variant="danger"
               onClick={() => logout(setIsLoged, setUserId)}
             >
-              Wyloguj sie
+              Wyloguj
             </StyledLogInOutButton>
           ) : (
             <Link to="/login">

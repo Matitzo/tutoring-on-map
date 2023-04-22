@@ -10,18 +10,20 @@ export const StyledHeader = styled.header`
     border-bottom: 2px solid #d3d3d3;
 
     @media (max-width: 568px) {
-      margin: 0;
-      padding: 0;
-      
+      height: 15vh;
   }
 `;
 
 export const StyledLogoImg = styled.img`
   height: 10vh;
 
-  @media (max-width: 568px) {
-    width: 90%;
+  @media (max-width: 768px) {
+    width: 100%;
     height: 8vh;
+  }
+
+  @media (max-width: 568px) {
+    height: 6vh;
   }
 `;
 
@@ -72,10 +74,20 @@ export const StyledTogglerDiv = styled.div`
     width: 25px;
   }
 
-  @media (max-width: 568px) {
+  @media (max-width: 800px) {
     margin-left: 0.5em;
     display: flex;
     align-items: center;
+
+    label {
+      width: 20px;
+      height: 10px;
+    }
+
+    label:after {
+      width: 10px;
+      height: 10px;
+    }
   }
 `;
 
@@ -85,6 +97,11 @@ export const StyledLogoWrapper = styled.div`
 
 export const StyledButtonWrapper = styled.div`
   display: flex;
+
+  @media (max-width: 568px) {
+    flex-direction: column-reverse;
+    align-items: end;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -111,8 +128,14 @@ export const StyledButton = styled.button`
     -webkit-user-select: none;
     touch-action: manipulation;
 
+    @media (max-width: 800px) {
+      font-size: 0.6rem;
+      padding: 0.4em 0.6em;
+    }
+
     @media (max-width: 568px) {
-      padding: 0.2em;
+      font-size: 0.6rem;
+      padding: 0.6em;
     }
   }
 
@@ -130,8 +153,14 @@ export const StyledLogInOutButton = styled(StyledButton)`
     color: ${({ theme }) => theme.header.colors.backgroundColor};
     background-color: ${({ theme }) => theme.header.colors.textColor};
 
-    @media (max-width: 568px) {
-      padding: 0.2em;
+    @media (max-width: 768px) {
+      margin: 0.2em 0.5em 0.5em 0;
     }
+  }
+`;
+
+export const StyledLogedButtonsWrapper = styled.div`
+  @media (max-width: 610px) {
+    text-align: end;
   }
 `;

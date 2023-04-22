@@ -7,6 +7,11 @@ export const StyledInput = styled.input`
   font-size: 1rem;
   border: 2px solid ${({ theme }) => theme.filters.colors.hoverColor};
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 2em);
+    font-size: 0.8rem;
+  }
 `;
 
 export const StyledSmallInout = styled(StyledInput)`
@@ -14,7 +19,7 @@ export const StyledSmallInout = styled(StyledInput)`
   padding: 0.4em 0.8em;
   margin-top: 0.2em;
 
-  @media (max-width: 568px) {
+  @media (max-width: 768px) {
     padding: 0.3em 0.1em;
   }
 `;

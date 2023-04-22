@@ -4,19 +4,20 @@ import { Link } from "react-router-dom";
 export const DropDownContainer = styled.div`
   position: relative;
   display: inline-block;
+  width: 15%;
 
   &:hover div {
     display: block;
   }
 
-  @media (max-width: 568px) {
+  @media (max-width: 768px) {
     width: 100%;
     font-size: 0.8rem;
   }
 `;
 
 export const DropDownBtn = styled.button`
-  width: 210px;
+  width: 100%;
   color: white;
   background-color: ${({ theme, filtered }) =>
     filtered
@@ -28,7 +29,7 @@ export const DropDownBtn = styled.button`
   cursor: pointer;
   border-radius: 5px;
 
-  @media (max-width: 568px) {
+  @media (max-width: 768px) {
     width: 100%;
     font-size: 0.9rem;
     padding: 0.8em 0.2em;
@@ -42,19 +43,19 @@ export const StyledLink = styled(Link)`
 
 export const DropDownListContainer = styled.div`
   background-color: ${({ theme }) => theme.filters.colors.backgroundColor};
-  width: 210px;
+  width: 100%;
   max-height: 300px;
   overflow-y: auto;
   display: none;
   position: absolute;
   padding: 0;
   margin: 0;
-  min-width: 160px;
+  min-width: 100px;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 6000;
 
-  @media (max-width: 568px) {
+  @media (max-width: 768px) {
     width: 100%;
     font-size: 0.8rem;
     min-width: 0;
@@ -120,11 +121,11 @@ export const StyledListElement = styled.li`{
 `;
 
 export const StyledFilterCostButtonsWrapper = styled.div`
-  display: flex;
-  margin-left: 1.4em;
+  width: calc(100% -0.9em);
   text-align: center;
+  padding-left: 0.9em;
 
-  @media (max-width: 568px) {
-    margin-left: 0;
+  @media (max-width: 768px) {
+    padding-left: 0.5em;
   }
 `;
