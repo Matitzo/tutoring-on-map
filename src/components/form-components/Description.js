@@ -3,6 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { Link } from "react-router-dom";
 import { StyledSubmitButton } from "../../styles/Button.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
+import { StyledFormHeader } from "../../styles/CreateAnnouncement.styled";
 
 export default function Description({ description, handleDescription }) {
   const editorRef = useRef(null);
@@ -28,7 +29,7 @@ export default function Description({ description, handleDescription }) {
           </svg>
         </StyledBackArrowForm>
       </Link>
-      <h2>Stwórz opis</h2>
+      <StyledFormHeader>Stwórz opis</StyledFormHeader>
       <Editor
         apiKey="4ab2vb8gat5lyoyxwmp1w6t1t4w23lbh3kbhfkfok774x5ix"
         onInit={(evt, editor) => {

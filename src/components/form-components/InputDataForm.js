@@ -17,6 +17,7 @@ import {
   StyledNumberInput,
 } from "../../styles/Input.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
+import { StyledFormHeader } from "../../styles/CreateAnnouncement.styled";
 
 export default function InpuDataForm({
   handleImage,
@@ -75,7 +76,7 @@ export default function InpuDataForm({
           </svg>
         </StyledBackArrowForm>
       </Link>
-      <h2>Wypełnij formularz ogłoszenia</h2>
+      <StyledFormHeader>Wypełnij formularz ogłoszenia</StyledFormHeader>
       <ul>
         <li>
           <StyledImageWrapper>

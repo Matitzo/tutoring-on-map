@@ -5,6 +5,11 @@ export const StyledBackArrowForm = styled.i`
   top: 30px;
   left: 30px;
   color: green;
+
+  @media (max-width: 768px) {
+    top: 10px;
+    left: 10px;
+  }
 `;
 
 export const StyledBackArrow = styled.i`

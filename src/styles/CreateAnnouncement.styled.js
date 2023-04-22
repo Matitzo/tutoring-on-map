@@ -46,6 +46,7 @@ export const StyledFormDiv = styled.div`
   background: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   min-height: 300px;
+  min-width: 600px;
   position: relative;
   width: 55%;
 }
@@ -100,6 +101,17 @@ export const StyledFormDiv = styled.div`
     box-sizing: border-box;
   }
 
+  @media (max-width: 768px) {
+    width: 90%;
+    min-width: 350px;
+  }
+
+`;
+
+export const StyledFormHeader = styled.h2`
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const StyledLocationsDiv = styled.div``;

@@ -23,6 +23,10 @@ export const StyledMapContainer = styled.div`
 export const StyledMapDiv = styled.div`
   width: 100%;
   height: 60vh;
+
+  @media (max-width: 768px) {
+    height: 80vw;
+  }
 `;
 
 export const StyledLocationsContainer = styled.div`

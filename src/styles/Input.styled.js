@@ -165,4 +165,12 @@ export const StyledLocationInput = styled.input`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    max-width: 300px;
+  }
+
+  @media (max-width: 568px) {
+    width: 200px;
+  }
 `;

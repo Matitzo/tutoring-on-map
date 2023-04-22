@@ -22,6 +22,7 @@ import {
   StyledErrorMsg,
 } from "../../styles/CreateAnnouncementMap.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
+import { StyledFormHeader } from "../../styles/CreateAnnouncement.styled";
 
 export default function SelectLocation({
   setLocationArray,
@@ -69,7 +70,7 @@ export default function SelectLocation({
           </svg>
         </StyledBackArrowForm>
       </Link>
-      <h2>Wybierz lokalizacje</h2>
+      <StyledFormHeader>Wybierz lokalizacje</StyledFormHeader>
       <StyledMapContainer>
         <StyledMapDiv>
           <FormMap setLocationArray={(value) => setLocationArray(value)} />
