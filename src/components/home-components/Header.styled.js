@@ -9,8 +9,11 @@ export const StyledHeader = styled.header`
     align-items: center;
     border-bottom: 2px solid #d3d3d3;
 
-    @media (max-width: 568px) {
-      height: 15vh;
+
+  @media (max-width: 568px) {
+    max-height:40px;
+    
+    padding: 0 1em;
   }
 `;
 
@@ -23,7 +26,7 @@ export const StyledLogoImg = styled.img`
   }
 
   @media (max-width: 568px) {
-    height: 6vh;
+    height: 5vh;
   }
 `;
 
@@ -93,14 +96,16 @@ export const StyledTogglerDiv = styled.div`
 
 export const StyledLogoWrapper = styled.div`
   display: flex;
+
+  @media (max-width: 568px) {
+    width: 120px;
+  }
 `;
 
 export const StyledButtonWrapper = styled.div`
   display: flex;
 
   @media (max-width: 568px) {
-    flex-direction: column-reverse;
-    align-items: end;
   }
 `;
 

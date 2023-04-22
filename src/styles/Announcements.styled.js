@@ -51,6 +51,10 @@ export const StyledAnnoucementInformations = styled.div`
       margin: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const StyledSubject = styled.span`
@@ -61,7 +65,7 @@ export const StyledSubject = styled.span`
 export const StyledPhoneNumber = styled.span``;
 
 export const StyledShortDescription = styled.p`
-  height: 70px;
+  min-height: 70px;
   width: 100%;
   margin-bottom: 0.4em;
   word-break: break-all;
@@ -80,5 +84,13 @@ export const StyledPrice = styled.span`
   span {
     color: ${({ theme }) => theme.announcements.colors.smallText};
     font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+
+    span {
+      font-size: 0.6rem;
+    }
   }
 `;

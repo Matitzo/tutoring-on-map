@@ -3,10 +3,19 @@ import styled from "styled-components";
 export const StyledProfileContainer = styled.div`
   width: 70%;
   margin: 3em auto 0 auto;
+
+  @media (max-width: 1100px) {
+    width: calc(100% - 13px);
+    margin: 0;
+  }
 `;
 
 export const StyledProfileWrapper = styled.div`
   display: flex;
+
+  @media (max-width: 1100px) {
+    display: block;
+  }
 `;
 
 export const StyledProfileListContainer = styled.div`
@@ -23,6 +32,10 @@ export const StyledProfileContentContainer = styled.div`
   max-height: 80vh;
   overflow-y: auto;
   background-color: whitesmoke;
+
+  @media (max-width: 1100px) {
+    max-height: none;
+  }
 `;
 
 export const StyledProfileUl = styled.ul`
@@ -41,5 +54,15 @@ export const StyledProfileUl = styled.ul`
 
   li:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 1100px) {
+    display: flex;
+    width: fit-content;
+
+    li {
+      width: 150px;
+      margin: 0.3em;
+    }
   }
 `;

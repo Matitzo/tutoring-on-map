@@ -11,7 +11,7 @@ export const StyledFiltersContainer = styled.div`
     height: 25vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 0.5em;
+    row-gap: 0.2em;
     column-gap: 0.5em;
     padding: 0 0.5em;
   }

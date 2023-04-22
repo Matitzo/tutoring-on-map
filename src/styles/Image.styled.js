@@ -4,6 +4,12 @@ export const StyledImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    align-items: start;
+    justify-content: start;
+    margin-top: 1em;
+  }
 `;
 
 export const StyledImage = styled.img`
@@ -38,6 +44,16 @@ export const StyledImage = styled.img`
      #0000 calc(100% - calc(var(--border) + var(--gap))) 
            calc(99%  - var(--border)), 
      #000  calc(100% - var(--border)));
+}
+
+@media (max-width: 768px) {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 568px) {
+  width: 130px;
+  height: 130px;
 }
 
 `;
