@@ -16,6 +16,7 @@ import {
 import { StyledBackArrow } from "../../../styles/BackArrow.styled";
 
 export default function UnfoldedAnnoucement({
+  isMobileMapOn,
   unfoldedAnnoucement,
   setCoord,
   setZoom,
@@ -39,7 +40,7 @@ export default function UnfoldedAnnoucement({
   }
 
   return (
-    <StyledUnfoldedAnnouncementContainer>
+    <StyledUnfoldedAnnouncementContainer isMobileMapOn={isMobileMapOn}>
       <Link to="/">
         <StyledBackArrow onClick={() => handleBackArrow()}>
           <svg

@@ -77,3 +77,28 @@ export const StyledButtonWrapper = styled.div`
   margin: 0 auto;
   width: fit-content;
 `;
+
+export const StyledMapButton = styled.div`
+  display: none;
+  position: fixed;
+  z-index: 9999;
+
+  @media (max-width: 1100px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3em 1em;
+    color: ${({ theme }) => theme.header.colors.backgroundColor};
+    background-color: ${({ theme }) => theme.header.colors.textColor};
+    border-radius: 15px;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+`;

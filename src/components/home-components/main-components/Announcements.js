@@ -4,6 +4,7 @@ import { AnnouncementCard } from "../../AnnouncementCard";
 import { StyledLink } from "../../../styles/Link.styled";
 
 export default function Announcements({
+  isMobileMapOn,
   announcements,
   handleUnfoldedAnnoucement,
   handleMapCoord,
@@ -32,7 +33,7 @@ export default function Announcements({
   }
 
   return (
-    <StyledAnnouncementsContainer>
+    <StyledAnnouncementsContainer isMobileMapOn={isMobileMapOn}>
       {announcements.map((announcement) => {
         return (
           <StyledLink

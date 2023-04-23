@@ -5,6 +5,11 @@ export const StyledUnfoldedAnnouncementContainer = styled.div`
   width: 55%;
   overflow: auto;
   padding: 1em 1em;
+
+  @media (max-width: 1100px) {
+    width: calc(100% - 2em);
+    display: ${({ isMobileMapOn }) => isMobileMapOn && "none"};
+  }
 `;
 
 export const StyledHeadContainer = styled.div`

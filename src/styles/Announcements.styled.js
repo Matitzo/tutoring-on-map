@@ -6,6 +6,11 @@ export const StyledAnnouncementsContainer = styled.div`
   overflow: auto;
   background-color: ${({ theme }) =>
     theme.announcements.colors.backgroundColor};
+
+  @media (max-width: 1100px) {
+    width: calc(100% - 2em);
+    display: ${({ isMobileMapOn }) => isMobileMapOn && "none"};
+  }
 `;
 
 export const StyledAnnouncementWrapper = styled.div`
