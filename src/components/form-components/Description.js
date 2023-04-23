@@ -37,10 +37,11 @@ export default function Description({ description, handleDescription }) {
         }}
         init={{
           selector: "textarea",
+          toolbar_mode: "wrap",
           plugins:
-            "save lists image advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount",
+            " lists image advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount",
           toolbar:
-            "save undo redo | numlist bullist | bold italic backcolor | alignleft aligncenter alignright alignjustify",
+            " undo redo | numlist bullist | bold italic backcolor | alignleft aligncenter alignright alignjustify",
           /* without images_upload_url set, Upload tab won't show up*/
           images_upload_url: "postAcceptor.php",
 

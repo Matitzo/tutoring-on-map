@@ -15,6 +15,8 @@ import {
   StyledShortTextWrapper,
   StyledErrorMsg,
   StyledNumberInput,
+  StyledRadioInputContainer,
+  StyledRadioInput,
 } from "../../styles/Input.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
 import { StyledFormHeader } from "../../styles/CreateAnnouncement.styled";
@@ -145,34 +147,36 @@ export default function InpuDataForm({
           </StyledSelectForm>
         </li>
         <li>
-          <div>
-            <input
-              type="radio"
-              id="single"
-              name="type"
-              value="single"
-              onClick={() => {
-                setIsSingleCostValue(true);
-                setPrice([0]);
-              }}
-              checked={isSingleCostValue && true}
-            />
-            <label for="huey">Pojedyncza wartość</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="range"
-              name="type"
-              value="range"
-              onClick={() => {
-                setIsSingleCostValue(false);
-                setPrice([0, 0]);
-              }}
-              checked={!isSingleCostValue && true}
-            />
-            <label for="range">Przedział</label>
-          </div>
+          <StyledRadioInputContainer>
+            <div>
+              <StyledRadioInput
+                type="radio"
+                id="single"
+                name="type"
+                value="single"
+                onClick={() => {
+                  setIsSingleCostValue(true);
+                  setPrice([0]);
+                }}
+                checked={isSingleCostValue && true}
+              />
+              <label for="single">Pojedyncza wartość</label>
+            </div>
+            <div>
+              <StyledRadioInput
+                type="radio"
+                id="range"
+                name="type"
+                value="range"
+                onClick={() => {
+                  setIsSingleCostValue(false);
+                  setPrice([0, 0]);
+                }}
+                checked={!isSingleCostValue && true}
+              />
+              <label for="range">Przedział</label>
+            </div>
+          </StyledRadioInputContainer>
           <Cost
             isSingleCostValue={isSingleCostValue}
             price={price}

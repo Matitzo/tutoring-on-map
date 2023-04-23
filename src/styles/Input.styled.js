@@ -84,7 +84,6 @@ export const StyledLabelForm = styled.label`
 `;
 
 export const StyledContainerFormForCostRange = styled.div`
-  margin-top: 2em;
   input {
     width: 75px;
   }
@@ -173,4 +172,19 @@ export const StyledLocationInput = styled.input`
   @media (max-width: 568px) {
     width: 200px;
   }
+`;
+
+export const StyledRadioInputContainer = styled.div`
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 2em;
+
+  label {
+    width: fit-content;
+  }
+`;
+
+export const StyledRadioInput = styled.input`
+  margin-left: 1em;
 `;
