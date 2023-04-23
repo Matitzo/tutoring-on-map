@@ -8,7 +8,8 @@ export const StyledAnnouncementsContainer = styled.div`
     theme.announcements.colors.backgroundColor};
 
   @media (max-width: 1100px) {
-    width: calc(100% - 2em);
+    padding: 1em 0.3em;
+    width: calc(100% - 0.6em);
     display: ${({ isMobileMapOn }) => isMobileMapOn && "none"};
   }
 `;

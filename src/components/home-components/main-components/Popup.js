@@ -23,7 +23,7 @@ export default function PopupDiv({ announcement, location, icon }) {
         <StyledPopupInfoWrapper>
           <StylelPopupPrice>{announcement.author}</StylelPopupPrice>
           <StyledPopupAuthor>
-            {announcement.price} <span>zł/h</span>
+            {JSON.parse(announcement.price).join(" - ")} <span>zł/h</span>
           </StyledPopupAuthor>
         </StyledPopupInfoWrapper>
       </StyledPopupContainer>

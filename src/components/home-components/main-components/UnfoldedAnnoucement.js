@@ -68,7 +68,8 @@ export default function UnfoldedAnnoucement({
           <h3>{unfoldedAnnoucement.subject}</h3>
           <h2>{unfoldedAnnoucement.author}</h2>
           <StyledPrice>
-            {unfoldedAnnoucement.price} zł <span>/ 60min</span>
+            {JSON.parse(unfoldedAnnoucement.price).join(" - ")} zł{" "}
+            <span>/ 60min</span>
             <StyledParagraph>
               {unfoldedAnnoucement.phone.replace(
                 /(\d{3})(\d{3})(\d{3})/,
