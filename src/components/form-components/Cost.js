@@ -26,7 +26,7 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
         </StyledLabelForm>
       ) : (
         <StyledContainerFormForCostRange>
-          <StyledLabelForm>
+          <StyledLabelForm style={{ width: "75px" }}>
             <StyledNumberInput
               required
               type="number"
@@ -45,7 +45,7 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
             <span>Min: </span>
           </StyledLabelForm>
           <span>-</span>
-          <StyledLabelForm>
+          <StyledLabelForm style={{ width: "75px" }}>
             <StyledNumberInput
               required
               type="number"

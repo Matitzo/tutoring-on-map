@@ -83,16 +83,6 @@ export const StyledLabelForm = styled.label`
   }
 `;
 
-export const StyledContainerFormForCostRange = styled.div`
-  input {
-    width: 75px;
-  }
-
-  label {
-    width: 75px;
-  }
-`;
-
 export const StyledSelectFormContainer = styled.div``;
 
 export const StyledSelectForm = styled.select`
@@ -180,11 +170,25 @@ export const StyledRadioInputContainer = styled.div`
   margin: 0 auto;
   margin-bottom: 2em;
 
-  label {
-    width: fit-content;
+  div {
+    label {
+      width: fit-content;
+      text-align: start;
+      margin: 0;
+    }
   }
 `;
 
 export const StyledRadioInput = styled.input`
-  margin-left: 1em;
+  margin-left: 0.5em;
+`;
+
+export const StyledContainerFormForCostRange = styled.div`
+  label {
+    width: 75px;
+
+    input {
+      width: 75px;
+    }
+  }
 `;

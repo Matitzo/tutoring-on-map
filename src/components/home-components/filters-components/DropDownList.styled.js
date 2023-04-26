@@ -109,7 +109,8 @@ export const StyledListElement = styled.li`{
   color: ${({ theme }) => theme.filters.colors.textColor};
   padding: .5em 1em;
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
   background-color: ${({ theme, selected }) =>
     selected
       ? theme.filters.colors.hoverColor

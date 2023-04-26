@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
+export const StyledClusterPopupContainer = styled.div`
+  max-height: 250px;
+  overflow-y: auto;
+`;
+
 export const StyledPopupContainer = styled.div`
-  border: 1px solid red;
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -11,6 +15,7 @@ export const StyledPopupContainer = styled.div`
   border: 1px solid black;
   border-radius: 10px;
   background-color: white;
+  overflow: hidden;
 `;
 
 export const StyledPopupImg = styled.img`
@@ -31,6 +36,7 @@ export const StylelPopupPrice = styled.span`
 `;
 
 export const StyledPopupAuthor = styled.span`
+  text-align: end;
   font-size: 1rem;
 
   span {

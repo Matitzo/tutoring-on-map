@@ -41,6 +41,7 @@ export default function Filters({
           data={subjects}
           filter={subjectFilter}
           setFilter={(value) => setSubjectFilter(value)}
+          icon={true}
         />
       </DropDownContainer>
       <StyledInput
@@ -58,6 +59,7 @@ export default function Filters({
           data={voivodeships}
           filter={voivodeshipFilter}
           setFilter={(value) => setVoivodeshipFilter(value)}
+          icon={false}
         />
       </DropDownContainer>
       <DropDownContainer>
@@ -69,6 +71,7 @@ export default function Filters({
           data={learningMode}
           filter={learningModeFilter}
           setFilter={(value) => setLearningModeFilter(value)}
+          icon={false}
         />
       </DropDownContainer>
       <DropDownContainer>

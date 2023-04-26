@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { StyledImageSubjectContainer } from "../../../styles/SubjectImages.styled";
 import {
   DropDownListContainer,
   StyledLink,
@@ -12,6 +13,7 @@ export default function DropDownList({
   filter,
   setFilter,
   defaultValue,
+  icon,
 }) {
   return (
     // na divie onClick zmiana state i bd chowac lub sie pojawiac
@@ -38,13 +40,16 @@ export default function DropDownList({
               onClick={(e) => {
                 // to na dole jest do zmiany bo w wersji koncowej to niebd innerHtTML
                 // pozatym zrobic by przyrownalo do state`a i jesli bd takie same to ustawialo setFilter na ""
-                filter !== e.target.innerHTML
-                  ? setFilter(e.target.innerHTML)
-                  : setFilter("");
+                filter !== object ? setFilter(object) : setFilter("");
                 e.target.innerHTML === defaultValue && setFilter("");
                 // koniec komentarza
               }}
             >
+              {icon && (
+                <StyledImageSubjectContainer
+                  subject={object}
+                ></StyledImageSubjectContainer>
+              )}{" "}
               {object}
             </StyledListElement>
           </StyledLink>
