@@ -14,7 +14,7 @@ export default function handleSubmitRegistration(
   if (password.length < 6) return setState("invalid_password_lenght");
   if (password !== passwordValidation)
     return setState("invalid_password_validation");
-  Axios.post(`http://localhost:3000/registration`, {
+  Axios.post(`https://smart-edukacja.onrender.com/registration`, {
     email: email,
     login: login,
     password: password,

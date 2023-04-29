@@ -10,7 +10,7 @@ export default function handleSubmitLogin(
 ) {
   if (login.length < 5) return setState("failed");
   if (password.length < 6) return setState("failed");
-  Axios.post(`http://localhost:3000/login`, {
+  Axios.post(`https://smart-edukacja.onrender.com/login`, {
     login: login,
     password: password,
   })

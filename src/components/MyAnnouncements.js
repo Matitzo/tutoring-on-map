@@ -47,7 +47,7 @@ export default function MyAnnouncements({ prop }) {
   }
 
   function deleteAnnouncement(announcementId) {
-    Axios.post(`http://localhost:3000/delete`, {
+    Axios.post(`https://smart-edukacja.onrender.com/delete`, {
       announcementId: announcementId,
     })
       .then((res) => {
@@ -62,11 +62,14 @@ export default function MyAnnouncements({ prop }) {
 
   function getMyAnnouncements() {
     const token = cookies.get("TOKEN");
-    Axios.get(`http://localhost:3000/moje-ogloszenia?userId=${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    Axios.get(
+      `https://smart-edukacja.onrender.com/moje-ogloszenia?userId=${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => {
         setMyAnnouncements(res.data);
       })

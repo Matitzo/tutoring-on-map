@@ -14,11 +14,14 @@ export default function ProfilData({ prop }) {
 
   function getProfilData() {
     const token = cookies.get("TOKEN");
-    Axios.get(`http://localhost:3000/profil-data?userId=${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    Axios.get(
+      `https://smart-edukacja.onrender.com/profil-data?userId=${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => {
         setProfilData(res.data);
       })

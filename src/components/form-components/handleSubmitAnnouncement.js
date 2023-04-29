@@ -20,7 +20,7 @@ export default function handleSubmitAnnouncement(
   e.preventDefault();
 
   Axios.post(
-    `http://localhost:3000/${
+    `https://smart-edukacja.onrender.com/${
       checkIfEdition() ? "edytuj-ogloszenie" : "stworz-ogloszenie"
     }`,
     {
