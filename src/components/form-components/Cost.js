@@ -15,7 +15,7 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
             name="price"
             maxLength="6"
             value={price}
-            onChange={(e) => setPrice(parseInt(e.target.value))}
+            onChange={(e) => setPrice([parseInt(e.target.value)])}
             onKeyPress={(event) => {
               if (!/[0-9]/.test(event.key)) {
                 event.preventDefault();

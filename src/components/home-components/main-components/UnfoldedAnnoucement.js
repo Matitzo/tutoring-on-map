@@ -1,4 +1,5 @@
 import React from "react";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 import LocationList from "./LocationsList";
@@ -27,11 +28,18 @@ export default function UnfoldedAnnoucement({
     React.useState(false);
   const unfoldedAnnoucementLocation = JSON.parse(unfoldedAnnoucement.location);
 
-  var image;
+  const storage = getStorage();
+  const starsRef = ref(storage, `images/${unfoldedAnnoucement.image}`);
+  const [imageUrl, setImageUrl] = React.useState("");
+  //var image;
   try {
-    image = require(`../../../../../server/upload_images/${unfoldedAnnoucement.image}`);
+    getDownloadURL(starsRef).then((url) => {
+      setImageUrl(url);
+    });
+    //image = require(`../../../server/upload_images/${announcement.image}`);
   } catch {
-    image = require(`../../../profileImages/avatar.png`);
+    setImageUrl(``);
+    //image = require(`../profileImages/avatar.png`);
   }
 
   function handleBackArrow() {
@@ -60,7 +68,9 @@ export default function UnfoldedAnnoucement({
           <StyledImage
             width="200px"
             border="15px"
-            src={image}
+            src={
+              imageUrl ? imageUrl : require(`../../../profileImages/avatar.png`)
+            }
             alt={`${unfoldedAnnoucement.author} zdjecie`}
           />
         </StyledImageWrapper>

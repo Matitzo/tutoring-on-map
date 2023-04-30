@@ -1,4 +1,5 @@
 import React from "react";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { StyledImageWrapper, StyledImage } from "../styles/Image.styled";
 import {
   StyledAnnouncementsContainer,
@@ -12,11 +13,18 @@ import {
 } from "../styles/Announcements.styled";
 
 export function AnnouncementCard({ announcement }) {
-  var image;
+  const storage = getStorage();
+  const starsRef = ref(storage, `images/${announcement.image}`);
+  const [imageUrl, setImageUrl] = React.useState("");
+  //var image;
   try {
-    image = require(`../../../server/upload_images/${announcement.image}`);
+    getDownloadURL(starsRef).then((url) => {
+      setImageUrl(url);
+    });
+    //image = require(`../../../server/upload_images/${announcement.image}`);
   } catch {
-    image = require(`../profileImages/avatar.png`);
+    setImageUrl(``);
+    //image = require(`../profileImages/avatar.png`);
   }
   return (
     <StyledAnnouncementWrapper>
@@ -24,7 +32,7 @@ export function AnnouncementCard({ announcement }) {
         <StyledImage
           width="175px"
           border="10px"
-          src={image}
+          src={imageUrl ? imageUrl : require(`../profileImages/avatar.png`)}
           alt="Obraz ogloszenia"
         ></StyledImage>
       </StyledImageWrapper>

@@ -7,6 +7,7 @@ import SelectLocation from "./form-components/SelectLocation";
 import Description from "./form-components/Description";
 import handleSubmitAnnouncement from "./form-components/handleSubmitAnnouncement";
 import handleUploadImage from "./form-components/handleUploadImage";
+import uploadImageFirebase from "./form-components/uploadImageFirebase";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {
@@ -153,7 +154,8 @@ export default function CreateAnnouncement({ prop }) {
             description,
             navigate
           );
-          handleUploadImage(uploadImage, imageName);
+          uploadImageFirebase(uploadImage, setUploadImage, imageName);
+          //handleUploadImage(uploadImage, imageName);
         }}
       >
         <StyledFormDiv>

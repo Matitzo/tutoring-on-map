@@ -1,6 +1,8 @@
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import React from "react";
+import { getStorage, ref, deleteObject } from "firebase/storage";
+import { storage } from "./form-components/firebase.js";
 import { AnnouncementCard } from "./AnnouncementCard";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
@@ -46,14 +48,23 @@ export default function MyAnnouncements({ prop }) {
     navigate(`/offers/${announcement.author}`);
   }
 
-  function deleteAnnouncement(announcementId) {
+  function deleteAnnouncement(announcementId, image) {
     Axios.post(`https://smart-edukacja.onrender.com/delete`, {
       announcementId: announcementId,
     })
       .then((res) => {
         console.log(res);
-        console.log("deleted");
-        getMyAnnouncements();
+        console.log("deleted from database");
+        const desertRef = ref(storage, `images/${image}`);
+        deleteObject(desertRef)
+          .then(() => {
+            console.log("deleted image from database");
+            getMyAnnouncements();
+            // File deleted successfully
+          })
+          .catch((error) => {
+            // Uh-oh, an error occurred!
+          });
       })
       .catch((error) => {
         error = new Error();
@@ -114,7 +125,12 @@ export default function MyAnnouncements({ prop }) {
                 </svg>
               </StyledIcon>
               <StyledIcon
-                onClick={() => deleteAnnouncement(announcement.announcementId)}
+                onClick={() =>
+                  deleteAnnouncement(
+                    announcement.announcementId,
+                    announcement.image
+                  )
+                }
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
