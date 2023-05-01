@@ -39,6 +39,7 @@ export const DropDownBtn = styled.button`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+  color: black;
 `;
 
 export const DropDownListContainer = styled.div`

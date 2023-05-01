@@ -10,11 +10,11 @@ export const StyledHeader = styled.header`
     border-bottom: 2px solid #d3d3d3;
 
 
-  @media (max-width: 568px) {
-    max-height:40px;
+   @media (max-width: 568px) {
+     //max-height:40px;
     
-    padding: 0 1em;
-  }
+     padding: 0 .5em;
+   }
 `;
 
 export const StyledLogoImg = styled.img`
@@ -25,9 +25,9 @@ export const StyledLogoImg = styled.img`
     height: 8vh;
   }
 
-  @media (max-width: 568px) {
-    height: 5vh;
-  }
+  // @media (max-width: 568px) {
+  //   height: 5vh;
+  // }
 `;
 
 export const StyledTogglerDiv = styled.div`
@@ -77,20 +77,24 @@ export const StyledTogglerDiv = styled.div`
     width: 25px;
   }
 
-  @media (max-width: 800px) {
-    margin-left: 0.5em;
-    display: flex;
-    align-items: center;
+  // @media (max-width: 800px) {
+  //   margin-left: 0.5em;
+  //   display: flex;
+  //   align-items: center;
 
-    label {
-      width: 20px;
-      height: 10px;
-    }
+  //   label {
+  //     width: 20px;
+  //     height: 10px;
+  //   }
 
-    label:after {
-      width: 10px;
-      height: 10px;
-    }
+  //   label:after {
+  //     width: 10px;
+  //     height: 10px;
+  //   }
+  // }
+
+  @media (max-width: 768px) {
+    top: -10px;
   }
 `;
 
@@ -98,7 +102,7 @@ export const StyledLogoWrapper = styled.div`
   display: flex;
 
   @media (max-width: 568px) {
-    width: 120px;
+    width: 230px;
   }
 `;
 
@@ -133,15 +137,15 @@ export const StyledButton = styled.button`
     -webkit-user-select: none;
     touch-action: manipulation;
 
-    @media (max-width: 800px) {
-      font-size: 0.6rem;
-      padding: 0.4em 0.6em;
-    }
+    // @media (max-width: 800px) {
+    //   font-size: 0.6rem;
+    //   padding: 0.4em 0.6em;
+    // }
 
-    @media (max-width: 568px) {
-      font-size: 0.6rem;
-      padding: 0.6em;
-    }
+    // @media (max-width: 568px) {
+    //   font-size: 0.6rem;
+    //   padding: 0.6em;
+    // }
   }
 
   &:hover {

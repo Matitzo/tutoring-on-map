@@ -57,10 +57,19 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   React.useEffect(() => {
     console.log("feczuje dane");
     console.log(getUrl());
+    //http://localhost:8080${getUrl()}
+    //https://smart-edukacja.onrender.com${getUrl()}
     fetch(`https://smart-edukacja.onrender.com${getUrl()}`)
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => {
         setData(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("Error while fetching");
+        console.log(error);
       });
   }, [
     voivodeshipFilter,
