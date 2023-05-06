@@ -1,4 +1,5 @@
 import React from "react";
+import LoadingSpinner from "../../LoadingSpinner";
 import { StyledAnnouncementsContainer } from "../../../styles/Announcements.styled";
 import { AnnouncementCard } from "../../AnnouncementCard";
 import { StyledLink } from "../../../styles/Link.styled";
@@ -34,19 +35,23 @@ export default function Announcements({
 
   return (
     <StyledAnnouncementsContainer isMobileMapOn={isMobileMapOn}>
-      {announcements.map((announcement) => {
-        return (
-          <StyledLink
-            key={announcement.author_id}
-            to={`/offers/${announcement.author}`}
-            onClick={() => handleClick(announcement)}
-            onMouseOver={() => setHoverAnnouncement(announcement)}
-            onMouseLeave={() => setHoverAnnouncement({})}
-          >
-            <AnnouncementCard announcement={announcement} />
-          </StyledLink>
-        );
-      })}
+      {announcements.length > 0 ? (
+        announcements.map((announcement) => {
+          return (
+            <StyledLink
+              key={announcement.author_id}
+              to={`/offers/${announcement.author}`}
+              onClick={() => handleClick(announcement)}
+              onMouseOver={() => setHoverAnnouncement(announcement)}
+              onMouseLeave={() => setHoverAnnouncement({})}
+            >
+              <AnnouncementCard announcement={announcement} />
+            </StyledLink>
+          );
+        })
+      ) : (
+        <LoadingSpinner />
+      )}
     </StyledAnnouncementsContainer>
   );
 }

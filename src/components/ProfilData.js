@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import Cookies from "universal-cookie";
+import LoadingSpinner from "./LoadingSpinner";
 
 const cookies = new Cookies();
 
@@ -33,14 +34,18 @@ export default function ProfilData({ prop }) {
 
   return (
     <div>
-      {profilData.map((data) => {
-        return (
-          <div>
-            <p>Email: {data.email}</p>
-            <p>Login: {data.login}</p>
-          </div>
-        );
-      })}
+      {profilData.length > 0 ? (
+        profilData.map((data) => {
+          return (
+            <div>
+              <p>Email: {data.email}</p>
+              <p>Login: {data.login}</p>
+            </div>
+          );
+        })
+      ) : (
+        <LoadingSpinner />
+      )}
     </div>
   );
 }

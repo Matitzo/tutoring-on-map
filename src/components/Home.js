@@ -94,11 +94,13 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
         setLearningModeFilter={(value) => setLearningModeFilter(value)}
         setCostFilter={(value) => setCostFilter(value)}
       />
-      <Container
-        data={data}
-        unfoldedAnnoucement={unfoldedAnnoucement}
-        setUnfoldedAnnoucement={setUnfoldedAnnoucement}
-      />
+      {
+        <Container
+          data={data}
+          unfoldedAnnoucement={unfoldedAnnoucement}
+          setUnfoldedAnnoucement={setUnfoldedAnnoucement}
+        />
+      }
     </div>
   );
 }

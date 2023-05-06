@@ -37,12 +37,10 @@ export const StyledImageSubjectContainer = styled.div`
   min-width: 40px;
   width: 40px;
   height: 40px;
-  margin-right: .3em;
+  margin-right: 0.3em;
   border-radius: 25px;
-  box-shadow: 0px 0px 8px ${({ theme }) => theme.filters.colors.textColor};
+  //box-shadow: 0px 0px 6px ${({ theme }) => "black"};
   background-image: url(${({ subject }) => getImage(subject)});
   background-size: cover;
-  background-position: center; 
-  background-repeat: 
-  background-color: green;
+  background-color: #a4d3a4;
 `;

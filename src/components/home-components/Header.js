@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
 import styles from "../../styles/Header.module.css";
 import logout from "./header-components/logout";
 import {
@@ -11,7 +10,6 @@ import {
   StyledLogInOutButton,
   StyledLogoImg,
   StyledTogglerDiv,
-  StyledLogedButtonsWrapper,
 } from "./Header.styled";
 import logo from "../../images/logo.png";
 import Buttons from "./header-components/Buttons";
@@ -39,10 +37,10 @@ export default function Header({ isLoged, setIsLoged, setUserId }) {
         <Link to="/">
           <StyledLogoImg src={logo} alt="logo image"></StyledLogoImg>
         </Link>
-        <StyledTogglerDiv>
+        {/* <StyledTogglerDiv>
           <input type="checkbox" id="switch" />
           <label for="switch">Toggle</label>
-        </StyledTogglerDiv>
+        </StyledTogglerDiv> */}
       </StyledLogoWrapper>
       <StyledButtonWrapper>
         {isLoged === "success" &&

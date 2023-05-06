@@ -1,6 +1,7 @@
 import React from "react";
 import handleSubmitRegistration from "./handleSubmitRegistration";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   StyledLoginBtn,
   StyledLoginInput,
@@ -13,6 +14,7 @@ import {
 } from "../../styles/Login.styled";
 
 export default function RegistrationForm() {
+  const navigate = new useNavigate();
   const [email, setEmail] = React.useState("");
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -72,19 +74,22 @@ export default function RegistrationForm() {
         {register === "success" && (
           <div>
             <StyledSuccessMsg>Zarejestrowano pomyślnie.</StyledSuccessMsg>{" "}
+            {setTimeout(() => navigate("/login"), 300)}
           </div>
         )}
         {register === "invalid_login_lenght" && (
-          <StyledErrorMsg>Wprowadzono nie poprawny login.</StyledErrorMsg>
+          <StyledErrorMsg>Nie poprawna długość loginu.</StyledErrorMsg>
         )}
         {register === "invalid_password_lenght" && (
-          <StyledErrorMsg>Wprowadzono nie poprawne hasło.</StyledErrorMsg>
+          <StyledErrorMsg>Nie poprawna długość hasła.</StyledErrorMsg>
         )}
         {register === "invalid_password_validation" && (
           <StyledErrorMsg>Hasła się nie zgadzają.</StyledErrorMsg>
         )}
         {register === "failed" && (
-          <StyledErrorMsg>Wprowadź inne dane.</StyledErrorMsg>
+          <StyledErrorMsg>
+            Coś poszło nie tak. Wprowadź inne dane.
+          </StyledErrorMsg>
         )}
         <label>Masz już konto?</label>
         <StyledLinkWrapper>
