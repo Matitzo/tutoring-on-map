@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import Cookies from "universal-cookie";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
@@ -37,17 +38,18 @@ export default function CreateAnnouncement({ prop }) {
     checkIfState() ? location.state.imageName : "avatar"
   );
 
-  let imageImport = {};
+  const storage = getStorage();
+  const starsRef = ref(storage, `images/${imageName}`);
+
+  const [image, setImage] = React.useState();
   try {
-    imageImport = require(`../../../server/upload_images/${imageName}`);
+    getDownloadURL(starsRef).then((url) => {
+      setImage(url);
+    });
+    //image = require(`../../../server/upload_images/${announcement.image}`);
   } catch {
-    imageImport = imageAvatar;
+    setImage("");
   }
-
-  const [image, setImage] = React.useState(
-    checkIfState() ? imageImport : imageAvatar
-  );
-
   const [uploadImage, setUploadImage] = React.useState();
 
   const [phoneNumber, setPhoneNumber] = React.useState(

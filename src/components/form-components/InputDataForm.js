@@ -41,6 +41,7 @@ export default function InpuDataForm({
   isSingleCostValue,
   setIsSingleCostValue,
 }) {
+  const imageAvatar = require(`../../profileImages/avatar.png`);
   const navigate = new useNavigate();
   const [invalidForm, setInvalidForm] = React.useState(false);
   const errorMsg = "Należy wypełnić wszystkie pola formularza.";
@@ -61,6 +62,7 @@ export default function InpuDataForm({
       setInvalidForm(true);
     }
   }
+  console.log(image);
 
   return (
     <>
@@ -85,7 +87,7 @@ export default function InpuDataForm({
             <StyledImage
               width="175px"
               border="10px"
-              src={image}
+              src={image ? image : imageAvatar}
               alt="Obraz ogloszenia"
             ></StyledImage>
           </StyledImageWrapper>
