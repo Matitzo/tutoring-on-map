@@ -74,7 +74,7 @@ export const StyledShortDescription = styled.p`
   min-height: 70px;
   width: 100%;
   margin-bottom: 0.4em;
-  word-break: break-all;
+  word-break: break-word;
   white-space: normal;
 `;
 
