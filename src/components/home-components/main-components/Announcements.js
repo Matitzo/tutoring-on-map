@@ -14,6 +14,7 @@ export default function Announcements({
   setCoord,
   setZoom,
   setCurrentLocation,
+  isFetchingData,
 }) {
   // ten use effect musi byc by podczas uzywania filtrow gdy jestesmy w rozwinietym ogloszeniu
   // nie pozostawalo zblizenie na pozycje tego wlasnie ogloszenia tylko mapa spowrotem cofala sie
@@ -35,23 +36,21 @@ export default function Announcements({
 
   return (
     <StyledAnnouncementsContainer isMobileMapOn={isMobileMapOn}>
-      {announcements.length > 0 ? (
-        announcements.map((announcement) => {
-          return (
-            <StyledLink
-              key={announcement.author_id}
-              to={`/offers/${announcement.author}`}
-              onClick={() => handleClick(announcement)}
-              onMouseOver={() => setHoverAnnouncement(announcement)}
-              onMouseLeave={() => setHoverAnnouncement({})}
-            >
-              <AnnouncementCard announcement={announcement} />
-            </StyledLink>
-          );
-        })
-      ) : (
-        <LoadingSpinner />
-      )}
+      {announcements.length > 0
+        ? announcements.map((announcement) => {
+            return (
+              <StyledLink
+                key={announcement.author_id}
+                to={`/offers/${announcement.author}`}
+                onClick={() => handleClick(announcement)}
+                onMouseOver={() => setHoverAnnouncement(announcement)}
+                onMouseLeave={() => setHoverAnnouncement({})}
+              >
+                <AnnouncementCard announcement={announcement} />
+              </StyledLink>
+            );
+          })
+        : isFetchingData && <LoadingSpinner />}
     </StyledAnnouncementsContainer>
   );
 }

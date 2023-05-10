@@ -15,6 +15,7 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   // komentarz 2
   // pomyslec czy zamiast robienia stateow nie lepiej skorzystac z location.search i wrzucac do tego zmieniajace sie wartosci url
   // a potem z tego do api wyciagac
+  const [isFetchingData, setIsFetchingData] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [cityFilter, setCityFilter] = React.useState();
   const [voivodeshipFilter, setVoivodeshipFilter] = React.useState();
@@ -55,6 +56,7 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
 
   // tutaj dac ze jak nie bd odzewu z api (jakis blad) to wyskoczyl error np 404 czy cos
   React.useEffect(() => {
+    setIsFetchingData(true);
     console.log("feczuje dane");
     console.log(getUrl());
     //http://localhost:8080${getUrl()}
@@ -65,9 +67,11 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
       })
       .then((data) => {
         setData(data);
+        setIsFetchingData(false);
         console.log(data);
       })
       .catch((error) => {
+        setIsFetchingData(false);
         console.log("Error while fetching");
         console.log(error);
       });
@@ -99,6 +103,7 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
           data={data}
           unfoldedAnnoucement={unfoldedAnnoucement}
           setUnfoldedAnnoucement={setUnfoldedAnnoucement}
+          isFetchingData={isFetchingData}
         />
       }
     </div>

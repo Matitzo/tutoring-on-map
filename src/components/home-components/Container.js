@@ -1,5 +1,4 @@
 import Announcements from "./main-components/Announcements";
-import LoadingSpinner from "../LoadingSpinner";
 import { useLocation } from "react-router-dom";
 import Map from "./main-components/Map";
 import UnfoldedAnnoucement from "./main-components/UnfoldedAnnoucement";
@@ -12,6 +11,7 @@ export default function Container({
   data,
   unfoldedAnnoucement,
   setUnfoldedAnnoucement,
+  isFetchingData,
 }) {
   const location = new useLocation();
   const [isMobileMapOn, setIsMobileMapOn] = React.useState(false);
@@ -91,6 +91,7 @@ export default function Container({
               setCoord={(value) => setCoord(value)}
               setZoom={(value) => setZoom(value)}
               setCurrentLocation={(value) => setCurrentLocation(value)}
+              isFetchingData={isFetchingData}
             />
           }
         ></Route>
