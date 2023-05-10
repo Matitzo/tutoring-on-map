@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tutoring-on-map/static/css/main.01ffbe2d.css",
-    "main.js": "/tutoring-on-map/static/js/main.27c32460.js",
+    "main.js": "/tutoring-on-map/static/js/main.8ce1291d.js",
     "static/js/787.7f94216c.chunk.js": "/tutoring-on-map/static/js/787.7f94216c.chunk.js",
     "static/media/librarian.jpg": "/tutoring-on-map/static/media/librarian.55c4b9cfa81407378453.jpg",
     "static/media/historia.png": "/tutoring-on-map/static/media/historia.679887cee60f7daea982.png",
@@ -24,11 +24,11 @@
     "static/media/pointer.png": "/tutoring-on-map/static/media/pointer.a1b2685775c2891eedd5.png",
     "index.html": "/tutoring-on-map/index.html",
     "main.01ffbe2d.css.map": "/tutoring-on-map/static/css/main.01ffbe2d.css.map",
-    "main.27c32460.js.map": "/tutoring-on-map/static/js/main.27c32460.js.map",
+    "main.8ce1291d.js.map": "/tutoring-on-map/static/js/main.8ce1291d.js.map",
     "787.7f94216c.chunk.js.map": "/tutoring-on-map/static/js/787.7f94216c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.01ffbe2d.css",
-    "static/js/main.27c32460.js"
+    "static/js/main.8ce1291d.js"
   ]
 }
