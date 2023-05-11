@@ -15,21 +15,21 @@ import {
 export function AnnouncementCard({ announcement }) {
   const storage = getStorage();
   const starsRef = ref(storage, `images/${announcement.image}`);
-  const [imageUrl, setImageUrl] = React.useState("");
+  const [imageUrl, setImageUrl] = React.useState(
+    require(`../profileImages/avatar.png`)
+  );
   //var image;
 
-  React.useEffect(() => {
-    try {
-      getDownloadURL(starsRef).then((url) => {
-        setImageUrl(url);
-      });
-      //image = require(`../../../server/upload_images/${announcement.image}`);
-    } catch {
-      setImageUrl(``);
-      //image = require(`../profileImages/avatar.png`);
-    }
-  }, []);
-  console.log(imageUrl);
+  try {
+    getDownloadURL(starsRef).then((url) => {
+      setImageUrl(url);
+    });
+    //image = require(`../../../server/upload_images/${announcement.image}`);
+  } catch {
+    setImageUrl(``);
+    //image = require(`../profileImages/avatar.png`);
+  }
+  console.log("imageUrl");
 
   return (
     <StyledAnnouncementWrapper>
