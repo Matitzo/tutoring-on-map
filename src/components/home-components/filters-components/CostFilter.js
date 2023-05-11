@@ -20,8 +20,16 @@ export default function CostFilter({ setCostFilter }) {
           placeholder="Od"
           name="min"
           type="number"
+          min="0"
+          onKeyPress={(event) => {
+            if (/[+,-]/.test(event.key)) {
+              event.preventDefault();
+            }
+          }}
           value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
+          onChange={(e) => {
+            e.target.value.length <= 3 && setMinPrice(e.target.value);
+          }}
           style={{ width: "50px" }}
         ></StyledSmallInout>
         <span> - </span>
@@ -29,8 +37,16 @@ export default function CostFilter({ setCostFilter }) {
           placeholder="Do"
           name="max"
           type="number"
+          min="0"
+          onKeyPress={(event) => {
+            if (/[+,-]/.test(event.key)) {
+              event.preventDefault();
+            }
+          }}
           value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
+          onChange={(e) =>
+            e.target.value.length <= 3 && setMaxPrice(e.target.value)
+          }
           style={{ width: "50px" }}
         ></StyledSmallInout>
       </StyledCenteredDiv>

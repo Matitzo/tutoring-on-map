@@ -76,8 +76,8 @@ export default function Filters({
       </DropDownContainer>
       <DropDownContainer>
         <DropDownBtn filtered={costFilter[0] || costFilter[1]}>
-          Cena {costFilter[0] && costFilter[0]} -{" "}
-          {costFilter[1] && costFilter[1]}
+          Cena {costFilter[0] >= 0 ? costFilter[0] : ""} -{" "}
+          {costFilter[1] >= 0 ? costFilter[1] : ""}
         </DropDownBtn>
         <CostFilter setCostFilter={setCostFilter} />
       </DropDownContainer>

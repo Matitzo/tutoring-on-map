@@ -13,11 +13,17 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
             required
             type="text"
             name="price"
-            maxLength="6"
+            maxLength="3"
             value={price}
-            onChange={(e) => setPrice([parseInt(e.target.value)])}
+            onChange={(e) =>
+              setPrice([
+                parseInt(e.target.value) > 0 ? parseInt(e.target.value) : " ",
+              ])
+            }
+            min="0"
+            max={999}
             onKeyPress={(event) => {
-              if (!/[0-9]/.test(event.key)) {
+              if (/[+,-]/.test(event.key)) {
                 event.preventDefault();
               }
             }}
@@ -34,6 +40,7 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
               max={999}
               value={price[0]}
               onChange={(e) =>
+                e.target.value.length <= 3 &&
                 setPrice((prevData) => [parseInt(e.target.value), prevData[1]])
               }
               onKeyPress={(event) => {
@@ -50,9 +57,10 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
               required
               type="number"
               name="price"
-              max={1000}
+              max={999}
               value={price[1]}
               onChange={(e) =>
+                e.target.value.length <= 3 &&
                 setPrice((prevData) => [prevData[0], parseInt(e.target.value)])
               }
               onKeyPress={(event) => {
