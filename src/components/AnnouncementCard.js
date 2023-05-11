@@ -17,22 +17,31 @@ export function AnnouncementCard({ announcement }) {
   const starsRef = ref(storage, `images/${announcement.image}`);
   const [imageUrl, setImageUrl] = React.useState("");
   //var image;
-  try {
-    getDownloadURL(starsRef).then((url) => {
-      setImageUrl(url);
-    });
-    //image = require(`../../../server/upload_images/${announcement.image}`);
-  } catch {
-    setImageUrl(``);
-    //image = require(`../profileImages/avatar.png`);
-  }
+
+  React.useEffect(() => {
+    try {
+      getDownloadURL(starsRef).then((url) => {
+        setImageUrl(url);
+      });
+      //image = require(`../../../server/upload_images/${announcement.image}`);
+    } catch {
+      setImageUrl(``);
+      //image = require(`../profileImages/avatar.png`);
+    }
+  }, []);
+  console.log(imageUrl);
+
   return (
     <StyledAnnouncementWrapper>
       <StyledImageWrapper>
         <StyledImage
           width="175px"
           border="10px"
-          src={imageUrl ? imageUrl : require(`../profileImages/avatar.png`)}
+          src={
+            announcement.image !== "avatar"
+              ? imageUrl
+              : require(`../profileImages/avatar.png`)
+          }
           alt="Obraz ogloszenia"
         ></StyledImage>
       </StyledImageWrapper>
