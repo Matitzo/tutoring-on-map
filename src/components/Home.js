@@ -57,8 +57,6 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   // tutaj dac ze jak nie bd odzewu z api (jakis blad) to wyskoczyl error np 404 czy cos
   React.useEffect(() => {
     setIsFetchingData(true);
-    console.log("feczuje dane");
-    console.log(getUrl());
     //http://localhost:8080${getUrl()}
     //https://smart-edukacja.onrender.com${getUrl()}
     fetch(`https://smart-edukacja.onrender.com${getUrl()}`)
@@ -68,11 +66,9 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
       .then((data) => {
         setData(data);
         setIsFetchingData(false);
-        console.log(data);
       })
       .catch((error) => {
         setIsFetchingData(false);
-        console.log("Error while fetching");
         console.log(error);
       });
   }, [

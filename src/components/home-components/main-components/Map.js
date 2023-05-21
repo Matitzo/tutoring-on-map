@@ -25,7 +25,6 @@ export default function Map({
       : map.setView([52.06933986747059, 19.480305833934132], 6);
   }
 
-  console.log(isMobileMapOn);
   return (
     // <div
     //   className={`${styles.mapWrapper} ${isMobileMapOn && styles.visiblity}`}

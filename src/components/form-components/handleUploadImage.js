@@ -3,8 +3,6 @@ import FormData from "form-data";
 
 export default function handleUploadImage(uploadImage, imageName) {
   const form = new FormData();
-  console.log(uploadImage);
-  console.log(imageName);
 
   form.append("file", uploadImage, imageName);
 

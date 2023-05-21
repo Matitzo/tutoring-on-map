@@ -102,7 +102,6 @@ export default function GetMarkersOnMap({
 
   React.useEffect(() => {
     updatePopups.map((popup, index) => {
-      console.log(popup);
       popup.removeEventListener("click", popupListener);
       popup.addEventListener("click", popupListener);
     });

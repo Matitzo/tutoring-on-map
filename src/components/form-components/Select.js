@@ -27,7 +27,6 @@ export default function Select({
     });
   }
 
-  console.log(data);
   return (
     <li>
       <label>{label}</label>

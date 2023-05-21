@@ -62,7 +62,6 @@ export default function InpuDataForm({
       setInvalidForm(true);
     }
   }
-  console.log(image);
 
   return (
     <>

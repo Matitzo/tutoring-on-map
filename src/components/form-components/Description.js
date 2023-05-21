@@ -10,7 +10,7 @@ export default function Description({ description, handleDescription }) {
   const log = (e) => {
     e.preventDefault();
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      //console.log(editorRef.current.getContent());
     }
   };
   return (

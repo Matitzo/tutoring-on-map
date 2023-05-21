@@ -101,7 +101,6 @@ export default function CreateAnnouncement({ prop }) {
   }
 
   function handleImage(image) {
-    console.log(image[0].name);
     if (image.length > 0) {
       const fileReader = new FileReader();
       fileReader.onload = function (e) {

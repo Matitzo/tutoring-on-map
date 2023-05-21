@@ -18,7 +18,6 @@ import HamburgerButtons from "./header-components/HamburgerButtons";
 export default function Header({ isLoged, setIsLoged, setUserId }) {
   //const windowWidth = useRef(window.innerWidth);
   const [windowWidth, setwindowWidth] = React.useState(window.innerWidth);
-  console.log(windowWidth);
   React.useEffect(() => {
     const handleWindowResize = () => {
       setwindowWidth(window.innerWidth);

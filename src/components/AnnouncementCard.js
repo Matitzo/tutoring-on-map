@@ -29,7 +29,6 @@ export function AnnouncementCard({ announcement }) {
     setImageUrl(``);
     //image = require(`../profileImages/avatar.png`);
   }
-  console.log("imageUrl");
 
   return (
     <StyledAnnouncementWrapper>

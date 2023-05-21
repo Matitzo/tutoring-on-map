@@ -21,7 +21,6 @@ export default function handleSubmitRegistration(
     userId: uuidv4(),
   })
     .then((res) => {
-      console.log(res);
       setState("success");
     })
     .catch((error) => {

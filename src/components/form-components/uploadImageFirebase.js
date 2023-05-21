@@ -15,7 +15,6 @@ export default function uploadImageFirebase(
   if (uploadImage == null) return;
   const imageRef = ref(storage, `images/${imageName}`);
   uploadBytes(imageRef, uploadImage).then(() => {
-    console.log("image uploaded");
     setUploadImage(null);
   });
 }

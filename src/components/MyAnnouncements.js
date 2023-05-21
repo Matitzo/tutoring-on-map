@@ -55,12 +55,9 @@ export default function MyAnnouncements({ prop }) {
       announcementId: announcementId,
     })
       .then((res) => {
-        console.log(res);
-        console.log("deleted from database");
         const desertRef = ref(storage, `images/${image}`);
         deleteObject(desertRef)
           .then(() => {
-            console.log("deleted image from database");
             getMyAnnouncements();
             // File deleted successfully
           })
