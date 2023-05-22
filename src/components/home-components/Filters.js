@@ -45,7 +45,7 @@ export default function Filters({
       </DropDownContainer>
       <StyledInput
         id="input"
-        placeholder="Miejscowość"
+        placeholder="Adres"
         onChange={debouncedChangeHandler}
         type="text"
       />

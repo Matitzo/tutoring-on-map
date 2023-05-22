@@ -44,7 +44,7 @@ export default function MyAnnouncements({ prop }) {
   function unfoldAnnoucement(announcement) {
     localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
     localStorage.setItem("currentLocation", "");
-    localStorage.setItem("mapZoom", 10);
+    localStorage.setItem("mapZoom", 17);
     const coord = JSON.parse(announcement.location)[0].coordinates;
     localStorage.setItem("coord", JSON.stringify([coord[1], coord[0]]));
     navigate(`/offers/${announcement.author}`);

@@ -19,7 +19,6 @@ function App() {
   // zastanowic sie czy use effect z my annoucement nie lepiej by bylo dac tutaj ?
   // wtedy trzeba zrobic nowy state i dac go do [] w useEffect i przeniesc go az do handleSubmitRegistration
   // poki co wydaje mi sie ze lepiej bd jak bd w myAnnoucements ale nwm
-  console.log(userId);
 
   return (
     <ThemeProvider theme={theme}>

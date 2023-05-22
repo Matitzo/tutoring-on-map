@@ -54,8 +54,8 @@ export default function Container({
   }
 
   function handleMapZoom() {
-    localStorage.setItem("mapZoom", 10);
-    setZoom(10);
+    localStorage.setItem("mapZoom", 17);
+    setZoom(17);
   }
 
   return (

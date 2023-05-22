@@ -31,7 +31,7 @@ export default function Announcements({
     setCurrentLocation();
     localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
     localStorage.setItem("currentLocation", "");
-    localStorage.setItem("mapZoom", 10);
+    localStorage.setItem("mapZoom", 17);
   }
 
   return (
