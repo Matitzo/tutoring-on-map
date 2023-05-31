@@ -9,12 +9,7 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
   const navigate = useNavigate();
   const query = new URLSearchParams(location.search);
   const announcementId = query.get("id");
-  // komentarz 1
-  // dac ify w statach tak by bralo wartosc z query z pathname jesli jest filt nalozony by mozna bylo przesylac linki
-  // podobnie zrobic z unfolded announcement -> dac id ogloszenia w query i wysylac zapytanie do api po id
-  // komentarz 2
-  // pomyslec czy zamiast robienia stateow nie lepiej skorzystac z location.search i wrzucac do tego zmieniajace sie wartosci url
-  // a potem z tego do api wyciagac
+
   const [isFetchingData, setIsFetchingData] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [cityFilter, setCityFilter] = React.useState();

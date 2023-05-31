@@ -33,12 +33,18 @@ export default function UnfoldedAnnoucement({
   const [imageUrl, setImageUrl] = React.useState("");
   //var image;
   try {
-    getDownloadURL(starsRef).then((url) => {
-      setImageUrl(url);
-    });
+    getDownloadURL(starsRef)
+      .then((url) => {
+        setImageUrl(url);
+      })
+      .catch((e) => {
+        console.log(e);
+        setImageUrl("");
+      });
     //image = require(`../../../server/upload_images/${announcement.image}`);
-  } catch {
-    setImageUrl(``);
+  } catch (e) {
+    console.log(e);
+    setImageUrl("");
     //image = require(`../profileImages/avatar.png`);
   }
 

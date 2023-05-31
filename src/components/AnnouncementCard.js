@@ -19,7 +19,6 @@ export function AnnouncementCard({ announcement }) {
     require(`../profileImages/avatar.png`)
   );
   //var image;
-
   try {
     getDownloadURL(starsRef).then((url) => {
       setImageUrl(url);

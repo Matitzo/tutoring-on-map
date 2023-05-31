@@ -9,7 +9,7 @@ const voivodeships = [
   "Opolskie",
   "Podkarpackie",
   "Podlaskie",
-  "Pomorskie",
+  " Pomorskie", // it is nesecary to get space before it because the filter is searching also kujawsko-pomorskie
   "Śląskie",
   "Świętokrzyskie",
   "Warmińsko-Mazurskie",

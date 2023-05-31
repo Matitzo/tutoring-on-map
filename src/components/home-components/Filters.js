@@ -24,10 +24,11 @@ export default function Filters({
   setCityFilter,
   setCostFilter,
 }) {
+  const debouncedChangeHandler = useCallback(debounce(handleChange, 400), []);
+
   function handleChange(event) {
     setCityFilter(event.target.value ? event.target.value : "");
   }
-  const debouncedChangeHandler = useCallback(debounce(handleChange, 400), []);
 
   return (
     <StyledFiltersContainer>
