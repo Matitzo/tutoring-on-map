@@ -35,7 +35,7 @@ export default function CreateAnnouncement({ prop }) {
   );
 
   const [imageName, setImageName] = React.useState(
-    checkIfState() ? location.state.imageName : "avatar"
+    checkIfState() ? location.state.imageName : "avatar.png"
   );
 
   const storage = getStorage();
@@ -112,7 +112,7 @@ export default function CreateAnnouncement({ prop }) {
       setImageName(random + image[0].name);
     } else {
       setImage(imageAvatar);
-      setImageName("avatar");
+      setImageName("avatar.png");
     }
   }
 

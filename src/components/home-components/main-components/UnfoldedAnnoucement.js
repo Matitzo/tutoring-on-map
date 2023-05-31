@@ -32,21 +32,15 @@ export default function UnfoldedAnnoucement({
   const starsRef = ref(storage, `images/${unfoldedAnnoucement.image}`);
   const [imageUrl, setImageUrl] = React.useState("");
   //var image;
-  try {
-    getDownloadURL(starsRef)
-      .then((url) => {
-        setImageUrl(url);
-      })
-      .catch((e) => {
-        console.log(e);
-        setImageUrl("");
-      });
-    //image = require(`../../../server/upload_images/${announcement.image}`);
-  } catch (e) {
-    console.log(e);
-    setImageUrl("");
-    //image = require(`../profileImages/avatar.png`);
-  }
+  getDownloadURL(starsRef)
+    .then((url) => {
+      setImageUrl(url);
+    })
+    .catch((e) => {
+      console.log(e);
+      setImageUrl("");
+    });
+  //image = require(`../../../server/upload_images/${announcement.image}`);
 
   function handleBackArrow() {
     setCoord([52.06933986747059, 19.480305833934132]);

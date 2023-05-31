@@ -19,15 +19,15 @@ export function AnnouncementCard({ announcement }) {
     require(`../profileImages/avatar.png`)
   );
   //var image;
-  try {
-    getDownloadURL(starsRef).then((url) => {
+  getDownloadURL(starsRef)
+    .then((url) => {
       setImageUrl(url);
+    })
+    .catch((e) => {
+      console.log(e);
+      setImageUrl("");
     });
-    //image = require(`../../../server/upload_images/${announcement.image}`);
-  } catch {
-    setImageUrl(``);
-    //image = require(`../profileImages/avatar.png`);
-  }
+  //image = require(`../../../server/upload_images/${announcement.image}`);
 
   return (
     <StyledAnnouncementWrapper>
@@ -36,7 +36,7 @@ export function AnnouncementCard({ announcement }) {
           width="175px"
           border="10px"
           src={
-            announcement.image !== "avatar"
+            announcement.image !== "avatar.png"
               ? imageUrl
               : require(`../profileImages/avatar.png`)
           }
