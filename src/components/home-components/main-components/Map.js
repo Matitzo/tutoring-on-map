@@ -26,9 +26,6 @@ export default function Map({
   }
 
   return (
-    // <div
-    //   className={`${styles.mapWrapper} ${isMobileMapOn && styles.visiblity}`}
-    // >
     <StyledMapWrapper isMobileMapOn={isMobileMapOn}>
       <MapContainer
         className={`${styles.map}`}
@@ -54,6 +51,5 @@ export default function Map({
         />
       </MapContainer>
     </StyledMapWrapper>
-    //</div>
   );
 }

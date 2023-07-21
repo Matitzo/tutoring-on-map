@@ -42,5 +42,4 @@ export const StyledImageSubjectContainer = styled.div`
   //box-shadow: 0px 0px 6px ${({ theme }) => "black"};
   background-image: url(${({ subject }) => getImage(subject)});
   background-size: cover;
-  background-color: #a4d3a4;
 `;

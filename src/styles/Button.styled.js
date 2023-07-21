@@ -31,22 +31,36 @@ export const StyledButton = styled.button`
       rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
       rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
       rgba(44, 187, 99, 0.25) 0 16px 32px;
-    transform: scale(1.05) rotate(-1deg);
   }
 `;
 
 export const StyledSmallButton = styled(StyledButton)`
-  padding: 0.3em 1em;
-  margin: 0.5em 1.5em;
-  font-size: 12px;
-  border-radius: 10px;
-  min-width: 50px;
+  padding: 0.6em 1.2em;
+  margin: 1em 0;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 38%;
+  border: 2px solid ${({ theme }) => theme.filters.colors.textColor};
+  min-width: fit-content;
+
+  @media (max-width: 1475px) {
+    width: 40px;
+  }
+
+  @media (max-width: 1375px) {
+    width: 20%;
+  }
+
+  @media (max-width: 931px) {
+    width: 75%;
+  }
 
   @media (max-width: 768px) {
     padding: 0.3em;
     margin: 0.4em;
     font-size: 0.8rem;
     border-radius: 5px;
+    width: 40%;
   }
 `;
 

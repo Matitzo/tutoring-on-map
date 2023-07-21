@@ -10,8 +10,9 @@ import {
   StyledLogInOutButton,
   StyledLogoImg,
   StyledTogglerDiv,
+  StyledLogoLinkWrapper,
 } from "./Header.styled";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo-icon.png";
 import Buttons from "./header-components/Buttons";
 import HamburgerButtons from "./header-components/HamburgerButtons";
 
@@ -33,13 +34,10 @@ export default function Header({ isLoged, setIsLoged, setUserId }) {
   return (
     <StyledHeader>
       <StyledLogoWrapper>
-        <Link to="/">
+        <StyledLogoLinkWrapper to="/">
           <StyledLogoImg src={logo} alt="logo image"></StyledLogoImg>
-        </Link>
-        {/* <StyledTogglerDiv>
-          <input type="checkbox" id="switch" />
-          <label for="switch">Toggle</label>
-        </StyledTogglerDiv> */}
+          <h4>SmartEdukacja.pl</h4>
+        </StyledLogoLinkWrapper>
       </StyledLogoWrapper>
       <StyledButtonWrapper>
         {isLoged === "success" &&

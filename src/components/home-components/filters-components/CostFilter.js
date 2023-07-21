@@ -4,6 +4,7 @@ import {
   DropDownListContainer,
   StyledCenteredDiv,
   StyledFilterCostButtonsWrapper,
+  StyledCostDropDownListContainer,
 } from "./DropDownList.styled";
 import { StyledSmallInout } from "../../../styles/Input.styled";
 import { StyledSmallButton } from "../../../styles/Button.styled";
@@ -14,7 +15,7 @@ export default function CostFilter({ setCostFilter }) {
   const [maxPrice, setMaxPrice] = React.useState(0);
 
   return (
-    <DropDownListContainer>
+    <StyledCostDropDownListContainer>
       <StyledCenteredDiv>
         <StyledSmallInout
           placeholder="Od"
@@ -30,7 +31,6 @@ export default function CostFilter({ setCostFilter }) {
           onChange={(e) => {
             e.target.value.length <= 3 && setMinPrice(e.target.value);
           }}
-          style={{ width: "50px" }}
         ></StyledSmallInout>
         <span> - </span>
         <StyledSmallInout
@@ -47,7 +47,6 @@ export default function CostFilter({ setCostFilter }) {
           onChange={(e) =>
             e.target.value.length <= 3 && setMaxPrice(e.target.value)
           }
-          style={{ width: "50px" }}
         ></StyledSmallInout>
       </StyledCenteredDiv>
       <StyledFilterCostButtonsWrapper>
@@ -61,12 +60,11 @@ export default function CostFilter({ setCostFilter }) {
             Ok
           </StyledSmallButton>
         </StyledLink>
-        <span>
-          <StyledSmallButton onClick={() => setCostFilter(["", ""])}>
-            Reset
-          </StyledSmallButton>
-        </span>
+        <span style={{ visibility: "hidden" }}> - </span>
+        <StyledSmallButton onClick={() => setCostFilter(["", ""])}>
+          Reset
+        </StyledSmallButton>
       </StyledFilterCostButtonsWrapper>
-    </DropDownListContainer>
+    </StyledCostDropDownListContainer>
   );
 }

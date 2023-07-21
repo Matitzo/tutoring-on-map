@@ -5,7 +5,7 @@ export const StyledInput = styled.input`
   color: ${({ theme }) => theme.filters.colors.hoverColor};
   padding: 0.8em;
   font-size: 1rem;
-  border: 2px solid ${({ theme }) => theme.filters.colors.hoverColor};
+  border: 2px solid ${({ theme }) => theme.filters.colors.textColor};
   border-radius: 5px;
 
   @media (max-width: 768px) {
@@ -15,12 +15,32 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledSmallInout = styled(StyledInput)`
-  font-size: 12px;
-  padding: 0.4em 0.8em;
-  margin-top: 0.2em;
+  font-size: 14px;
+  padding: 0.6em 1.2em;
+  margin-top: 1em;
+  width: 40%;
+  max-width: 50px;
+
+  @media (max-width: 1475px) {
+    width: 40px;
+  }
+
+  @media (max-width: 1375px) {
+    width: 20%;
+  }
+
+  @media (max-width: 1375px) {
+    width: 15%;
+  }
+
+  @media (max-width: 845px) {
+    width: 90%;
+  }
 
   @media (max-width: 768px) {
-    padding: 0.3em 0.1em;
+    padding: 0.3em 0.2em;
+    width: 38%;
+    max-width: 500px;
   }
 `;
 

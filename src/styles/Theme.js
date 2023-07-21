@@ -15,8 +15,8 @@ export const theme = {
   },
   filters: {
     colors: {
-      textColor: "white",
-      backgroundColor: "#4caf50",
+      textColor: "#009578",
+      backgroundColor: "#c2fbd7",
       hoverColor: "green",
     },
   },

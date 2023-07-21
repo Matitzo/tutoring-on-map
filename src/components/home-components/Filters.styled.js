@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFiltersContainer = styled.div`
-  height: 10vh;
+  height: 12vh;
   display: flex;
   justify-content: space-around;
   align-items: center;

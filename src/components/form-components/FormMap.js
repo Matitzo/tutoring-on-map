@@ -31,7 +31,8 @@ export default function FormMap({ setLocationArray }) {
         const addressLabel =
           data.address !== undefined ? data.address.Match_addr : "Unknown";
         setAdress(addressLabel);
-      });
+      })
+      .catch((e) => setAdress("Unknown"));
   }
 
   function LocationMarker() {

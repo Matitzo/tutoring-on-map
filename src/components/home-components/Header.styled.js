@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledHeader = styled.header`
    {
@@ -18,7 +19,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledLogoImg = styled.img`
-  height: 10vh;
+  height: 50px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -106,6 +107,18 @@ export const StyledLogoWrapper = styled.div`
   }
 `;
 
+export const StyledLogoLinkWrapper = styled(Link)`
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+
+  h4 {
+    margin-left: 0.5em;
+  }
+`;
+
 export const StyledButtonWrapper = styled.div`
   display: flex;
 
@@ -115,8 +128,8 @@ export const StyledButtonWrapper = styled.div`
 
 export const StyledButton = styled.button`
    {
-    background-color: ${({ theme }) => theme.header.colors.backgroundColor};
-    border-radius: 100px;
+    background-color: white;
+    border-radius: 12px;
     box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
       rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
       rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
@@ -130,10 +143,10 @@ export const StyledButton = styled.button`
     margin: 0 0.5em;
     text-align: center;
     text-decoration: none;
-    transition: all 250ms;
     border: 0;
     font-size: 16px;
     user-select: none;
+    transition: all 250ms;
     -webkit-user-select: none;
     touch-action: manipulation;
 
@@ -153,14 +166,13 @@ export const StyledButton = styled.button`
       rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
       rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
       rgba(44, 187, 99, 0.25) 0 16px 32px;
-    transform: scale(1.05) rotate(-1deg);
   }
 `;
 
 export const StyledLogInOutButton = styled(StyledButton)`
    {
-    color: ${({ theme }) => theme.header.colors.backgroundColor};
-    background-color: ${({ theme }) => theme.header.colors.textColor};
+    color: ${({ theme }) => theme.header.colors.textColor};
+    background-color: ${({ theme }) => theme.header.colors.backgroundColor};
 
     @media (max-width: 768px) {
       margin: 0.2em 0.5em 0.5em 0;

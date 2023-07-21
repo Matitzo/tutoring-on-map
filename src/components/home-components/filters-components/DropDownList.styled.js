@@ -10,6 +10,19 @@ export const DropDownContainer = styled.div`
     display: block;
   }
 
+  @media (max-width: 1336px) {
+    height: 90%;
+  }
+
+  @media (max-width: 1100px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 1rem;
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     font-size: 0.8rem;
@@ -18,15 +31,15 @@ export const DropDownContainer = styled.div`
 
 export const DropDownBtn = styled.button`
   width: 100%;
-  color: white;
+  height: 100%;
+  color: ${({ theme }) => theme.filters.colors.hoverColor};
   background-color: ${({ theme, filtered }) =>
-    filtered
-      ? theme.filters.colors.hoverColor
-      : theme.filters.colors.backgroundColor};
+    filtered ? theme.filters.colors.backgroundColor : "white"};
   padding: 0.8em;
   font-size: 1rem;
   border: none;
   cursor: pointer;
+  border: 2px solid ${({ theme }) => theme.filters.colors.textColor};
   border-radius: 5px;
 
   @media (max-width: 768px) {
@@ -43,22 +56,26 @@ export const StyledLink = styled(Link)`
 `;
 
 export const DropDownListContainer = styled.div`
-  background-color: ${({ theme }) => theme.filters.colors.backgroundColor};
+  background-color: white;
   width: 100%;
   max-height: 300px;
   overflow-y: auto;
+  overflow-x: clip;
   display: none;
   position: absolute;
   padding: 0;
   margin: 0;
   min-width: 100px;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 6000;
 
+  @media (max-width: 910px) {
+    width: fit-content;
+  }
+
   @media (max-width: 768px) {
     width: 100%;
-    font-size: 0.8rem;
     min-width: 0;
   }
 
@@ -100,9 +117,21 @@ export const DropDownListContainer = styled.div`
   }
 `;
 
+export const StyledCostDropDownListContainer = styled(DropDownListContainer)``;
+
 export const StyledCenteredDiv = styled.div`
-  margin: 0 1em;
   text-align: center;
+
+  @media (max-width: 845px) {
+    span {
+      display: none;
+    }
+  }
+  @media (max-width: 768px) {
+    span {
+      display: inline;
+    }
+  }
 `;
 
 export const StyledListElement = styled.li`{
@@ -113,21 +142,37 @@ export const StyledListElement = styled.li`{
   display: flex;
   align-items: center;
   background-color: ${({ theme, selected }) =>
-    selected
-      ? theme.filters.colors.hoverColor
-      : theme.filters.colors.backgroundColor};
+    selected ? theme.filters.colors.backgroundColor : "white"};
+  // &:hover {
+  //   background-color: ${({ theme }) => theme.filters.colors.hoverColor};
+  // }
+
+  transition: all 250ms;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
 
   &:hover {
-    background-color: ${({ theme }) => theme.filters.colors.hoverColor};
+      transform: scale(1.1);
+      transition: all 250ms;
   }
 `;
 
 export const StyledFilterCostButtonsWrapper = styled.div`
-  width: calc(100% -0.9em);
   text-align: center;
-  padding-left: 0.9em;
+
+  @media (max-width: 931px) {
+    margin-top: 2em;
+    span {
+      display: none;
+    }
+  }
 
   @media (max-width: 768px) {
+    margin-top: 1em;
     padding-left: 0.5em;
+    span {
+      display: inline;
+    }
   }
 `;
