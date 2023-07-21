@@ -22,11 +22,6 @@ export const DropDownContainer = styled.div`
     width: 100%;
     font-size: 1rem;
   }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    font-size: 0.8rem;
-  }
 `;
 
 export const DropDownBtn = styled.button`
