@@ -103,6 +103,10 @@ export const StyledBurgerWrapper = styled.div`
   margin-left: 0.5em;
   z-index: 99999;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   ${StyledButtonsContainer} {
     display: ${({ isHamburgerOpened }) =>
       isHamburgerOpened ? "flex" : "none"};
