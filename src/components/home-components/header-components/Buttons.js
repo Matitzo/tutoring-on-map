@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { StyledLogedButtonsWrapper, StyledButton } from "../Header.styled";
 
-export default function Buttons() {
+export default function Buttons({ isLoged }) {
   return (
     <StyledLogedButtonsWrapper>
       <Link to="/stworz-ogloszenie">

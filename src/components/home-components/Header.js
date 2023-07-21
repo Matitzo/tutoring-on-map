@@ -15,17 +15,23 @@ import {
 import logo from "../../images/logo-icon.png";
 import Buttons from "./header-components/Buttons";
 import HamburgerButtons from "./header-components/HamburgerButtons";
+import LogInButton from "./header-components/LogInButton";
 
-export default function Header({ isLoged, setIsLoged, setUserId }) {
-  //const windowWidth = useRef(window.innerWidth);
+export default function Header({
+  isLoged,
+  setIsLoged,
+  setUserId,
+  isHamburgerOpened,
+  setIsHamburgerOpened,
+}) {
   const [windowWidth, setwindowWidth] = React.useState(window.innerWidth);
+
   React.useEffect(() => {
     const handleWindowResize = () => {
       setwindowWidth(window.innerWidth);
+      window.innerWidth > 800 && setIsHamburgerOpened(false);
     };
-
     window.addEventListener("resize", handleWindowResize);
-
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
@@ -40,24 +46,21 @@ export default function Header({ isLoged, setIsLoged, setUserId }) {
         </StyledLogoLinkWrapper>
       </StyledLogoWrapper>
       <StyledButtonWrapper>
-        {isLoged === "success" &&
-          (windowWidth > 800 ? <Buttons /> : <HamburgerButtons />)}
-
-        <div className={styles["header__sign-in"]}>
-          {isLoged === "success" ? (
-            <StyledLogInOutButton
-              type="submit"
-              variant="danger"
-              onClick={() => logout(setIsLoged, setUserId)}
-            >
-              Wyloguj
-            </StyledLogInOutButton>
-          ) : (
-            <Link to="/login">
-              <StyledLogInOutButton>Zaloguj się</StyledLogInOutButton>
-            </Link>
-          )}
-        </div>
+        {windowWidth > 800 ? (
+          isLoged && <Buttons isLoged={isLoged} />
+        ) : (
+          <HamburgerButtons
+            isHamburgerOpened={isHamburgerOpened}
+            setIsHamburgerOpened={(value) => setIsHamburgerOpened(value)}
+          />
+        )}
+        {windowWidth > 800 && (
+          <LogInButton
+            isLoged={isLoged}
+            setIsLoged={(value) => setIsLoged(value)}
+            setUserId={(value) => setUserId(value)}
+          />
+        )}
       </StyledButtonWrapper>
     </StyledHeader>
   );

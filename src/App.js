@@ -9,12 +9,14 @@ import CreateAnnouncement from "./components/CreateAnnouncement";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Header from "./components/home-components/Header";
 import Profile from "./components/Profile";
+import Modal from "./components/Modal";
 import { theme } from "./styles/Theme.js";
 
 function App() {
   // zastapic te 2 staty jednym, np lista bo oba ida do tego samego komponentu
   const [isLoged, setIsLoged] = React.useState("");
   const [userId, setUserId] = React.useState("");
+  const [isHamburgerOpened, setIsHamburgerOpened] = React.useState(false);
 
   // zastanowic sie czy use effect z my annoucement nie lepiej by bylo dac tutaj ?
   // wtedy trzeba zrobic nowy state i dac go do [] w useEffect i przeniesc go az do handleSubmitRegistration
@@ -22,7 +24,21 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header isLoged={isLoged} setIsLoged={setIsLoged} setUserId={setUserId} />
+      <Modal
+        isLoged={isLoged}
+        setIsLoged={(value) => setIsLoged(value)}
+        isHamburgerOpened={isHamburgerOpened}
+        setIsHamburgerOpened={(value) => setIsHamburgerOpened(value)}
+        setUserId={(value) => setUserId(value)}
+      />
+
+      <Header
+        isLoged={isLoged}
+        setIsLoged={setIsLoged}
+        setUserId={setUserId}
+        isHamburgerOpened={isHamburgerOpened}
+        setIsHamburgerOpened={(value) => setIsHamburgerOpened(value)}
+      />
       <Routes>
         <Route
           path={`/login/*`}

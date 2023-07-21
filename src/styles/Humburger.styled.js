@@ -4,21 +4,10 @@ export const StyledHamburgerDiv = styled.div`
   display: block;
   height: 20px;
   width: 25px;
-  position: absolute;
-  top: 20px;
-  right: 175px;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media (max-width: 768px) {
-    top: 14px;
-  }
-
-  @media (max-width: 568px) {
-    right: 125px;
-  }
 
   span {
     display: block;
@@ -43,45 +32,27 @@ export const StyledLineThree = styled.span`
   transition: transform 0.4s ease-in-out;
 `;
 
-export const StyledCheckboxInput = styled.input`
-  position: absolute;
-  display: block;
-  height: 26px;
-  width: 30px;
-  top: 25px;
-  right: 175px;
-  z-index: 5;
-  opacity: 0;
-  cursor: pointer;
-
-  @media (max-width: 800px) {
-    top: 14px;
-  }
-
-  @media (max-width: 568px) {
-    right: 125px;
-  }
+export const StyledModalDiv = styled.div`
+  display: ${({ isHamburgerOpened }) => (isHamburgerOpened ? "flex" : "none")};
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+  justify-content: end;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-left: 1px solid black;
 `;
 
 export const StyledButtonsContainer = styled.div`
-  height: fit-content;
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  color: white;
-  text-decoration: none;
   border: 3px solid green;
-  z-index: 99999;
   background: white;
-  width: 150px;
-  min-height: 100px;
-
-  @media (max-width: 568px) {
-    right: 0px;
-  }
-
+  width: 50%;
+  height: 100vh;
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
+  padding-top: 3em;
 
   @keyframes growDown {
     0% {
@@ -108,9 +79,8 @@ export const StyledButtonsContainer = styled.div`
   }
 
   ul {
-    list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margins */
+    list-style-type: none;
+    padding: 0;
     text-align: center;
   }
 
@@ -129,10 +99,13 @@ export const StyledSpanText = styled.span`
 `;
 
 export const StyledBurgerWrapper = styled.div`
+  margin-right: 1em;
+  margin-left: 0.5em;
+  z-index: 99999;
+
   ${StyledButtonsContainer} {
     display: ${({ isHamburgerOpened }) =>
       isHamburgerOpened ? "flex" : "none"};
-
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -155,4 +128,3 @@ export const StyledBurgerWrapper = styled.div`
       isHamburgerOpened ? "rotate(-45deg)" : ""};
   }
 `;
-//${({ isHamburgerOpened }) => (isHamburgerOpened ? "rotate(45deg)" : "")};
