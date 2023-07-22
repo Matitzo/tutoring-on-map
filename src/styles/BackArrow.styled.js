@@ -16,5 +16,10 @@ export const StyledBackArrow = styled.i`
   position: absolute;
   top: 24px;
   left: 24px;
-  color: green;
+  color: rgb(194, 251, 215);
+  transition: 0.8s;
+
+  &:hover {
+    opacity: 0.6;
+  }
 `;

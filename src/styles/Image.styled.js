@@ -14,9 +14,6 @@ export const StyledImageWrapper = styled.div`
 
 export const StyledImage = styled.img`
   object-fit: cover;
-  --border: ${({ border }) => border};
-  --gap: 5px;
-  --color: green;
   
   width: ${({ width }) => width};
   aspect-ratio: 1;

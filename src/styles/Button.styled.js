@@ -107,7 +107,7 @@ export const StyledMapButton = styled.div`
     transform: translateX(-50%);
     padding: 0.3em 1em;
     color: ${({ theme }) => theme.header.colors.backgroundColor};
-    background-color: ${({ theme }) => theme.header.colors.textColor};
+    background-color: ${({ theme }) => theme.announcements.colors.textColor2};
     border-radius: 15px;
 
     &:hover,

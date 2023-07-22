@@ -27,7 +27,7 @@ export const DropDownContainer = styled.div`
 export const DropDownBtn = styled.button`
   width: 100%;
   height: 100%;
-  color: ${({ theme }) => theme.filters.colors.hoverColor};
+  color: ${({ theme }) => theme.filters.colors.textColor};
   background-color: ${({ theme, filtered }) =>
     filtered ? theme.filters.colors.backgroundColor : "white"};
   padding: 0.8em;

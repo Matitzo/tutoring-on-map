@@ -13,8 +13,10 @@ import {
   StyledParagraph,
   StyledLocation,
   StyledDesriptionContainer,
+  StyledPhoneNumber,
 } from "../../../styles/UnfoldedAnnouncement.styled";
 import { StyledBackArrow } from "../../../styles/BackArrow.styled";
+import { Telephone, GeoAlt } from "react-bootstrap-icons";
 
 export default function UnfoldedAnnoucement({
   isMobileMapOn,
@@ -31,7 +33,6 @@ export default function UnfoldedAnnoucement({
   const storage = getStorage();
   const starsRef = ref(storage, `images/${unfoldedAnnoucement.image}`);
   const [imageUrl, setImageUrl] = React.useState("");
-  //var image;
   getDownloadURL(starsRef)
     .then((url) => {
       setImageUrl(url);
@@ -40,7 +41,6 @@ export default function UnfoldedAnnoucement({
       console.log(e);
       setImageUrl("");
     });
-  //image = require(`../../../server/upload_images/${announcement.image}`);
 
   function handleBackArrow() {
     setCoord([52.06933986747059, 19.480305833934132]);
@@ -48,7 +48,10 @@ export default function UnfoldedAnnoucement({
   }
 
   return (
-    <StyledUnfoldedAnnouncementContainer isMobileMapOn={isMobileMapOn}>
+    <StyledUnfoldedAnnouncementContainer
+      isMobileMapOn={isMobileMapOn}
+      onClick={() => setIsListLocationVisible(false)}
+    >
       <Link to="/">
         <StyledBackArrow onClick={() => handleBackArrow()}>
           <svg
@@ -80,13 +83,16 @@ export default function UnfoldedAnnoucement({
           <StyledPrice>
             {JSON.parse(unfoldedAnnoucement.price).join(" - ")} zł{" "}
             <span>/ 60min</span>
-            <StyledParagraph>
-              {unfoldedAnnoucement.phone.replace(
-                /(\d{3})(\d{3})(\d{3})/,
-                "$1 $2 $3"
-              )}
-            </StyledParagraph>
           </StyledPrice>
+
+          <StyledPhoneNumber>
+            {" "}
+            <Telephone />{" "}
+            {unfoldedAnnoucement.phone.replace(
+              /(\d{3})(\d{3})(\d{3})/,
+              "$1 $2 $3"
+            )}
+          </StyledPhoneNumber>
           <StyledParagraph>
             <StyledSpan>Tryb nauki: </StyledSpan>
             {JSON.parse(unfoldedAnnoucement.learningMode).join(", ")}
@@ -97,11 +103,16 @@ export default function UnfoldedAnnoucement({
             {JSON.parse(unfoldedAnnoucement.scope).join(", ")}
           </StyledParagraph>
           <StyledLocation
-            onClick={() => setIsListLocationVisible(true)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsListLocationVisible(true);
+            }}
             clickable={
               JSON.parse(unfoldedAnnoucement.location).length > 1 ? true : false
             }
           >
+            {" "}
+            <GeoAlt />{" "}
             {currentLocation
               ? currentLocation.address
               : unfoldedAnnoucementLocation[0].address}{" "}

@@ -1,7 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { StyledLink } from "../../../styles/Link.styled";
-import { useNavigate } from "react-router-dom";
 import {
   StyledPopupContainer,
   StyledPopupInfoWrapper,
@@ -21,10 +18,10 @@ export default function PopupDiv({ announcement, location, icon }) {
       <StyledPopupContainer>
         <StyledPopupImg src={icon.options.iconUrl} alt="Ikona przedmiotu" />
         <StyledPopupInfoWrapper>
-          <StylelPopupPrice>{announcement.author}</StylelPopupPrice>
-          <StyledPopupAuthor>
+          <StyledPopupAuthor>{announcement.author}</StyledPopupAuthor>
+          <StylelPopupPrice>
             {JSON.parse(announcement.price).join(" - ")} <span>zł/h</span>
-          </StyledPopupAuthor>
+          </StylelPopupPrice>
         </StyledPopupInfoWrapper>
       </StyledPopupContainer>
     </div>

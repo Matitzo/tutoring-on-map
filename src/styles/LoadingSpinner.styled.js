@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledLoadingSpinnerDiv = styled.div`
   border: 16px solid #f3f3f3;
-  border-top: 16px solid green;
+  border-top: 16px solid rgb(0, 149, 120);
   border-radius: 50%;
   width: 120px;
   height: 120px;

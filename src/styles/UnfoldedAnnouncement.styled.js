@@ -13,28 +13,18 @@ export const StyledUnfoldedAnnouncementContainer = styled.div`
 `;
 
 export const StyledHeadContainer = styled.div`
+  font-family: "Poppins", sans-serif;
   padding: 1em;
   display: flex;
-  color: ${({ theme }) => theme.announcements.colors.hoverColor};
-  text-shadow: 0px 0px 2px white;
-  //   background-image: radial-gradient(
-  //     circle farthest-corner at 10% 20%,
-  //     rgba(14, 174, 87, 1) 0%,
-  //     rgba(12, 116, 117, 1) 90%
-  //   );
-  background: #a1ffce; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #faffd1,
-    #a1ffce
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #faffd1,
-    #a1ffce
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  color: ${({ theme }) => "white"};
+  //background-color: rgb(194, 251, 215);
+  background: linear-gradient(30deg, rgb(47, 207, 187), rgb(55, 221, 156));
   box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    gap: 1em;
+  }
 `;
 
 export const StyledHeadInfo = styled.div`
@@ -43,6 +33,7 @@ export const StyledHeadInfo = styled.div`
   h2,
   h3 {
     margin: 0;
+    font-weight: normal;
   }
 
   h2 {
@@ -54,25 +45,26 @@ export const StyledParagraph = styled.p`
   margin: 0;
 `;
 
-export const StyledSpan = styled.span`
-  font-weight: bold;
-`;
+export const StyledSpan = styled.span``;
 
 export const StyledPrice = styled.p`
+  margin: 0;
+  font-size: 1.2rem;
+`;
+
+export const StyledPhoneNumber = styled.p`
   margin: 0 0 1em 0;
   font-size: 1.2rem;
-  font-weight: bold;
 `;
 
 export const StyledLocation = styled.div`
   margin-top: 0.5em;
-  font-weight: bold;
   border-radius: 10px;
-  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
   padding: 0.2em;
 
   &:hover {
     cursor: ${(props) => (props.clickable ? "pointer" : "cursor")};
+    text-decoration: ${(props) => (props.clickable ? "underline" : "none")};
   }
 `;
 

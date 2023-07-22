@@ -24,6 +24,7 @@ export const theme = {
     colors: {
       white: "white",
       textColor: "black",
+      textColor2: "#009578",
       backgroundColor: "whitesmoke",
       hoverColor: "green",
       smallText: "#4caf50",
