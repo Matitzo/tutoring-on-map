@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tutoring-on-map/static/css/main.600f5f5c.css",
-    "main.js": "/tutoring-on-map/static/js/main.9401ebb9.js",
+    "main.css": "/tutoring-on-map/static/css/main.01341c56.css",
+    "main.js": "/tutoring-on-map/static/js/main.dc767f10.js",
     "static/js/787.7f94216c.chunk.js": "/tutoring-on-map/static/js/787.7f94216c.chunk.js",
     "static/media/librarian.jpg": "/tutoring-on-map/static/media/librarian.55c4b9cfa81407378453.jpg",
     "static/media/historia.png": "/tutoring-on-map/static/media/historia.679887cee60f7daea982.png",
@@ -19,16 +19,16 @@
     "static/media/przyroda.png": "/tutoring-on-map/static/media/przyroda.0d2de28fbc91ef5d5705.png",
     "static/media/matematyka.png": "/tutoring-on-map/static/media/matematyka.04aa2623641e03400f5e.png",
     "static/media/geografia.png": "/tutoring-on-map/static/media/geografia.17023319969076673fb3.png",
-    "static/media/logo.png": "/tutoring-on-map/static/media/logo.559bc8b31dbd8922717b.png",
+    "static/media/logo-icon.png": "/tutoring-on-map/static/media/logo-icon.9ea7a3fcfdc36d3ff32d.png",
     "static/media/avatar.png": "/tutoring-on-map/static/media/avatar.b1dce794c55cb65e52cc.png",
     "static/media/pointer.png": "/tutoring-on-map/static/media/pointer.a1b2685775c2891eedd5.png",
     "index.html": "/tutoring-on-map/index.html",
-    "main.600f5f5c.css.map": "/tutoring-on-map/static/css/main.600f5f5c.css.map",
-    "main.9401ebb9.js.map": "/tutoring-on-map/static/js/main.9401ebb9.js.map",
+    "main.01341c56.css.map": "/tutoring-on-map/static/css/main.01341c56.css.map",
+    "main.dc767f10.js.map": "/tutoring-on-map/static/js/main.dc767f10.js.map",
     "787.7f94216c.chunk.js.map": "/tutoring-on-map/static/js/787.7f94216c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.600f5f5c.css",
-    "static/js/main.9401ebb9.js"
+    "static/css/main.01341c56.css",
+    "static/js/main.dc767f10.js"
   ]
 }
