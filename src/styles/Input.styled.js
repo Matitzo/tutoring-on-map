@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const StyledInput = styled.input`
   width: 210px;
-  color: ${({ theme }) => theme.filters.colors.hoverColor};
+  color: ${({ theme }) => theme.filters.colors.textColor};
   padding: 0.8em;
   font-size: 1rem;
   border: 2px solid ${({ theme }) => theme.filters.colors.textColor};
   border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
 
   @media (max-width: 768px) {
     width: calc(100% - 2em);

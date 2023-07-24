@@ -7,12 +7,7 @@ export const StyledLoginFormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   @media (max-width: 768px) {
-    width: 100%;
-  }
-
-  @media (max-width: 568px) {
     width: 100%;
     margin: 0;
   }
@@ -20,15 +15,15 @@ export const StyledLoginFormWrapper = styled.div`
 
 export const StyledLoginCard = styled.div`
   width: 700px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     width: 100%;
+    height: 90vh;
   }
 
   @media (max-width: 568px) {
     width: 100%;
-    height: 90vh;
   }
 `;
 
@@ -79,6 +74,8 @@ export const StyledContentContainer = styled.div`
   @media (max-width: 568px) {
     height: 100vh;
     justify-content: start;
+    align-items: center;
+    text-align: center;
   }
 `;
 
@@ -119,6 +116,10 @@ export const StyledLoginBtn = styled.button`
   &:active {
     background: #008067;
   }
+
+  @media (max-width: 568px) {
+    width: 220px;
+  }
 `;
 
 export const StyledLoginInput = styled.input`
@@ -136,6 +137,10 @@ export const StyledLoginInput = styled.input`
 
   &::placeholder {
     color: #aaaaaa;
+  }
+
+  @media (max-width: 568px) {
+    width: 200px;
   }
 `;
 

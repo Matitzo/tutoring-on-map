@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MyAnnouncements from "./MyAnnouncements";
+import MyAnnouncementsData from "./MyAnnouncementsData";
 import ProfilData from "./ProfilData";
 import { StyledLink } from "../styles/Link.styled";
 import {
@@ -15,16 +16,6 @@ export default function Profile({ prop }) {
   return (
     <StyledProfileContainer>
       <StyledProfileWrapper>
-        <StyledProfileListContainer>
-          <StyledProfileUl>
-            <StyledLink to="/profil/dane">
-              <li>Dane</li>
-            </StyledLink>
-            <StyledLink to="/profil/moje-ogloszenia">
-              <li>Moje ogłoszenia</li>
-            </StyledLink>
-          </StyledProfileUl>
-        </StyledProfileListContainer>
         <StyledProfileContentContainer>
           <Routes>
             <Route path="/dane" element={<ProfilData prop={prop} />}></Route>

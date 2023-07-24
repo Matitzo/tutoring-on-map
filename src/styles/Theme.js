@@ -10,6 +10,7 @@ export const theme = {
   header: {
     colors: {
       textColor: "green",
+      textColor2: "#009578",
       backgroundColor: "#c2fbd7",
     },
   },

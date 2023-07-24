@@ -22,11 +22,6 @@ export const StyledLogoImg = styled.img`
   @media (max-width: 768px) {
     width: 100%;
   }
-
-  @media (max-width: 410px) {
-    width: 35px;
-    height: 35px;
-  }
 `;
 
 export const StyledTogglerDiv = styled.div`
@@ -92,7 +87,7 @@ export const StyledLogoWrapper = styled.div`
 export const StyledLogoLinkWrapper = styled(Link)`
   display: flex;
   align-items: center;
-  color: black;
+  color: ${({ theme }) => theme.header.colors.textColor2};
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 

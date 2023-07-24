@@ -112,7 +112,9 @@ export const DropDownListContainer = styled.div`
   }
 `;
 
-export const StyledCostDropDownListContainer = styled(DropDownListContainer)``;
+export const StyledCostDropDownListContainer = styled(DropDownListContainer)`
+  color: ${({ theme }) => theme.filters.colors.textColor};
+`;
 
 export const StyledCenteredDiv = styled.div`
   text-align: center;

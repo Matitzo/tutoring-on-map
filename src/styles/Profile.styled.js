@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const StyledProfileContainer = styled.div`
-  width: 70%;
-  margin: 3em auto 0 auto;
+  height: 90vh;
 
   @media (max-width: 1100px) {
-    width: calc(100% - 13px);
     margin: 0;
   }
 `;
@@ -20,17 +18,19 @@ export const StyledProfileWrapper = styled.div`
 
 export const StyledProfileListContainer = styled.div`
   width: 20%;
-  height: fit-content;
-  padding: 0 0.1em;
   background-color: whitesmoke;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    display: flex;
+    height: 150px;
+    margin-bottom: 2em;
+  }
 `;
 
 export const StyledProfileContentContainer = styled.div`
   width: 100%;
-  padding: 0 0.3em;
-  border: 2px solid gray;
-  max-height: 80vh;
-  overflow-y: auto;
+  max-height: 90vh;
   background-color: whitesmoke;
 
   @media (max-width: 1100px) {
