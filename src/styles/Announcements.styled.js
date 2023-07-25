@@ -49,11 +49,16 @@ export const StyledImage = styled.img`
 export const StyledAnnoucementInformations = styled.div`
   margin: 0.5em;
   padding: 0 1em;
+  width: 100%;
 
   div {
     display: flex;
     justify-content: space-between;
     margin-top: 0.6em;
+  }
+
+  @media (max-width: 540px) {
+    width: auto;
   }
 `;
 

@@ -106,6 +106,7 @@ export const StyledFormDiv = styled.div`
     min-width: 350px;
   }
 
+  border: 2px solid red;
 `;
 
 export const StyledFormHeader = styled.h2`

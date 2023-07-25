@@ -21,7 +21,7 @@ export default function MyAnnouncements({ prop }) {
   const [isFetchingData, setIsFetchingData] = React.useState(true);
   const [myAnnouncements, setMyAnnouncements] = React.useState([]);
   const [profilData, setProfilData] = React.useState([]);
-  const [nrOfLocations, setNrOfLocations] = React.useState(1);
+  const [nrOfLocations, setNrOfLocations] = React.useState(0);
   const userId = prop;
   const navigate = new useNavigate();
 

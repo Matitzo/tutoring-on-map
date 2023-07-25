@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  height: calc(100vh - 20vh - 4px);
+  height: calc(100vh - 22vh - 2px);
   position: relative;
 
   @media (max-width: 1100px) {

@@ -28,8 +28,6 @@ export default function CreateAnnouncement({ prop }) {
   const [announcementId, setAnnouncementId] = React.useState(
     checkIfState() ? location.state.announcementId : ""
   );
-  // zamiast tych wszystkich statow mozna zrobic jeden obiekt ktory bd przechowywal wszystko dzieki czemu bd potem tylko
-  // jeden warunek a nie dla kazdej wartosci osobny
   const [author, setAuthor] = React.useState(
     checkIfState() ? location.state.author : ""
   );
@@ -80,7 +78,6 @@ export default function CreateAnnouncement({ prop }) {
     checkIfState() ? location.state.shortDescription : ""
   );
 
-  // potem zmienic description state lub wyrzucic
   const [description, setDescription] = React.useState(
     checkIfState() ? location.state.description : ""
   );
@@ -93,7 +90,6 @@ export default function CreateAnnouncement({ prop }) {
     return location.pathname.includes("/edytuj-ogloszenie");
   }
 
-  // wrzucic ta funkcje do osobnego komponentu
   function handleClose(value, setValuesArray) {
     setValuesArray((prevData) => {
       return prevData.filter((element) => value !== element);
