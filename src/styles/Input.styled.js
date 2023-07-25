@@ -49,108 +49,62 @@ export const StyledSmallInout = styled(StyledInput)`
 `;
 
 export const StyledInputFile = styled.input`
-  margin: 1em auto 0 auto;
+  margin: 1em 0;
+  width: fit-content;
 `;
 
-export const StyledLabelForm = styled.label`
-  position: relative;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  width: 200px;
+export const StyledLabelForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 175px;
 
   input {
-    border: none;
-    border-bottom: 0.125rem solid
-      ${({ theme }) => theme.createAnnoucement.colors.labelColor};
-    height: 2rem;
-    font-size: 1.0625rem;
-    line-height: 147.6%;
-    padding-left: 0.875rem;
-    padding-top: 0.825rem;
-    padding-bottom: 0.5rem;
-    width: 200px;
-    color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
-
-    &:focus {
-      outline: none;
-      border-color: ${({ theme }) =>
-        theme.createAnnoucement.colors.announcementBackground};
-    }
-    &:hover {
-      background: rgba(73, 133, 224, 0.12);
-      border-color: ${({ theme }) =>
-        theme.createAnnoucement.colors.announcementBackground};
-    }
-  }
-
-  span {
-    position: absolute;
-    top: 0rem;
-    left: 0.5rem;
-    line-height: 147.6%;
-    color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
-    transition: top 0.2s;
-    cursor: pointer;
-  }
-
-  input:valid {
-    border-color: ${({ theme }) =>
-      theme.createAnnoucement.colors.announcementBackground};
-  }
-
-  input:valid + span,
-  input:focus + span {
-    top: -1.2rem;
-    font-size: 0.9375rem;
-    color: ${({ theme }) =>
-      theme.createAnnoucement.colors.announcementBackground};
+    padding: 0.7em 1em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid
+      ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+    outline: none;
   }
 `;
 
 export const StyledSelectFormContainer = styled.div``;
 
 export const StyledSelectForm = styled.select`
-  appearance: none;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  width: 220px;
-  height: 40px;
-  margin: 0.5em 0;
-  padding: 0 4em 0 0.5em;
-  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
-      no-repeat right 0.8em center / 1.4em,
-    linear-gradient(
-      to left,
-      ${({ theme }) => theme.createAnnoucement.colors.labelColor} 3em,
-      ${({ theme }) => theme.createAnnoucement.colors.white} 3em
-    );
-  color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
-  border-radius: 0.25em;
-  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-
-  option {
-    color: ${({ theme }) => theme.createAnnoucement.colors.white};
-    background-color: ${({ theme }) =>
-      theme.createAnnoucement.colors.labelColor};
-  }
-  &:focus {
-    outline: none;
-  }
-  &::-ms-expand {
-    display: none;
-  }
+  padding: 0.7em 1em;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+  outline: none;
+  width: 175px;
 `;
 
 export const StyledShortTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 310px;
-  margin: 0 auto;
+  width: 80%;
 
   textarea {
-    height: 100px;
+    margin-top: 1em;
+    height: 70px;
+    max-width: 100%;
+    min-width: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+    border: 1px solid
+      ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+    box-shadow: 1px 1px 1px #999;
+    outline: none;
+    resize: none;
   }
 `;
 
@@ -160,13 +114,7 @@ export const StyledErrorMsg = styled.p`
   font-size: 0.8rem;
 `;
 
-export const StyledNumberInput = styled.input`
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-`;
+export const StyledNumberInput = styled.input``;
 
 export const StyledLocationInput = styled.input`
   width: ${({ widthLength }) => widthLength * 7}px;
@@ -193,6 +141,7 @@ export const StyledRadioInputContainer = styled.div`
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 2em;
+  flex-wrap: wrap;
 
   div {
     label {
@@ -201,6 +150,10 @@ export const StyledRadioInputContainer = styled.div`
       margin: 0;
     }
   }
+
+  label:not(:first-child) {
+    font-weight: normal;
+  }
 `;
 
 export const StyledRadioInput = styled.input`
@@ -208,11 +161,7 @@ export const StyledRadioInput = styled.input`
 `;
 
 export const StyledContainerFormForCostRange = styled.div`
-  label {
-    width: 75px;
-
-    input {
-      width: 75px;
-    }
-  }
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
 `;

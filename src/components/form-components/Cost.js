@@ -28,11 +28,11 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
               }
             }}
           ></StyledNumberInput>
-          <span>Cena: </span>
         </StyledLabelForm>
       ) : (
         <StyledContainerFormForCostRange>
-          <StyledLabelForm style={{ width: "75px" }}>
+          <StyledLabelForm>
+            {/* <label style={{ fontWeight: "normal" }}>Min: </label> */}
             <StyledNumberInput
               required
               type="number"
@@ -49,10 +49,9 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
                 }
               }}
             ></StyledNumberInput>
-            <span>Min: </span>
           </StyledLabelForm>
-          <span>-</span>
-          <StyledLabelForm style={{ width: "75px" }}>
+          <StyledLabelForm>
+            {/* <label style={{ fontWeight: "normal" }}>Max: </label> */}
             <StyledNumberInput
               required
               type="number"
@@ -69,7 +68,6 @@ export default function Cost({ isSingleCostValue, price, setPrice }) {
                 }
               }}
             ></StyledNumberInput>
-            <span>Max: </span>
           </StyledLabelForm>
         </StyledContainerFormForCostRange>
       )}

@@ -74,7 +74,7 @@ export const StyledLogInOutButton = styled(StyledButton)`
 
 export const StyledFormButton = styled(StyledButton)`
   color: ${({ theme }) => theme.header.colors.backgroundColor};
-  background-color: ${({ theme }) => theme.header.colors.textColor};
+  background-color: ${({ theme }) => theme.header.colors.textColor2};
 `;
 
 export const StyledLinkButton = styled(Link)`

@@ -3,7 +3,11 @@ import { Editor } from "@tinymce/tinymce-react";
 import { Link } from "react-router-dom";
 import { StyledSubmitButton } from "../../styles/Button.styled";
 import { StyledBackArrowForm } from "../../styles/BackArrow.styled";
-import { StyledFormHeader } from "../../styles/CreateAnnouncement.styled";
+import {
+  StyledFormHeader,
+  StyledFormHeaderWrapper,
+} from "../../styles/CreateAnnouncement.styled";
+import { StyledLinkForm } from "../../styles/Link.styled";
 
 export default function Description({ description, handleDescription }) {
   const editorRef = useRef(null);
@@ -15,21 +19,23 @@ export default function Description({ description, handleDescription }) {
   };
   return (
     <>
-      <Link to="/stworz-ogloszenie/lokalizacja">
-        <StyledBackArrowForm>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            fill="currentColor"
-            class="bi bi-arrow-left-square-fill"
-            viewBox="0 0 16 16"
-          >
-            <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
-          </svg>
-        </StyledBackArrowForm>
-      </Link>
-      <StyledFormHeader>Stwórz opis</StyledFormHeader>
+      <StyledFormHeaderWrapper>
+        <StyledLinkForm to="/stworz-ogloszenie/lokalizacja">
+          <StyledBackArrowForm>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-arrow-left-square-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z" />
+            </svg>
+          </StyledBackArrowForm>
+        </StyledLinkForm>
+        <StyledFormHeader>Stwórz opis</StyledFormHeader>
+      </StyledFormHeaderWrapper>
       <Editor
         apiKey="4ab2vb8gat5lyoyxwmp1w6t1t4w23lbh3kbhfkfok774x5ix"
         onInit={(evt, editor) => {

@@ -6,13 +6,15 @@ export const StyledMapWrapper = styled.div`
   text-align: center;
   background-color: whitesmoke;
   font-weight: bold;
-  color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
+  color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
   background-color: white;
+  width: 50%;
+  padding: 1em;
 `;
 
 export const StyledMapContainer = styled.div`
   padding: 1em;
-  margin: 1em;
+  margin-bottom: 1em;
   border-radius: 20px;
   box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
   div {

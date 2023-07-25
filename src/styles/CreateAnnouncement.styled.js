@@ -12,9 +12,13 @@ export const StyledSelection = styled.div`
   background-color: ${({ theme }) => theme.createAnnoucement.colors.white};
   border-radius: 20px;
   box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
-  margin: 0.5em;
+  margin: 0.5em 0;
   padding: 0.5em 0.8em;
   cursor: default;
+  min-width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const StyledSelectionLocation = styled(StyledSelection)`
@@ -37,18 +41,43 @@ export const StyledDeleteButton = styled.div`
 `;
 
 export const StyledFormDiv = styled.div`
-  text-align: center;
-  padding: 0.5em;
-  margin: 2em;
-  color: ${({ theme }) => theme.createAnnoucement.colors.labelColor};
-  font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+`;
 
+export const StyledFormInputDataContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledFormProgressContainer = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledFormContainer = styled.div`
+  width: 20%;
+  padding: 2em;
   background: #fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   min-height: 300px;
   min-width: 600px;
   position: relative;
-  width: 55%;
+
+  label {
+    font-weight: bold;
+  }
+
+  
 }
 &:before, &:after {
   content: "";
@@ -71,42 +100,12 @@ export const StyledFormDiv = styled.div`
   top: 1px;
   transform: rotate(1.4deg);
 }
+`;
 
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  div {
-    display: flex;
-    justify-content: center;
-  }
-
-  ul li + li {
-    justify-content: center;
-    margin: 1.3em 0;
-  }
-
-  label {
-    font-size: 1rem;
-    display: block;
-    margin-right: 10px;
-    width: 200px;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  ul input {
-    display: block;
-    box-sizing: border-box;
-  }
-
-  @media (max-width: 768px) {
-    width: 90%;
-    min-width: 350px;
-  }
-
-  border: 2px solid red;
+export const StyledFormHeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const StyledFormHeader = styled.h2`
@@ -115,4 +114,27 @@ export const StyledFormHeader = styled.h2`
   }
 `;
 
-export const StyledLocationsDiv = styled.div``;
+export const StyledLi = styled.li`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  div {
+    margin: 0;
+  }
+`;
+
+export const StyledUl = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`;
+
+export const StyledLocationsDiv = styled.div`
+  display: flex;
+  column-gap: 1em;
+  flex-wrap: wrap;
+`;

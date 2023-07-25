@@ -36,6 +36,7 @@ export const theme = {
     colors: {
       white: "white",
       textColor: "black",
+      textColor2: "#009578",
       labelColor: "green",
       backgroundColor: "whitesmoke",
       announcementBackground: "#4caf50",

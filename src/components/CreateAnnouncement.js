@@ -15,8 +15,10 @@ import {
   StyledCreateAnnouncementWrapper,
   StyledForm,
   StyledFormDiv,
+  StyledFormProgressContainer,
 } from "../styles/CreateAnnouncement.styled";
 import { StyledTextEditorWrapper } from "../styles/Description.styled";
+import ProgressBar from "./form-components/ProgressBar";
 
 const cookies = new Cookies();
 
@@ -156,6 +158,9 @@ export default function CreateAnnouncement({ prop }) {
         }}
       >
         <StyledFormDiv>
+          <StyledFormProgressContainer>
+            <ProgressBar pathname={location.pathname} />
+          </StyledFormProgressContainer>
           <Routes>
             <Route
               path={`/`}
@@ -207,9 +212,6 @@ export default function CreateAnnouncement({ prop }) {
                     description={description}
                     handleDescription={(value) => setDescription(value)}
                   />
-                  {/* <StyledSubmitButton variant="primary" type="submit">
-                    Stwórz ogłoszenie
-                  </StyledSubmitButton> */}
                 </StyledTextEditorWrapper>
               }
             ></Route>

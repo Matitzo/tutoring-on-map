@@ -1,16 +1,6 @@
 import styled from "styled-components";
 
-export const StyledImageWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: 768px) {
-    align-items: start;
-    justify-content: start;
-    margin-top: 1em;
-  }
-`;
+export const StyledImageWrapper = styled.div``;
 
 export const StyledImage = styled.img`
   object-fit: cover;
