@@ -24,6 +24,10 @@ export const StyledProgressContainer = styled.div`
     width: 100%;
     z-index: -1;
   }
+
+  @media (max-width: 450px) {
+    width: 200px;
+  }
 `;
 export const StyledProgressBar = styled.div`
   background-color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
@@ -66,4 +70,8 @@ export const StyledProgressBarLabelsContainer = styled.div`
   margin-bottom: 30px;
   max-width: 100%;
   width: 350px;
+
+  @media (max-width: 450px) {
+    width: 200px;
+  }
 `;

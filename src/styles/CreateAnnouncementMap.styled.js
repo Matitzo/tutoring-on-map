@@ -10,6 +10,19 @@ export const StyledMapWrapper = styled.div`
   background-color: white;
   width: 50%;
   padding: 1em;
+
+  @media (max-width: 1150px) {
+    width: 65%;
+  }
+
+  @media (max-width: 900px) {
+    width: 75%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 export const StyledMapContainer = styled.div`
@@ -28,6 +41,7 @@ export const StyledMapDiv = styled.div`
 
   @media (max-width: 768px) {
     height: 80vw;
+    min-height: 400px;
   }
 `;
 
@@ -43,7 +57,6 @@ export const StyledLoactionsWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   height: fit-content;
-  border-radius: 10px;
   text-align: start;
 `;
 

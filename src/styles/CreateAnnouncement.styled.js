@@ -26,7 +26,11 @@ export const StyledSelectionLocation = styled(StyledSelection)`
   text-align: start;
   justify-content: start;
   align-items: start;
-  border: 2px solid green;
+  border: 2px solid ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+
+  ol {
+    width: 100%;
+  }
 `;
 
 export const StyledDeleteButton = styled.div`
@@ -48,6 +52,10 @@ export const StyledFormDiv = styled.div`
   justify-content: center;
   padding: 2em;
   color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
+
+  @media (max-width: 500px) {
+    padding: 0.5em 0.5em 2em 0.5em;
+  }
 `;
 
 export const StyledFormInputDataContainer = styled.div`
@@ -65,41 +73,46 @@ export const StyledFormProgressContainer = styled.div`
 `;
 
 export const StyledFormContainer = styled.div`
-  width: 20%;
-  padding: 2em;
+  width: 30%;
+  padding: 2em 5em;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   min-height: 300px;
-  min-width: 600px;
+  min-width: 400px;
   position: relative;
 
   label {
     font-weight: bold;
   }
 
-  
-}
-&:before, &:after {
-  content: "";
-  height: 98%;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-&:before {
-  background: #fafafa;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  left: -5px;
-  top: 4px;
-  transform: rotate(-2.5deg);
-}
-&:after {
-  background: #f6f6f6;
-  box-shadow: 0 0 3px rgba(0,0,0,0.2);
-  right: -3px;
-  top: 1px;
-  transform: rotate(1.4deg);
-}
+  @media (max-width: 650px) {
+    min-width: 0px;
+    width: 100%;
+    padding: 1em;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    height: 98%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  &:before {
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    left: -5px;
+    top: 4px;
+    transform: rotate(-2.5deg);
+  }
+  &:after {
+    background: #f6f6f6;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    right: -3px;
+    top: 1px;
+    transform: rotate(1.4deg);
+  }
 `;
 
 export const StyledFormHeaderWrapper = styled.div`

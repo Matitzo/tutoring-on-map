@@ -42,6 +42,7 @@ export default function Description({ description, handleDescription }) {
           editorRef.current = editor;
         }}
         init={{
+          height: "500",
           selector: "textarea",
           toolbar_mode: "wrap",
           plugins:

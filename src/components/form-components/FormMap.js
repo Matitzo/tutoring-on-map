@@ -50,9 +50,10 @@ export default function FormMap({ setLocationArray }) {
           <div
             onClick={() => addLocation(address, position)}
             style={{
-              border: "1px solid black",
-              borderRadius: "10px",
-              padding: "2px 4px",
+              border: "2px solid #009578",
+              borderRadius: "8px",
+              color: "#009578",
+              padding: ".3em .5em",
               cursor: "pointer",
             }}
           >

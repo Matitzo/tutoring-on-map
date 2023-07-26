@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
-export const StyledImageWrapper = styled.div``;
+export const StyledImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 769px) {
+    display: block;
+    margin-top: 1em;
+  }
+
+  @media (max-width: 540px) {
+    margin-left: 1em;
+  }
+`;
 
 export const StyledImage = styled.img`
   object-fit: cover;

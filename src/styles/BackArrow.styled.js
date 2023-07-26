@@ -14,4 +14,11 @@ export const StyledBackArrow = styled.i`
   &:hover {
     opacity: 0.6;
   }
+
+  @media (max-width: 768px) {
+    svg {
+      width: 15;
+      height: 15;
+    }
+  }
 `;

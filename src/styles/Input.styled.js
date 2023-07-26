@@ -120,19 +120,28 @@ export const StyledLocationInput = styled.input`
   width: ${({ widthLength }) => widthLength * 7}px;
   max-width: 500px;
   border: 0;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid
+    ${({ theme }) => theme.createAnnoucement.colors.textColor2};
   margin-right: auto;
+  outline: none;
 
   &:hover {
     cursor: pointer;
   }
 
   @media (max-width: 768px) {
-    max-width: 300px;
   }
 
-  @media (max-width: 568px) {
-    width: 200px;
+  @media (max-width: 600px) {
+    max-width: 350px;
+  }
+
+  @media (max-width: 500px) {
+    max-width: 250px;
+  }
+
+  @media (max-width: 400px) {
+    max-width: 200px;
   }
 `;
 

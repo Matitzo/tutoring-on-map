@@ -76,14 +76,14 @@ export default function InpuDataForm({
         <StyledFormHeader>Podaj dane do ogłoszenia</StyledFormHeader>
         <StyledUl>
           <StyledLi>
-            <StyledImageWrapper>
+            <div>
               <StyledImage
                 width="175px"
                 border="10px"
                 src={image ? image : imageAvatar}
                 alt="Obraz ogloszenia"
               ></StyledImage>
-            </StyledImageWrapper>
+            </div>
             <StyledInputFile
               type="file"
               name="myImage"
