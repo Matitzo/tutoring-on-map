@@ -15,6 +15,7 @@ export const StyledInput = styled.input`
   @media (max-width: 768px) {
     width: calc(100% - 2em);
     font-size: 0.8rem;
+    height: 40%;
   }
 `;
 

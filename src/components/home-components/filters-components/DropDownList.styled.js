@@ -5,6 +5,7 @@ export const DropDownContainer = styled.div`
   position: relative;
   display: inline-block;
   width: 15%;
+  max-width: 220px;
 
   &:hover div {
     display: block;
@@ -12,6 +13,7 @@ export const DropDownContainer = styled.div`
 
   @media (max-width: 1336px) {
     height: 90%;
+    max-width: none;
   }
 
   @media (max-width: 1100px) {
@@ -39,6 +41,7 @@ export const DropDownBtn = styled.button`
 
   @media (max-width: 768px) {
     width: 100%;
+    max-height: 75px;
     font-size: 0.9rem;
     padding: 0.8em 0.2em;
     z-index: 5;

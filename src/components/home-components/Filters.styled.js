@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 export const StyledFiltersContainer = styled.div`
   height: 12vh;
+  max-height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-bottom: 2px solid #d3d3d3;
 
   @media (max-width: 768px) {
+    max-height: none;
     height: 25vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
