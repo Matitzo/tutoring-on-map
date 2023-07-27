@@ -56,6 +56,7 @@ export const StyledLink = styled(Link)`
 export const DropDownListContainer = styled.div`
   background-color: white;
   width: 100%;
+  min-height: 115px;
   max-height: 300px;
   overflow-y: auto;
   overflow-x: clip;
