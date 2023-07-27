@@ -143,8 +143,8 @@ export const StyledButton = styled.button`
 
 export const StyledLogInOutButton = styled(StyledButton)`
    {
-    color: ${({ theme }) => theme.header.colors.textColor};
-    background-color: ${({ theme }) => theme.header.colors.backgroundColor};
+    color: white;
+    background-color: ${({ theme }) => theme.header.colors.textColor2};
 
     @media (max-width: 768px) {
       margin: 0.2em 0.5em 0.5em 0;

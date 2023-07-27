@@ -46,13 +46,18 @@ export const StyledModalDiv = styled.div`
 `;
 
 export const StyledButtonsContainer = styled.div`
-  border: 3px solid green;
+  border-left: 3px solid ${({ theme }) => theme.header.colors.textColor2};
   background: white;
-  width: 50%;
+  width: 45%;
   height: 100vh;
   animation: growDown 300ms ease-in-out forwards;
   transform-origin: top center;
-  padding-top: 3em;
+  padding-top: 2em;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 520px) {
+    width: 100%;
+  }
 
   @keyframes growDown {
     0% {
@@ -80,18 +85,24 @@ export const StyledButtonsContainer = styled.div`
 
   ul {
     list-style-type: none;
-    padding: 0;
-    text-align: center;
+    padding-left: 1em;
+    text-align: start;
   }
 
   li {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 1em 0.2em;
   }
 `;
 
-export const StyledSpanText = styled.span`
+export const StyledModalHeader = styled.h2`
   color: black;
+  margin-left: 1em;
+`;
+
+export const StyledSpanText = styled.span`
+  color: #5f656b;
+  margin-left: 0.7em;
 
   &:hover {
     font-weight: bold;

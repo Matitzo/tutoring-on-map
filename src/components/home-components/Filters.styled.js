@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledFiltersContainer = styled.div`
   height: 12vh;
+  min-height: 75px;
   max-height: 100px;
   display: flex;
   justify-content: space-around;
@@ -9,6 +10,7 @@ export const StyledFiltersContainer = styled.div`
   border-bottom: 2px solid #d3d3d3;
 
   @media (max-width: 768px) {
+    min-height: 180px;
     max-height: none;
     height: 25vh;
     display: grid;

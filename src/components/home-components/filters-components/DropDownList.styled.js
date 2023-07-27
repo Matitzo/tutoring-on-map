@@ -68,7 +68,7 @@ export const DropDownListContainer = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 6000;
 
-  @media (max-width: 910px) {
+  @media (max-width: 1000px) {
     width: fit-content;
   }
 
