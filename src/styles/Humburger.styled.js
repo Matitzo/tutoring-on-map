@@ -102,7 +102,6 @@ export const StyledModalHeader = styled.h2`
 
 export const StyledSpanText = styled.span`
   color: #5f656b;
-  margin-left: 0.7em;
 
   &:hover {
     font-weight: bold;
@@ -110,8 +109,6 @@ export const StyledSpanText = styled.span`
 `;
 
 export const StyledBurgerWrapper = styled.div`
-  margin-right: 1em;
-  margin-left: 0.5em;
   z-index: 99999;
 
   &:hover {

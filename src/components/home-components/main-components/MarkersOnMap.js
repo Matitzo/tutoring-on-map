@@ -18,6 +18,7 @@ export default function GetMarkersOnMap({
   handleMapZoom,
   hoverAnnouncement,
   setCurrentLocation,
+  setIsMobileMapOn,
 }) {
   const map = useMap();
   const navigate = new useNavigate();
@@ -45,6 +46,7 @@ export default function GetMarkersOnMap({
     handleUnfoldedAnnoucement(announcement);
     setCurrentLocation(location);
     navigate(`offers/${announcement.author}`);
+    setIsMobileMapOn(false);
     localStorage.setItem("unfoldedAnnoucement", JSON.stringify(announcement));
     localStorage.setItem("currentLocation", JSON.stringify(location));
     localStorage.setItem("mapZoom", 17);

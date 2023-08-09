@@ -11,8 +11,6 @@ export const MyAnnouncementsDataContainer = styled.div`
   position: fixed;
   height: 90vh;
   text-align: center;
-  border-right: 4px solid
-    ${({ theme }) => theme.announcements.colors.textColor2};
   padding: 0 3em;
 
   h1,
@@ -47,19 +45,22 @@ export const MyAnnouncementsDataContainer = styled.div`
 
   @media (max-width: 1000px) {
     position: static;
-    width: 100%;
+    width: calc(80% - 2em);
+    margin: 0 auto;
     flex-direction: row;
+    gap: 0.5em;
     height: 150px;
     align-items: center;
-    justify-content: space-around;
-    border-right: none;
-    border-bottom: 4px solid
-      ${({ theme }) => theme.announcements.colors.textColor2};
-    padding: 0.5em 0;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% - 1em);
+    padding: 0.5em 0.5em;
   }
 
   @media (max-width: 600px) {
-    padding: 0 1em;
     h1 {
       font-size: 1.3rem;
     }
@@ -70,6 +71,8 @@ export const MyAnnouncementsDataContainer = styled.div`
   }
 
   @media (max-width: 450px) {
+    width: calc(100% - 1em);
+    padding: 0 0.5em;
     h1 {
       font-size: 1.2rem;
     }
@@ -116,10 +119,5 @@ export const StyledDataContainer = styled.div`
 
   @media (max-width: 1000px) {
     margin-top: 0;
-  }
-
-  @media (max-width: 600px) {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
   }
 `;

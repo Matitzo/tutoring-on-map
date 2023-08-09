@@ -10,6 +10,12 @@ export const StyledUnfoldedAnnouncementContainer = styled.div`
     width: calc(100% - 2em);
     display: ${({ isMobileMapOn }) => isMobileMapOn && "none"};
   }
+
+  @media (max-width: 768px) {
+    padding: 1em 0.5em;
+    width: calc(100% - 1em);
+    display: ${({ isMobileMapOn }) => isMobileMapOn && "none"};
+  }
 `;
 
 export const StyledHeadContainer = styled.div`

@@ -5,8 +5,9 @@ export const StyledFiltersContainer = styled.div`
   min-height: 75px;
   max-height: 100px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 1em;
   border-bottom: 2px solid #d3d3d3;
 
   @media (max-width: 768px) {

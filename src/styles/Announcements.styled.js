@@ -8,9 +8,14 @@ export const StyledAnnouncementsContainer = styled.div`
     theme.announcements.colors.backgroundColor};
 
   @media (max-width: 1100px) {
-    padding: 1em 0.3em;
-    width: calc(100% - 0.6em);
+    width: calc(100% - 2em);
     display: ${({ isMobileMapOn }) => isMobileMapOn && "none"};
+    min-height: calc(100vh - 22vh - 2px);
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% - 1em);
+    padding: 1em 0.5em;
   }
 `;
 

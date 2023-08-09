@@ -12,8 +12,6 @@ export const DropDownContainer = styled.div`
   }
 
   @media (max-width: 1336px) {
-    height: 90%;
-    max-width: none;
   }
 
   @media (max-width: 1100px) {
@@ -23,12 +21,16 @@ export const DropDownContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     font-size: 1rem;
+    max-width: none;
   }
 `;
 
 export const DropDownBtn = styled.button`
   width: 100%;
-  height: 100%;
+  height: calc(36px + 0.8em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${({ theme }) => theme.filters.colors.textColor};
   background-color: ${({ theme, filtered }) =>
     filtered ? theme.filters.colors.backgroundColor : "white"};
@@ -41,6 +43,7 @@ export const DropDownBtn = styled.button`
 
   @media (max-width: 768px) {
     width: 100%;
+    display: block;
     max-height: 75px;
     font-size: 0.9rem;
     padding: 0.8em 0.2em;

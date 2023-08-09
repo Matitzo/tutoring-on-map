@@ -19,12 +19,17 @@ export const StyledProfileWrapper = styled.div`
 export const StyledProfileListContainer = styled.div`
   width: 20%;
   background-color: whitesmoke;
-
+  border-right: 4px solid;
+  border-right: 4px solid
+    ${({ theme }) => theme.announcements.colors.textColor2};
   @media (max-width: 1000px) {
     width: 100%;
     display: flex;
     height: 150px;
     margin-bottom: 2em;
+    border-right: none;
+    border-bottom: 4px solid
+      ${({ theme }) => theme.announcements.colors.textColor2};
   }
 `;
 

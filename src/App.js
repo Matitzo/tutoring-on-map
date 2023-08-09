@@ -13,14 +13,9 @@ import Modal from "./components/Modal";
 import { theme } from "./styles/Theme.js";
 
 function App() {
-  // zastapic te 2 staty jednym, np lista bo oba ida do tego samego komponentu
   const [isLoged, setIsLoged] = React.useState("");
   const [userId, setUserId] = React.useState("");
   const [isHamburgerOpened, setIsHamburgerOpened] = React.useState(false);
-
-  // zastanowic sie czy use effect z my annoucement nie lepiej by bylo dac tutaj ?
-  // wtedy trzeba zrobic nowy state i dac go do [] w useEffect i przeniesc go az do handleSubmitRegistration
-  // poki co wydaje mi sie ze lepiej bd jak bd w myAnnoucements ale nwm
 
   return (
     <ThemeProvider theme={theme}>

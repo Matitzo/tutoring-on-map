@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const StyledHeader = styled.header`
    {
-    padding: 0 2em;
+    padding: 0 1em;
     height: 10vh;
     min-height: 60px;
     max-height: 100px;
@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
     border-bottom: 2px solid #d3d3d3;
 
 
-   @media (max-width: 568px) {
+   @media (max-width: 768px) {
      padding: 0 .5em;
    }
 `;
@@ -143,12 +143,13 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledLogInOutButton = styled(StyledButton)`
+  margin-right: 0;
    {
     color: white;
     background-color: ${({ theme }) => theme.header.colors.textColor2};
 
     @media (max-width: 768px) {
-      margin: 0.2em 0.5em 0.5em 0;
+      margin: 0.2em 0 0.5em 0;
     }
   }
 `;

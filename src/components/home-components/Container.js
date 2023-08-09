@@ -98,6 +98,7 @@ export default function Container({
       </Routes>
       <Map
         isMobileMapOn={isMobileMapOn}
+        setIsMobileMapOn={(value) => setIsMobileMapOn(value)}
         announcements={data}
         handleUnfoldedAnnoucement={(announcement) =>
           setUnfoldedAnnoucement(announcement)

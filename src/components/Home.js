@@ -47,7 +47,6 @@ export default function Home({ isLoged, setIsLoged, setUserId }) {
         `
       : "/api";
   }
-  // na koniec api dodac &${costFilter[0] || costFilter[1] && `cost=${costFilter[0],costFilter[1]}`}
 
   // tutaj dac ze jak nie bd odzewu z api (jakis blad) to wyskoczyl error np 404 czy cos
   React.useEffect(() => {

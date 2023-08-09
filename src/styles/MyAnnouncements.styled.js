@@ -18,7 +18,7 @@ export const StyledMyAnnouncementsWrapper = styled.div`
 
   height: 90vh;
   overflow-y: auto;
-  padding: 0 2em;
+  padding: 0 1em;
 
   @media (max-width: 1000px) {
     width: fit-content;
@@ -26,8 +26,8 @@ export const StyledMyAnnouncementsWrapper = styled.div`
     height: fit-content;
   }
 
-  @media (max-width: 600px) {
-    padding: 0 1em;
+  @media (max-width: 768px) {
+    padding: 0 0.5em;
   }
 
   @media (max-width: 450px) {

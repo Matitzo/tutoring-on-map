@@ -7,6 +7,7 @@ import { StyledMapWrapper } from "../../../styles/MapWrapper.styled";
 
 export default function Map({
   isMobileMapOn,
+  setIsMobileMapOn,
   announcements,
   handleUnfoldedAnnoucement,
   coord,
@@ -48,6 +49,7 @@ export default function Map({
           handleMapZoom={handleMapZoom}
           hoverAnnouncement={hoverAnnouncement}
           setCurrentLocation={(value) => setCurrentLocation(value)}
+          setIsMobileMapOn={setIsMobileMapOn}
         />
       </MapContainer>
     </StyledMapWrapper>
