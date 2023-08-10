@@ -57,9 +57,11 @@ export const StyledInputFile = styled.input`
 export const StyledLabelForm = styled.div`
   display: flex;
   flex-direction: column;
-  width: 175px;
+  min-width: 175px;
+  max-width: 100%;
 
   input {
+    width: 175px;
     padding: 0.7em 1em;
     margin: 8px 0;
     display: inline-block;
@@ -69,6 +71,28 @@ export const StyledLabelForm = styled.div`
     box-sizing: border-box;
     color: ${({ theme }) => theme.createAnnoucement.colors.textColor2};
     outline: none;
+  }
+
+  span {
+    display: none;
+    color: red;
+  }
+
+  input:invalid[focused="true"] {
+    border: 1px solid red;
+  }
+
+  select {
+    border-color: ${({ focused }) => focused && "red"};
+  }
+
+  select ~ span {
+    display: ${({ focused }) => (focused ? "block" : "none")};
+    color: red;
+  }
+
+  input:invalid[focused="true"] ~ span {
+    display: block;
   }
 `;
 
@@ -90,6 +114,12 @@ export const StyledShortTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
+  margin-bottom: 1em;
+
+  span {
+    display: none;
+    color: red;
+  }
 
   textarea {
     margin-top: 1em;
@@ -107,12 +137,25 @@ export const StyledShortTextWrapper = styled.div`
     outline: none;
     resize: none;
   }
+
+  textarea:invalid[focused="true"] {
+    border: 1px solid red;
+  }
+
+  textarea:invalid[focused="true"] ~ span {
+    display: block;
+  }
 `;
 
 export const StyledErrorMsg = styled.p`
   color: red;
   margin: 0 0 1em 0;
   font-size: 0.8rem;
+`;
+
+export const StyledErrorMsgSpan = styled.span`
+  display: ${({ focused }) => (focused ? "block" : "none")};
+  color: red;
 `;
 
 export const StyledNumberInput = styled.input``;

@@ -14,7 +14,6 @@ import {
   StyledSelectForm,
   StyledShortTextWrapper,
   StyledErrorMsg,
-  StyledErrorMsgSpan,
   StyledNumberInput,
   StyledRadioInputContainer,
   StyledRadioInput,
@@ -31,74 +30,28 @@ import {
 
 export default function InpuDataForm({
   handleImage,
-  image,
-  author,
-  setAuthor,
-  phoneNumber,
-  setPhoneNumber,
-  subject,
-  setSubject,
-  price,
-  setPrice,
-  scopesValues,
-  setScopesValues,
-  learningModeValues,
-  setLearningModeValues,
-  shortDescription,
-  setShortDescription,
-  isSingleCostValue,
-  setIsSingleCostValue,
+  inputValues,
+  setInputValues,
 }) {
   const imageAvatar = require(`../../profileImages/avatar.png`);
   const navigate = new useNavigate();
   const [invalidForm, setInvalidForm] = React.useState(false);
-  const errorMsg = "Należy poprawnie wypełnić wszystkie pola formularza.";
-  const [focused, setFocused] = React.useState({
-    author: false,
-    phone: false,
-    cost: false,
-    subject: false,
-    scopes: false,
-    learningMode: false,
-    shortDescription: false,
-  });
-
-  function handleFocus(inputName) {
-    setFocused((prevData) => ({ ...prevData, [inputName]: true }));
-    console.log(focused);
-  }
+  const errorMsg = "Należy wypełnić wszystkie pola formularza.";
 
   function handleClickNext(e) {
     e.preventDefault();
-
     if (
-      (author.length >= 3 || handleFocus("author")) &&
-      (author.length <= 16 || handleFocus("author")) &&
-      (phoneNumber.length == 9 || handleFocus("phone")) &&
-      (subject || handleFocus("subject")) &&
-      (price[0] > 0 || handleFocus("cost")) &&
-      (scopesValues.length > 0 || handleFocus("scopes")) &&
-      (learningModeValues.length || handleFocus("learningMode")) > 0 &&
-      (shortDescription.length || handleFocus("shortDescription")) > 0
+      inputValues.author &&
+      inputValues.phoneNumber &&
+      inputValues.subject &&
+      inputValues.price &&
+      inputValues.scopesValues.length > 0 &&
+      inputValues.learningModeValues.length > 0 &&
+      inputValues.shortDescription
     ) {
-      if (price.length > 1) {
-        if (price[1] > 0 || handleFocus("cost")) {
-          navigate("lokalizacja");
-        }
-      } else {
-        navigate("lokalizacja");
-      }
+      navigate("lokalizacja");
     } else {
       setInvalidForm(true);
-    }
-  }
-
-  function handleSubjectChange(value) {
-    if (value.length < 1) {
-      setFocused((prevData) => ({ ...prevData, subject: true }));
-    } else {
-      setFocused((prevData) => ({ ...prevData, subject: false }));
-      setSubject(value);
     }
   }
 
@@ -124,60 +77,59 @@ export default function InpuDataForm({
             ></StyledInputFile>
           </StyledLi>
           <StyledLi>
-            <StyledLabelForm focused={focused.author}>
+            <StyledLabelForm>
               <label>Imie / Nazwa: </label>
               <input
+                required
                 type="text"
                 name="author"
                 maxlength="30"
                 pattern="^[A-Za-z0-9]{3,16}$"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
-                onBlur={() => handleFocus("author")}
-                focused={focused.author.toString()}
-                required={true}
               ></input>
-              <span>Nazwa powinna składać się od 3 do 16 znaków.</span>
+              <span>
+                Nazwa powinna zawierać min. 3 znaki, bez korzystania ze znaków
+                specjalnych.
+              </span>
             </StyledLabelForm>
           </StyledLi>
           <StyledLi>
             <StyledLabelForm>
               <label>Nr telefonu: </label>
-              <input
+              <StyledNumberInput
+                required
                 type="text"
                 name="phone"
                 maxLength="9"
-                pattern="^([0-9][0-9]*.{8,})$"
+                pattern="^(0|[1-9][0-9]*)$"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                onBlur={() => handleFocus("phone")}
-                focused={focused.phone.toString()}
-                required={true}
                 onKeyPress={(event) => {
                   if (!/[0-9]/.test(event.key)) {
                     event.preventDefault();
                   }
                 }}
-              ></input>
-              <span>Numer powinien składać się z 9 cyfr.</span>
+              ></StyledNumberInput>
+              <span>Numer telefonu powinien zawierać 9 cyfr.</span>
             </StyledLabelForm>
           </StyledLi>
           <StyledLi>
-            <StyledLabelForm focused={focused.subject}>
+            <StyledLabelForm>
               <label>Przedmiot: </label>
               <StyledSelectForm
                 name="subject"
                 id="subject"
                 form="create-announcement-form"
                 defaultValue={subject}
-                onChange={(e) => handleSubjectChange(e.target.value)}
+                onChange={(e) => setSubject(e.target.value)}
               >
                 <option value={""}></option>
                 {subjects.map((value) => (
                   <option value={value}>{value}</option>
                 ))}
               </StyledSelectForm>
-              <span>Wymagane podanie przedmiotu korepetycji.</span>
+              <span>Ta rubryka nie może pozostać pusta.</span>
             </StyledLabelForm>
           </StyledLi>
           <StyledLi>
@@ -214,45 +166,43 @@ export default function InpuDataForm({
               isSingleCostValue={isSingleCostValue}
               price={price}
               setPrice={(value) => setPrice(value)}
-              handleFocus={(value) => handleFocus(value)}
-              focused={focused}
             />
+            <span>Należy podać cenę.</span>
           </StyledLi>
-          <Select
-            valuesArray={scopesValues}
+          <SelectNew
+            valuesArray={inputValues.scopesValues}
             setValuesArray={setScopesValues}
-            focused={focused}
-            setFocused={(value) => setFocused(value)}
             data={scopes}
             name="scopes"
             label="Zakres materiału: "
-            errorMsg={"Należy wybrać przynajmniej jedną wartość z listy."}
           />
+          <span>Należy wybrać przynajmniej jedną opcje.</span>
 
-          <Select
-            valuesArray={learningModeValues}
+          <SelectNew
+            valuesArray={inputValues.learningModeValues}
             setValuesArray={setLearningModeValues}
-            focused={focused}
-            setFocused={(value) => setFocused(value)}
             data={learningMode}
             name="learningMode"
             label="Tryb nauki: "
-            errorMsg={"Należy wybrać przynajmniej jedną wartość z listy."}
           />
+          <span>Należy wybrać przynajmniej jedną opcje.</span>
         </StyledUl>
         <StyledShortTextWrapper>
           <label>Krótki opis: </label>
           <textarea
             maxlength="200"
+            style={{ marginBottom: "2em" }}
             name="shortDescription"
             id="shortDescription"
-            value={shortDescription}
-            onChange={(e) => setShortDescription(e.target.value)}
-            onBlur={() => handleFocus("shortDescription")}
-            focused={focused.shortDescription.toString()}
-            required={true}
+            value={inputValues.shortDescription}
+            onChange={(e) =>
+              setInputValues((prevData) => ({
+                ...prevData,
+                shortDescription: e.target.value,
+              }))
+            }
           ></textarea>
-          <span>Należy podać krótki opis.</span>
+          <span>Należy umieścić krótki opis.</span>
         </StyledShortTextWrapper>
         {invalidForm && <StyledErrorMsg>{errorMsg}</StyledErrorMsg>}
         <StyledFormButton onClick={(e) => handleClickNext(e)}>

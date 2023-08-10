@@ -1,11 +1,5 @@
 import { storage } from "./firebase.js";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 
 export default function uploadImageFirebase(
   uploadImage,

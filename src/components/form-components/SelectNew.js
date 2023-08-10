@@ -6,44 +6,25 @@ import {
 import {
   StyledSelectForm,
   StyledSelectFormContainer,
-  StyledErrorMsgSpan,
 } from "../../styles/Input.styled";
 
-export default function Select({
+export default function SelectNew({
   valuesArray,
   setValuesArray,
-  focused,
-  setFocused,
   data,
   name,
   label,
-  errorMsg,
 }) {
   function handleChange(value, setValuesArray) {
-    if (value && !valuesArray.includes(value)) {
+    value &&
+      !valuesArray.includes(value) &&
       setValuesArray((prevData) => [...prevData, value]);
-      setFocused((prevData) => ({ ...prevData, [name]: false }));
-    } else if (!value) {
-      setFocused((prevData) => ({ ...prevData, [name]: true }));
-    }
-
-    // value &&
-    //   !valuesArray.includes(value) &&
-    //   setValuesArray((prevData) => [...prevData, value]);
-    // if (valuesArray.length < 1) {
-    //   setFocused((prevData) => ({ ...prevData, [name]: true }));
-    // } else {
-    //   setFocused((prevData) => ({ ...prevData, [name]: false }));
-    // }
   }
 
   function handleClose(value, setValuesArray) {
     setValuesArray((prevData) => {
       return prevData.filter((element) => value !== element);
     });
-    if (valuesArray.length - 1 < 1) {
-      setFocused((prevData) => ({ ...prevData, [name]: true }));
-    }
   }
 
   return (
@@ -87,9 +68,6 @@ export default function Select({
             </StyledSelection>
           ))}
       </StyledLocationsDiv>
-      <StyledErrorMsgSpan focused={focused[name]}>
-        {errorMsg}
-      </StyledErrorMsgSpan>
     </li>
   );
 }

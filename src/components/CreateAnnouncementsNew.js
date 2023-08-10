@@ -31,18 +31,28 @@ export default function CreateAnnouncement({ prop }) {
     checkIfState() ? location.state.announcementId : ""
   );
 
-  const [author, setAuthor] = React.useState(
-    checkIfState() ? location.state.author : ""
+  const [inputValues, setInputValues] = React.useState({
+    author: checkIfState() ? location.state.author : "",
+    imageName: checkIfState() ? location.state.imageName : "avatar.png",
+    image: "",
+    uploadImage: "",
+    phoneNumber: checkIfState() ? location.state.phoneNumber : "",
+    subject: checkIfState() ? location.state.subject : "",
+    price: checkIfState() ? location.state.price : [0],
+    isSingleCostValue: checkIfState() ? location.state.isSingleCostValue : true,
+    learningModeValues: checkIfState() ? location.state.learningModeValues : [],
+    scopesValues: checkIfState() ? location.state.scopesValues : [],
+    shortDescription: checkIfState() ? location.state.shortDescription : "",
+  });
+  const [description, setDescription] = React.useState(
+    checkIfState() ? location.state.description : ""
   );
-
-  const [imageName, setImageName] = React.useState(
-    checkIfState() ? location.state.imageName : "avatar.png"
+  const [locationArray, setLocationArray] = React.useState(
+    checkIfState() ? location.state.locationArray : []
   );
 
   const storage = getStorage();
   const starsRef = ref(storage, `images/${imageName}`);
-
-  const [image, setImage] = React.useState();
 
   try {
     getDownloadURL(starsRef).then((url) => {
@@ -52,40 +62,6 @@ export default function CreateAnnouncement({ prop }) {
   } catch {
     setImage("");
   }
-
-  const [uploadImage, setUploadImage] = React.useState();
-
-  const [phoneNumber, setPhoneNumber] = React.useState(
-    checkIfState() ? location.state.phoneNumber : ""
-  );
-  const [subject, setSubject] = React.useState(
-    checkIfState() ? location.state.subject : ""
-  );
-  const [price, setPrice] = React.useState(
-    checkIfState() ? location.state.price : [0]
-  );
-
-  const [isSingleCostValue, setIsSingleCostValue] = React.useState(
-    checkIfState() ? location.state.isSingleCostValue : true
-  );
-
-  const [learningModeValues, setLearningModeValues] = React.useState(
-    checkIfState() ? location.state.learningModeValues : []
-  );
-  const [scopesValues, setScopesValues] = React.useState(
-    checkIfState() ? location.state.scopesValues : []
-  );
-  const [locationArray, setLocationArray] = React.useState(
-    checkIfState() ? location.state.locationArray : []
-  );
-
-  const [shortDescription, setShortDescription] = React.useState(
-    checkIfState() ? location.state.shortDescription : ""
-  );
-
-  const [description, setDescription] = React.useState(
-    checkIfState() ? location.state.description : ""
-  );
 
   function checkIfState() {
     return location.pathname === "/edytuj-ogloszenie";
@@ -105,15 +81,15 @@ export default function CreateAnnouncement({ prop }) {
     if (image.length > 0) {
       const fileReader = new FileReader();
       fileReader.onload = function (e) {
-        setImage(e.target.result);
-        setUploadImage(image[0]);
+        setInputValues.image(e.target.result);
+        setInputValues.uploadImage(image[0]);
       };
       fileReader.readAsDataURL(image[0]);
       const random = Math.random() * 100000000000000000;
-      setImageName(random + image[0].name);
+      setInputValues.imageName(random + image[0].name);
     } else {
-      setImage(imageAvatar);
-      setImageName("avatar.png");
+      setInputValues.image(imageAvatar);
+      setInputValues.imageName("avatar.png");
     }
   }
 
@@ -133,6 +109,27 @@ export default function CreateAnnouncement({ prop }) {
       error = new Error();
     });
 
+  const inputs = [
+    {
+      id: 1,
+      name: "author",
+      type: "text",
+      errorMessage:
+        "Author name should be 3-16 characters and shouldn't include any special character!",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "phone",
+      type: "text",
+      errorMessage:
+        "Author name should be 3-16 characters and shouldn't include any special character!",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+  ];
+
   // prop to userID
   return (
     <StyledCreateAnnouncementWrapper>
@@ -143,20 +140,16 @@ export default function CreateAnnouncement({ prop }) {
             checkIfEdition,
             e,
             announcementId,
-            author,
             userId,
-            imageName,
-            phoneNumber,
-            subject,
-            price,
-            learningModeValues,
-            scopesValues,
-            locationArray,
-            shortDescription,
-            description,
+            inputValues,
             navigate
           );
-          uploadImageFirebase(uploadImage, setUploadImage, imageName);
+          uploadImageFirebase(
+            inputValues.uploadImage,
+            setInputValues,
+            inputValues.imageName
+          );
+          //handleUploadImage(uploadImage, imageName);
         }}
       >
         <StyledFormDiv>
@@ -169,28 +162,11 @@ export default function CreateAnnouncement({ prop }) {
               element={
                 <InpuDataForm
                   handleImage={(value) => handleImage(value)}
-                  image={image}
-                  author={author}
-                  setAuthor={setAuthor}
-                  phoneNumber={phoneNumber}
-                  setPhoneNumber={(value) => setPhoneNumber(value)}
-                  subject={subject}
-                  setSubject={(value) => setSubject(value)}
-                  price={price}
-                  setPrice={(value) => setPrice(value)}
-                  scopesValues={scopesValues}
-                  setScopesValues={(value) => setScopesValues(value)}
-                  learningModeValues={learningModeValues}
-                  setLearningModeValues={(value) =>
-                    setLearningModeValues(value)
-                  }
+                  inputValues={inputValues}
+                  setInputValues={setInputValues}
                   handleClose={(value) => handleClose(value)}
                   announcementId={announcementId}
                   userId={userId}
-                  shortDescription={shortDescription}
-                  setShortDescription={(value) => setShortDescription(value)}
-                  isSingleCostValue={isSingleCostValue}
-                  setIsSingleCostValue={(value) => setIsSingleCostValue(value)}
                 />
               }
             ></Route>
